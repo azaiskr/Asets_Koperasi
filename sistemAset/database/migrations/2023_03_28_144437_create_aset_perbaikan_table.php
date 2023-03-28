@@ -16,8 +16,7 @@ return new class extends Migration
             $table->string('nama_Aset');
             $table->string('status_Perbaikan', 10);
             $table->date('tanggal_Perbaikan');
-            $table->integer('pj_Perbaikan')->nullable()->foreign();
-
+            $table->foreign('id_PJPerbaikan')->references('id_PJ')->on('pj_perbaikan');
         });
     }
 
