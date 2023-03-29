@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use App\Models\pj_perbaikan;
 use App\Http\Requests\Storepj_perbaikanRequest;
 use App\Http\Requests\Updatepj_perbaikanRequest;
@@ -13,7 +13,8 @@ class PjPerbaikanController extends Controller
      */
     public function index()
     {
-        //
+        $person = DB::table('pj_perbaikans')->get();
+        return view('asetPerbaikan.daftarPJ', ['pj_perbaikans'=> $person]);
     }
 
     /**
@@ -29,7 +30,13 @@ class PjPerbaikanController extends Controller
      */
     public function store(Storepj_perbaikanRequest $request)
     {
-        //
+        $person = new pj_perbaikan;
+        $person->id_pj = $request->id_pj;
+        $person->nama_pj = $request->nama_pj;
+        $person->no_Hp = $request->no_Hp;
+        
+        $person->save();
+        return redirect('aset_perbaikan/daftarServicer');
     }
 
     /**

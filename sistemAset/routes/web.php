@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\asetPerbaikanController;
-use App\Http\Controllers\pjPerbaikanController;
+use App\Http\Controllers\PjPerbaikanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +23,8 @@ Route::get('/aset_perbaikan', function(){
     return view('asetPerbaikan.home');
 });
 
-Route::get('aset_perbaikan/daftarAset','AsetPerbaikanController@index');
+Route::get('aset_perbaikan/daftarServicer',[PjPerbaikanController::class, 'index']);
+Route::get('aset_perbaikan/daftarServicer/tambah',[PjPerbaikanController::class,'create']);
 
+
+Route::get('aset_perbaikan/daftarAsetPerbaikan','AsetPerbaikanController@index');

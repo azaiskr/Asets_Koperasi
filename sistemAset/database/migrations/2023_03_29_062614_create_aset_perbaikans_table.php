@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nama_aset');
             $table->enum('status_perbaikan',['OK', 'Diperbaiki']);
             $table->date('tanggal_perbaikan');
-            $table->integer('pj_perbaikan');
+            $table->unsignedInteger('pj_perbaikan');
             $table->foreign('pj_perbaikan')->references('id_pj')->on('pj_perbaikans');
         });
     }
