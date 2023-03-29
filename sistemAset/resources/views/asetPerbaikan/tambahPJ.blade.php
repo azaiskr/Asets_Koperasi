@@ -21,14 +21,24 @@
                 <div class="form-group">
                     <label for="nama_pj"> <h5> Nama Servicer</h5> </label>
                     <input class="form-control" type="text" name="nama_pj" id="nama_pj" required="required" placeholder="masukan nama servicer">
+                    @if ($errors->has('nama_pj'))
+                        <div class="text-danger">
+                            {{$errors->first('nama_pj')}}
+                        </div>
+                    @endif    
                 </div>
                 <div class="form-group">
                     <label for="no_Hp"> <h5> Nomor Telepon </h5> </label>
                     <input class="form-control" type="number" name="no_Hp" id="no_Hp" required="required" placeholder="nomor telefon servicer yang dapat dihubungi">
+                    @if ($errors->has('no_Hp'))
+                        <div class="text-danger">
+                            {{$errors->first('no_Hp')}}
+                        </div>
+                    @endif    
                 </div>
                 <div class="form-group float-right">
                     <button class="btn btn-lg btn-danger" type="reset"> Reset</button>
-                    <button class="btn btn-lg btn-primary" type="sumbit"> OK </button>
+                    <button class="btn btn-lg btn-success" type="sumbit"> OK </button>
                 </div>
             </form>
         </div>

@@ -29,14 +29,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $person = DB::table('pj_perbaikans')->get(); ?>
                     @foreach($person as $p)
                     <tr>
                         <td class="text-center"> {{$p->id_pj}} </td>
                         <td> {{$p->nama_pj}} </td>
                         <td class="text-center"> {{$p->no_Hp}} </td>
                         <td> 
-                            <a href="/asetPerbaikan/daftarPJ/edit/{{$p->id_pj}}" class="badge badge-success" >Edit</a>
+                            <a href="/asetPerbaikan/daftarPJ/edit/{{$p->id_pj}}" class="badge badge-warning" >Edit</a>
                             <a href="/asetPerbaikan/daftarPJ/hapus/{{$p->id_pj}}" class="badge badge-danger" > Hapus </a>
                         </td>    
                     </tr>

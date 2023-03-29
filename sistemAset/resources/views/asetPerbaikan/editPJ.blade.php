@@ -16,24 +16,33 @@
     <div class="row">
         <div class="col-md-12 mt-3">
             <h3 style="text-align: center"> Edit Data Servicer </h3>
-            <?php $person = DB::table('pj_perbaikans')->get(); ?>
-            @foreach($person as $p)
-            <form action="/daftarPJ/update" method="post">
+
+            <form action="/daftarPJ/update/{{$person->id_pj}}" method="post">
                 {{csrf_field()}}
+                {{method_field('PUT')}}
                 <div class="form-group">
                     <label for="nama"> <h5> Nama Servicer</h5> </label>
-                    <input class="form-control" type="text" name="nama" value="{{$p->nama_pj}}" required="required">
+                    <input class="form-control" type="text" name="nama" value="{{$person->nama_pj}}" required="required">
+                    @if ($errors->has('nama'))
+                        <div class="text-danger">
+                            {{$errors->first('nama')}}
+                        </div>
+                    @endif 
                 </div>
                 <div class="form-group">
                     <label for="Hp"> <h5> Nomor Telepon </h5> </label>
-                    <input class="form-control" type="number" name="Hp" value="{{$p->no_Hp}}" required="required">
+                    <input class="form-control" type="number" name="Hp" value="{{$person->no_Hp}}" required="required">
+                    @if ($errors->has('Hp'))
+                        <div class="text-danger">
+                            {{$errors->first('Hp')}}
+                        </div>
+                    @endif
                 </div>
                 <div class="form-group float-right">
                     <button class="btn btn-lg btn-danger" type="reset"> Reset</button>
-                    <button class="btn btn-lg btn-primary" type="sumbit"> OK </button>
+                    <button class="btn btn-lg btn-success" type="sumbit"> OK </button>
                 </div>
             </form>
-            @endforeach
         </div>
     </div>
 </div>
