@@ -29,7 +29,7 @@ class AsetPerbaikanController extends Controller
      */
     public function store(StoreasetPerbaikanRequest $request)
     {
-        //
+        return view('aset.index');
     }
 
     /**

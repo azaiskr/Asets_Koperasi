@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\asetPerbaikanController;
+use App\Http\Controllers\AsetPerbaikanController;
 use App\Http\Controllers\PjPerbaikanController;
 
 /*
@@ -19,12 +19,23 @@ Route::get('/', function () {
     return view('asetDashboard');
 });
 
-Route::get('/aset_perbaikan', function(){
+Route::get('asetPerbaikan', function(){
     return view('asetPerbaikan.home');
 });
 
-Route::get('aset_perbaikan/daftarServicer',[PjPerbaikanController::class, 'index']);
-Route::get('aset_perbaikan/daftarServicer/tambah',[PjPerbaikanController::class,'create']);
 
 
-Route::get('aset_perbaikan/daftarAsetPerbaikan','AsetPerbaikanController@index');
+Route::get('/asetPerbaikan/daftarPJ',[PjPerbaikanController::class,'index']);// Read
+
+//Create PJ
+Route::get('/asetPerbaikan/daftarPJ/create',[PjPerbaikanController::class,'create']); 
+Route::post('/daftarPJ/store',[PjPerbaikanController::class,'store']);
+
+//Update PJ
+Route::get('/asetPerbaikan/daftarPJ/edit/{id}',[PjPerbaikanController::class,'edit']);
+Route::post('/daftarPJ/update',[PjPerbaikanController::class,'update']);
+
+Route::resource('aset', AsetPerbaikanController::class);
+
+//Route::resource('/daftarPJ', PjPerbaikanController::class);
+//Route::get('aset_perbaikan/daftarAsetPerbaikan','AsetPerbaikanController@index');
