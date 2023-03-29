@@ -14,5 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('asetDashboard');
 });
+
+Route::get('/aset_perbaikan', function(){
+    return view('asetPerbaikan.home');
+});
+
+/*Route::resources([
+    'asetPerbaikan' => asetPerbaikanController::class,
+    'pjPerbaikan' => pjPerbaikanController::class,
+]);*/
