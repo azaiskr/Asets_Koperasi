@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\asetPerbaikanController;
+use App\Http\Controllers\pjPerbaikanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +23,5 @@ Route::get('/aset_perbaikan', function(){
     return view('asetPerbaikan.home');
 });
 
-/*Route::resources([
-    'asetPerbaikan' => asetPerbaikanController::class,
-    'pjPerbaikan' => pjPerbaikanController::class,
-]);*/
+Route::get('aset_perbaikan/daftarAset','AsetPerbaikanController@index');
+
