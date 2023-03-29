@@ -8,20 +8,16 @@ use App\Http\Requests\UpdateasetPerbaikanRequest;
 
 class AsetPerbaikanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        //
+        $aset = asetPerbaikan::all();
+        return view('asetPerbaikan.daftarAset', compact('aset'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('asetPerbaikan.tambahAset');
     }
 
     /**

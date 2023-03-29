@@ -35,5 +35,8 @@ Route::put('/daftarPJ/update/{id}',[PjPerbaikanController::class,'update']);
 //Hapus Pj
 Route::get('/asetPerbaikan/daftarPJ/hapus/{id}',[PjPerbaikanController::class,'destroy']);
 
-//Route::resource('/daftarPJ', PjPerbaikanController::class);
+Route::get('/asetPerbaikan/daftarAset', [AsetPerbaikanController::class,'index']);
+//Create Aset
+Route::get('/asetPerbaikan/daftarAset/create',[AsetPerbaikanController::class,'create']); 
+Route::post('/daftarAset/store',[AsetPerbaikanController::class,'store']);
 //Route::get('aset_perbaikan/daftarAsetPerbaikan','AsetPerbaikanController@index');
