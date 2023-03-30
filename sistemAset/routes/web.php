@@ -2,6 +2,7 @@
 
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\AsetPerbaikanController;
 use App\Http\Controllers\PjPerbaikanController;
 use App\Http\Controllers\AsetTersediaController;
@@ -11,11 +12,28 @@ use App\Http\Controllers\AsetTerpinjamController;
     return view('asetDashboard');
 });*/
 
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 
+
+Route::get('/AsetTetap', function(){
+    return view('asetTetap.AsetTetap');
+});
+
+Route::get('/tambahAset', function(){
+    return view('asetTetap.tambahAset');
+});
+
+Route::get('/AsetPengalihan', function(){
+    return view('asetPengalihan.AsetPengalihan');
+});
+
+Route::get('/tambahAsetPengalihan', function(){
+    return view('asetPengalihan.tambahAsetPengalihan');
+});
 
 Route::get('/AsetTetap', function(){
     return view('asetTetap.AsetTetap');
@@ -52,8 +70,6 @@ Route::get('/AsetPengalihan/edit/{id_Aset}', 'App\Http\Controllers\AsetPengaliha
 Route::post('/AsetPengalihan/update', 'App\Http\Controllers\AsetPengalihanController@update');
 Route::get('/AsetPengalihan/hapus/{id_Aset}', 'App\Http\Controllers\AsetPengalihanController@hapus');
 
-
-
 Route::get('asetPerbaikan', function(){
     return view('asetPerbaikan.home');
 });
@@ -79,3 +95,4 @@ Route::get('/asetPerbaikan/daftarAset/edit/{id}',[AsetPerbaikanController::class
 Route::put('/daftarAset/update/{id}',[AsetPerbaikanController::class,'update']);
 //Hapus Aset
 Route::get('/asetPerbaikan/daftarAset/hapus/{id}',[AsetPerbaikanController::class,'destroy']);
+
