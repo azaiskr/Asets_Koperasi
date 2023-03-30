@@ -33,14 +33,14 @@
                 <tbody>
                 @foreach($aset as $a)
                     <tr>
-                        <td> {{$a->id_Aset}} </td>
-                        <td> {{$a->nama_Aset}} </td>
-                        <td class="text-center"> {{$a->status_Perbaikan}} </td>
-                        <td class="text-center"> {{$a->tanggal_Perbaikan}} </td>
+                        <td> {{$a->id_aset}} </td>
+                        <td> {{$a->nama_aset}} </td>
+                        <td class="text-center"> {{$a->status_perbaikan}} </td>
+                        <td class="text-center"> {{$a->tanggal_perbaikan}} </td>
                         <td class="text-right"> {{$a->pj_perbaikan}} </td>
                         <td> 
-                            <a href="/asetPerbaikan/daftarAset/edit/{{$p->id_pj}}" class="badge badge-warning" >Edit</a>
-                            <a href="/asetPerbaikan/daftarAset/hapus/{{$p->id_pj}}" class="badge badge-danger" > Hapus </a>
+                            <a href="/asetPerbaikan/daftarAset/edit/{{$a->id_aset}}" class="badge badge-warning" >Edit</a>
+                            <a href="/asetPerbaikan/daftarAset/hapus/{{$a->id_aset}}" class="badge badge-danger" > Hapus </a>
                         </td>    
                     </tr>
                 @endforeach

@@ -49,9 +49,6 @@ class PjPerbaikanController extends Controller
         return redirect('asetPerbaikan/daftarPJ');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id)
     {
         $person = pj_perbaikan::find($id);

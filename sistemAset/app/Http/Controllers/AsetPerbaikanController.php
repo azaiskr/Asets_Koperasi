@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\asetPerbaikan;
-use App\Http\Requests\StoreasetPerbaikanRequest;
-use App\Http\Requests\UpdateasetPerbaikanRequest;
+use App\Models\pj_perbaikan;
+use Illuminate\Http\Request;
 
 class AsetPerbaikanController extends Controller
 {
@@ -12,7 +11,9 @@ class AsetPerbaikanController extends Controller
     public function index()
     {
         $aset = asetPerbaikan::all();
-        return view('asetPerbaikan.daftarAset', compact('aset'));
+        $pj = pj_perbaikan::all();
+        
+        return view('asetPerbaikan.daftarAset', compact('aset','pj'));
     }
 
     public function create()
@@ -20,43 +21,46 @@ class AsetPerbaikanController extends Controller
         return view('asetPerbaikan.tambahAset');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreasetPerbaikanRequest $request)
+    public function store(Request $request)
     {
-        return view('aset.index');
+        asetPerbaikan::create([
+            'id_aset' => $request->id,
+            'nama_aset'=> $request->nama,
+            'status_perbaikan'=>$request->status,
+            'tanggal_perbaikan'=>$request->tanggal,
+            'pj_perbaikan'=>$request->servicer,
+        ]);
+        return redirect('/asetPerbaikan/daftarAset');
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(asetPerbaikan $asetPerbaikan)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(asetPerbaikan $asetPerbaikan)
+    public function edit($id)
     {
-        //
+        $aset = asetPerbaikan::find($id);
+        return view('asetPerbaikan.editAset', compact('aset'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateasetPerbaikanRequest $request, asetPerbaikan $asetPerbaikan)
+    public function update($id,Request $request)
     {
-        //
+        $aset = asetPerbaikan::find($id);
+        $aset->id_aset = $request->id;
+        $aset->nama_aset = $request->nama;
+        $aset->status_perbaikan = $request->status;
+        $aset->tanggal_perbaikan = $request->tanggal;
+        $aset->pj_perbaikan = $request->servicer;
+        $aset->save();
+        return redirect('asetPerbaikan/daftarAset');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(asetPerbaikan $asetPerbaikan)
+    public function destroy($id)
     {
-        //
+        $aset = asetPerbaikan::find($id);
+        $aset->delete();
+        return redirect('asetPerbaikan/daftarAset');
     }
 }
