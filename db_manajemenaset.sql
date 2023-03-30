@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Mar 2023 pada 09.48
+-- Waktu pembuatan: 30 Mar 2023 pada 20.00
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.1.6
 
@@ -51,12 +51,21 @@ INSERT INTO `aset_pengalihan` (`id_Aset`, `nama_Aset`, `jenis_Pengalihan`, `juml
 --
 
 CREATE TABLE `aset_perbaikans` (
-  `id_aset` int(11) NOT NULL,
+  `id_aset` int(10) UNSIGNED NOT NULL,
   `nama_aset` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status_perbaikan` enum('OK','Diperbaiki') COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_perbaikan` date NOT NULL,
   `pj_perbaikan` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `aset_perbaikans`
+--
+
+INSERT INTO `aset_perbaikans` (`id_aset`, `nama_aset`, `status_perbaikan`, `tanggal_perbaikan`, `pj_perbaikan`) VALUES
+(0, 'dumm', 'Diperbaiki', '2023-03-29', 1),
+(1, 'dumm', 'Diperbaiki', '2023-03-29', 1),
+(2, 'adidas', 'OK', '2023-03-28', 1);
 
 -- --------------------------------------------------------
 
@@ -73,6 +82,14 @@ CREATE TABLE `aset_terpinjam` (
   `tanggal_jatuh_tempo` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `aset_terpinjam`
+--
+
+INSERT INTO `aset_terpinjam` (`id_aset`, `nama_aset`, `nama_peminjam`, `jumlah_pinjaman`, `tanggal_pinjaman`, `tanggal_jatuh_tempo`) VALUES
+('A0001', 'Monitor PC', 'Juleha', 1, '2023-03-21', '2023-03-30'),
+('A0002', 'Proyektor LG', 'David', 2, '2023-03-30', '2023-04-06');
+
 -- --------------------------------------------------------
 
 --
@@ -84,6 +101,14 @@ CREATE TABLE `aset_tersedia` (
   `nama_aset` varchar(50) NOT NULL,
   `stok` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `aset_tersedia`
+--
+
+INSERT INTO `aset_tersedia` (`id_aset`, `nama_aset`, `stok`) VALUES
+('A0003', 'Layar LCD', 3),
+('A0004', 'Camera Sony Mirrorlens', 2);
 
 -- --------------------------------------------------------
 
@@ -142,12 +167,12 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(7, '2014_10_12_000000_create_users_table', 1),
-(8, '2014_10_12_100000_create_password_reset_tokens_table', 1),
-(9, '2019_08_19_000000_create_failed_jobs_table', 1),
-(10, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(11, '2023_03_29_062342_create_pj_perbaikans_table', 1),
-(12, '2023_03_29_062614_create_aset_perbaikans_table', 1);
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
+(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(5, '2023_03_29_062342_create_pj_perbaikans_table', 1),
+(6, '2023_03_29_062614_create_aset_perbaikans_table', 1);
 
 -- --------------------------------------------------------
 
@@ -191,6 +216,14 @@ CREATE TABLE `pj_perbaikans` (
   `nama_pj` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `no_Hp` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `pj_perbaikans`
+--
+
+INSERT INTO `pj_perbaikans` (`id_pj`, `nama_pj`, `no_Hp`) VALUES
+(1, 'Ahmad', 3010),
+(2, 'AHASS Taman Siswa', 890);
 
 -- --------------------------------------------------------
 
@@ -275,7 +308,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `personal_access_tokens`
@@ -287,7 +320,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT untuk tabel `pj_perbaikans`
 --
 ALTER TABLE `pj_perbaikans`
-  MODIFY `id_pj` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pj` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
