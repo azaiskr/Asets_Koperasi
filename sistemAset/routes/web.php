@@ -14,7 +14,7 @@ use App\Http\Controllers\AsetTerpinjamController;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('asetDashboard');
 });
 
 
@@ -70,7 +70,7 @@ Route::get('/AsetPengalihan/edit/{id_Aset}', 'App\Http\Controllers\AsetPengaliha
 Route::post('/AsetPengalihan/update', 'App\Http\Controllers\AsetPengalihanController@update');
 Route::get('/AsetPengalihan/hapus/{id_Aset}', 'App\Http\Controllers\AsetPengalihanController@hapus');
 
-Route::get('asetPerbaikan', function(){
+Route::get('/asetPerbaikan', function(){
     return view('asetPerbaikan.home');
 });
 
