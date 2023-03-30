@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\asetPerbaikanController;
 use App\Http\Controllers\pjPerbaikanController;
+use App\Http\Controllers\AsetTersediaController;
+use App\Http\Controllers\AsetTerpinjamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +43,8 @@ Route::get('/tambahAsetPengalihan', function(){
 
 Route::get('aset_perbaikan/daftarAset','AsetPerbaikanController@index');
 
-Route::get('aset_tersedia', 'AsetTersediaController@index');
+Route::get('/aset_tersedia', [AsetTersediaController::class, 'index']);
+Route::get('/aset_terpinjam', [AsetTerpinjamController::class, 'index']);
 
 Route::get('/AsetTetap', 'App\Http\Controllers\AsetTetapController@index');
 Route::get('/AsetTetap/tambah', 'App\Http\Controllers\AsetTetapController@tambah');
