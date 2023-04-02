@@ -2,7 +2,7 @@
 @section('container')
 @section('title', 'Daftar Servicer')
 
-<div class="container mt-2">
+<div class="container mt-3">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{url('/')}}"> Home </a></li>
@@ -14,9 +14,31 @@
 
 <div class="container">
     <div class="row">
+
         <div class="col-12 mt-2">
             <h2 class="center"><b> Daftar Servicer</b></h2>
+            @if(session('status'))
+                <div class="alert alert-success mt-2 mb-2" id="alert">
+                    {{session('status')}}
+                </div>
+                <script>
+                    setTimeout(function(){
+                        document.getElementById('alert').style.display = 'none';
+                    }, 3000);
+                </script>
+            @endif
+            @if(session('danger'))
+                <div class="alert alert-danger mt-2 mb-2" id="alert">
+                    {{session('danger')}}
+                </div>
+                <script>
+                    setTimeout(function(){
+                        document.getElementById('alert').style.display = 'none';
+                    }, 3000);
+                </script>
+            @endif
         </div>
+        
         <div class="col-12">
             <a class="btn btn-primary float-right mt-2" href="{{url('/asetPerbaikan/daftarAset/create')}}" role="button"> Tambah data</a>
         </div>
@@ -25,8 +47,8 @@
                 <thead class="thead-primary">
                     <tr>
                         <th class="text-center"> ID Servicer </th>
-                        <th> Nama Servicer </th>
-                        <th class="text-center"> No HP </th>
+                        <th class="col-5"> Nama Servicer </th>
+                        <th class="text-center col-4"> No HP </th>
                         <th> </th>
                     </tr>
                 </thead>

@@ -22,7 +22,7 @@
                 <h5 class="card-label"> Daftar Aset Perbaikan </h5>
             </div>
         </a>
-        <a class="btn btn-outline-dark mt-4 ml-4 shadow-sm p-3 mb-5 bg-gray rounded" style="width:18rem;" href="{{url('/asetPerbaikan/daftarPJ')}}" role="button"> 
+        <a class="btn btn-outline-dark mt-4 ml-4 p-3 mb-5 rounded" style="width:18rem;" href="{{url('/asetPerbaikan/daftarPJ')}}" role="button"> 
             <div class="card-body">
                 <h5 class="card-label"> Daftar Servicer </h5>
             </div>
