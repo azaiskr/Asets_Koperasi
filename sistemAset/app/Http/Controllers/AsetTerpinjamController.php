@@ -39,18 +39,21 @@ class AsetTerpinjamController extends Controller
 
     public function update(Request $request)
     {
-        DB::table('aset_tersedia')->where('id_aset',$request->id_aset)->update([
+        DB::table('aset_terpinjam')->where('id_aset',$request->id_aset)->update([
             'nama_aset' => $request->nama_aset,
-            'stok' => $request->stok,
+            'nama_peminjam' => $request->nama_peminjam,
+            'jumlah_pinjaman' => $request->jumlah_pinjaman,
+            'tanggal_pinjaman' => $request->tanggal_pinjaman,
+            'tanggal_jatuh_tempo' => $request->tanggal_jatuh_tempo,
         ]);
 
-        return redirect('/AsetTersedia');
+        return redirect('/AsetTerpinjam');
     }
 
     public function hapus($id_aset)
     {
-        DB::table('aset_tersedia')->where('id_aset',$id_aset)->delete();
+        DB::table('aset_terpinjam')->where('id_aset',$id_aset)->delete();
 
-        return redirect('/AsetTersedia');
+        return redirect('/AsetTerpinjam');
     }   
 }
