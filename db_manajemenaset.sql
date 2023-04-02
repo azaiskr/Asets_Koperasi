@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Mar 2023 pada 20.00
+-- Waktu pembuatan: 02 Apr 2023 pada 08.31
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.1.6
 
@@ -20,6 +20,48 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_manajemenaset`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `admin`
+--
+
+CREATE TABLE `admin` (
+  `id_admin` int(4) NOT NULL,
+  `nama_admin` varchar(30) NOT NULL,
+  `email` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `admin`
+--
+
+INSERT INTO `admin` (`id_admin`, `nama_admin`, `email`) VALUES
+(1, 'Saka', 'saka01@gmail.com'),
+(2, 'Anjani', 'anjani02@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `aset_jualbeli`
+--
+
+CREATE TABLE `aset_jualbeli` (
+  `id_aset` char(5) NOT NULL,
+  `nama_aset` varchar(50) NOT NULL,
+  `stok` int(4) NOT NULL DEFAULT 0,
+  `nilai_ekonomi` bigint(20) NOT NULL DEFAULT 0,
+  `lokasi_jual` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `aset_jualbeli`
+--
+
+INSERT INTO `aset_jualbeli` (`id_aset`, `nama_aset`, `stok`, `nilai_ekonomi`, `lokasi_jual`) VALUES
+('SL001', 'Show Case SHARP', 1, 1500000, ''),
+('SL002', 'Saham', 2000, 1000000, '');
 
 -- --------------------------------------------------------
 
@@ -137,73 +179,24 @@ INSERT INTO `aset_tetaps` (`id_Aset`, `nama_Aset`, `lokasi`, `kondisi`, `jumlah`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `failed_jobs`
+-- Struktur dari tabel `piutang`
 --
 
-CREATE TABLE `failed_jobs` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
+CREATE TABLE `piutang` (
+  `id_pinjaman` char(5) NOT NULL,
+  `nama_peminjam` varchar(30) NOT NULL,
+  `jumlah_pinjaman` mediumint(9) NOT NULL,
+  `waktu_pinjaman` date NOT NULL,
+  `pelunasan` char(20) NOT NULL DEFAULT 'Belum Lunas'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Struktur dari tabel `migrations`
+-- Dumping data untuk tabel `piutang`
 --
 
-CREATE TABLE `migrations` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `migrations`
---
-
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
-(3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2023_03_29_062342_create_pj_perbaikans_table', 1),
-(6, '2023_03_29_062614_create_aset_perbaikans_table', 1);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `password_reset_tokens`
---
-
-CREATE TABLE `password_reset_tokens` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `personal_access_tokens`
---
-
-CREATE TABLE `personal_access_tokens` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `last_used_at` timestamp NULL DEFAULT NULL,
-  `expires_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+INSERT INTO `piutang` (`id_pinjaman`, `nama_peminjam`, `jumlah_pinjaman`, `waktu_pinjaman`, `pelunasan`) VALUES
+('P0001', 'Dion', 500000, '2023-04-01', 'Belum Lunas'),
+('P0002', 'Silvi', 300000, '2023-03-29', 'Lunas');
 
 -- --------------------------------------------------------
 
@@ -228,23 +221,38 @@ INSERT INTO `pj_perbaikans` (`id_pj`, `nama_pj`, `no_Hp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Struktur dari tabel `rekapitulasi`
 --
 
-CREATE TABLE `users` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE `rekapitulasi` (
+  `id` int(3) NOT NULL,
+  `jenis_aset` varchar(30) NOT NULL,
+  `kuantitas` mediumint(9) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `rekapitulasi`
+--
+
+INSERT INTO `rekapitulasi` (`id`, `jenis_aset`, `kuantitas`) VALUES
+(1, 'Aset Tetap', 30),
+(2, 'Aset Diperbaiki', 10);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indeks untuk tabel `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id_admin`);
+
+--
+-- Indeks untuk tabel `aset_jualbeli`
+--
+ALTER TABLE `aset_jualbeli`
+  ADD PRIMARY KEY (`id_aset`);
 
 --
 -- Indeks untuk tabel `aset_perbaikans`
@@ -254,31 +262,10 @@ ALTER TABLE `aset_perbaikans`
   ADD KEY `aset_perbaikans_pj_perbaikan_foreign` (`pj_perbaikan`);
 
 --
--- Indeks untuk tabel `failed_jobs`
+-- Indeks untuk tabel `piutang`
 --
-ALTER TABLE `failed_jobs`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
-
---
--- Indeks untuk tabel `migrations`
---
-ALTER TABLE `migrations`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `password_reset_tokens`
---
-ALTER TABLE `password_reset_tokens`
-  ADD PRIMARY KEY (`email`);
-
---
--- Indeks untuk tabel `personal_access_tokens`
---
-ALTER TABLE `personal_access_tokens`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
-  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+ALTER TABLE `piutang`
+  ADD PRIMARY KEY (`id_pinjaman`);
 
 --
 -- Indeks untuk tabel `pj_perbaikans`
@@ -288,45 +275,20 @@ ALTER TABLE `pj_perbaikans`
   ADD UNIQUE KEY `pj_perbaikans_id_pj_unique` (`id_pj`);
 
 --
--- Indeks untuk tabel `users`
+-- Indeks untuk tabel `rekapitulasi`
 --
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
+ALTER TABLE `rekapitulasi`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT untuk tabel `failed_jobs`
---
-ALTER TABLE `failed_jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `migrations`
---
-ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT untuk tabel `personal_access_tokens`
---
-ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT untuk tabel `pj_perbaikans`
 --
 ALTER TABLE `pj_perbaikans`
   MODIFY `id_pj` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `users`
---
-ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
