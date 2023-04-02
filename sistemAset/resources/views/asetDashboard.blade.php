@@ -11,9 +11,14 @@
             <h2> Dashboard : Feature list</h2>
         </div>
     </div>
-
+    
     
     <div class="row row-cols-4">
+        <a class="btn btn-outline-info mt-4 ml-4 shadow-sm p-3 mb-3 rounded" style="width:18rem" href="{{url('/admin')}}" role="button";>
+            <div class="">
+                <h3 class="btn-label"> Admin </h3>
+            </div>
+        </a>
         <a class="btn btn-outline-info mt-4 ml-4 shadow-sm p-3 mb-3 rounded" style="width:18rem" href="{{url('/AsetTetap')}}" role="button";>
             <div class="">
                 <h3 class="card-label"> Aset Tetap </h3>
@@ -38,9 +43,26 @@
             </div>
         </a>
         
+        <a class="btn btn-outline-info mt-4 ml-4 shadow-sm p-3 mb-3 rounded" style="width:18rem" href="{{url('/aset_jual_beli')}}" role="button";>
+            <div class="">
+                <h3 class="btn-label"> Aset Jual Beli </h3>
+            </div>
+        </a>
+        
         <a class="btn btn-outline-info mt-4 ml-4 shadow-sm p-3 mb-3 rounded" style="width:18rem" href="{{url('/AsetPengalihan')}}" role="button";>
             <div class="">
                 <h3 class="card-label"> Aset Pengalihan </h3>
+            </div>
+        </a>
+        <a class="btn btn-outline-info mt-4 ml-4 shadow-sm p-3 mb-3 rounded" style="width:18rem" href="{{url('/aset_piutang')}}" role="button";>
+            <div class="">
+                <h3 class="card-label"> Piutang </h3>
+            </div>
+        </a>
+        
+        <a class="btn btn-outline-info mt-4 ml-4 shadow-sm p-3 mb-3 rounded" style="width:18rem" href="{{url('/rekapitulasi_aset')}}" role="button";>
+            <div class="">
+                <h3 class="card-label"> Rekapitulasi Aset </h3>
             </div>
         </a>
         
