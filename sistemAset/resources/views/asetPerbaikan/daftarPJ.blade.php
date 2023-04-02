@@ -2,7 +2,7 @@
 @section('container')
 @section('title', 'Daftar Servicer')
 
-<div class="container mt-4">
+<div class="container mt-2">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{url('/')}}"> Home </a></li>
@@ -14,11 +14,13 @@
 
 <div class="container">
     <div class="row">
-        <div class="my-4 col-12">
-            <h2 class="float-left"> Daftar Servicer </h2>
-            <a class="btn btn-primary float-right mt-2" href="{{url('/asetPerbaikan/daftarPJ/create')}}" role="button"> Tambah data</a>
+        <div class="col-12 mt-2">
+            <h2 class="center"><b> Daftar Servicer</b></h2>
         </div>
-        <div class="col-md-12">
+        <div class="col-12">
+            <a class="btn btn-primary float-right mt-2" href="{{url('/asetPerbaikan/daftarAset/create')}}" role="button"> Tambah data</a>
+        </div>
+        <div class="col-md-12 my-3">
             <table class="table table-stripped">
                 <thead class="thead-primary">
                     <tr>

@@ -15,7 +15,7 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-                <a class="navbar-brand" href="{{url('/')}}"> <b> Sistem Manajemen Aset </a>
+                <a class="navbar-brand" href="{{url('/')}}"> <b> Sistem Manajemen Aset </b> </a>
                 <button 
                 class = "navbar-toggler" 
                 type="button" 

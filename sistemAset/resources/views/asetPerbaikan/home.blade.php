@@ -13,16 +13,16 @@
 </div>
 
 <div class="container">
-    <div class="row row-cols-8 ml-2">
+    <div class="row row-cols-8 ml-2 mt-2">
         <h2> Manajemen Aset Perbaikan </h2>
     </div>
     <div class="row row-cols-4">
-        <a class="card mt-4 ml-4 shadow-sm p-3 mb-5 bg-gray rounded" style="width:18rem;" href="{{url('/asetPerbaikan/daftarAset')}}" role="button"> 
+        <a class="btn btn-outline-dark mt-4 ml-4 shadow-sm p-3 mb-5 bg-gray rounded" style="width:18rem;" href="{{url('/asetPerbaikan/daftarAset')}}" role="button"> 
             <div class="card-body">
                 <h5 class="card-label"> Daftar Aset Perbaikan </h5>
             </div>
         </a>
-        <a class="card mt-4 ml-4 shadow-sm p-3 mb-5 bg-gray rounded" style="width:18rem;" href="{{url('/asetPerbaikan/daftarPJ')}}" role="button"> 
+        <a class="btn btn-outline-dark mt-4 ml-4 shadow-sm p-3 mb-5 bg-gray rounded" style="width:18rem;" href="{{url('/asetPerbaikan/daftarPJ')}}" role="button"> 
             <div class="card-body">
                 <h5 class="card-label"> Daftar Servicer </h5>
             </div>
