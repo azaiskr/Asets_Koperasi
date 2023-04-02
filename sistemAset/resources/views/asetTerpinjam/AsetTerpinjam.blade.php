@@ -9,7 +9,7 @@
 <body>
     <h1>Aset Terpinjam</h1>
 
-    <button class="btn btn-primary"><a href="/tambahAset">Tambah Data</a></button>
+    <button class="btn btn-primary"><a href="/tambahTerpinjam">Tambah Data</a></button>
     
 
     <table border="1">
