@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Apr 2023 pada 08.31
--- Versi server: 10.4.24-MariaDB
--- Versi PHP: 8.1.6
+-- Generation Time: Apr 02, 2023 at 10:59 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_manajemenaset`
+-- Database: `db_manajemenaset2`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -34,7 +34,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id_admin`, `nama_admin`, `email`) VALUES
@@ -44,7 +44,7 @@ INSERT INTO `admin` (`id_admin`, `nama_admin`, `email`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `aset_jualbeli`
+-- Table structure for table `aset_jualbeli`
 --
 
 CREATE TABLE `aset_jualbeli` (
@@ -56,7 +56,7 @@ CREATE TABLE `aset_jualbeli` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `aset_jualbeli`
+-- Dumping data for table `aset_jualbeli`
 --
 
 INSERT INTO `aset_jualbeli` (`id_aset`, `nama_aset`, `stok`, `nilai_ekonomi`, `lokasi_jual`) VALUES
@@ -66,7 +66,7 @@ INSERT INTO `aset_jualbeli` (`id_aset`, `nama_aset`, `stok`, `nilai_ekonomi`, `l
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `aset_pengalihan`
+-- Table structure for table `aset_pengalihan`
 --
 
 CREATE TABLE `aset_pengalihan` (
@@ -78,18 +78,19 @@ CREATE TABLE `aset_pengalihan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `aset_pengalihan`
+-- Dumping data for table `aset_pengalihan`
 --
 
 INSERT INTO `aset_pengalihan` (`id_Aset`, `nama_Aset`, `jenis_Pengalihan`, `jumlah`, `lokasi_Pengalihan`) VALUES
-(1, 'Mobil', 'Alih modern', '3', 'Kemayoran'),
+(1, 'Mobil', 'alih', '2', 'Kemayoran'),
 (2, 'Sepeda', 'Alih alih', '11', 'Sampangan'),
-(7, 'Helikopter', 'Alih modern', '4', 'Kemayoran');
+(8, 'Perahu', 'oleh', '20', 'Kemayoran'),
+(9, 'Pesawat', 'oleh', '2', 'Tanjung Priuk');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `aset_perbaikans`
+-- Table structure for table `aset_perbaikans`
 --
 
 CREATE TABLE `aset_perbaikans` (
@@ -101,18 +102,19 @@ CREATE TABLE `aset_perbaikans` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `aset_perbaikans`
+-- Dumping data for table `aset_perbaikans`
 --
 
 INSERT INTO `aset_perbaikans` (`id_aset`, `nama_aset`, `status_perbaikan`, `tanggal_perbaikan`, `pj_perbaikan`) VALUES
 (0, 'dumm', 'Diperbaiki', '2023-03-29', 1),
 (1, 'dumm', 'Diperbaiki', '2023-03-29', 1),
-(2, 'adidas', 'OK', '2023-03-28', 1);
+(2, 'adidas', 'OK', '2023-03-28', 1),
+(3, 'nike', 'OK', '2023-03-30', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `aset_terpinjam`
+-- Table structure for table `aset_terpinjam`
 --
 
 CREATE TABLE `aset_terpinjam` (
@@ -125,7 +127,7 @@ CREATE TABLE `aset_terpinjam` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `aset_terpinjam`
+-- Dumping data for table `aset_terpinjam`
 --
 
 INSERT INTO `aset_terpinjam` (`id_aset`, `nama_aset`, `nama_peminjam`, `jumlah_pinjaman`, `tanggal_pinjaman`, `tanggal_jatuh_tempo`) VALUES
@@ -135,7 +137,7 @@ INSERT INTO `aset_terpinjam` (`id_aset`, `nama_aset`, `nama_peminjam`, `jumlah_p
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `aset_tersedia`
+-- Table structure for table `aset_tersedia`
 --
 
 CREATE TABLE `aset_tersedia` (
@@ -145,7 +147,7 @@ CREATE TABLE `aset_tersedia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `aset_tersedia`
+-- Dumping data for table `aset_tersedia`
 --
 
 INSERT INTO `aset_tersedia` (`id_aset`, `nama_aset`, `stok`) VALUES
@@ -155,7 +157,7 @@ INSERT INTO `aset_tersedia` (`id_aset`, `nama_aset`, `stok`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `aset_tetaps`
+-- Table structure for table `aset_tetaps`
 --
 
 CREATE TABLE `aset_tetaps` (
@@ -169,17 +171,19 @@ CREATE TABLE `aset_tetaps` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `aset_tetaps`
+-- Dumping data for table `aset_tetaps`
 --
 
 INSERT INTO `aset_tetaps` (`id_Aset`, `nama_Aset`, `lokasi`, `kondisi`, `jumlah`, `ukuran`, `nilai_ekonomi`) VALUES
-(2, 'Mobil', 'Sekaran', 'Dipinjam', 5, 20, 30000000),
-(3, 'Motor', 'Sekaran', 'Bagus', 15, 10, 12000000);
+(3, 'Motor', 'Sekaran', 'Bagus', 15, 10, 12000000),
+(4, 'Perahu', 'Pantai Selatan', 'Jelek', 3, 200, 200000000),
+(5, 'Pesawat', 'Halim', 'Jelek', 2, 20, 300000000),
+(6, 'Sepeda', 'Sekaran', 'Baik', 20, 22, 2000000);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `piutang`
+-- Table structure for table `piutang`
 --
 
 CREATE TABLE `piutang` (
@@ -191,7 +195,7 @@ CREATE TABLE `piutang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `piutang`
+-- Dumping data for table `piutang`
 --
 
 INSERT INTO `piutang` (`id_pinjaman`, `nama_peminjam`, `jumlah_pinjaman`, `waktu_pinjaman`, `pelunasan`) VALUES
@@ -201,7 +205,7 @@ INSERT INTO `piutang` (`id_pinjaman`, `nama_peminjam`, `jumlah_pinjaman`, `waktu
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pj_perbaikans`
+-- Table structure for table `pj_perbaikans`
 --
 
 CREATE TABLE `pj_perbaikans` (
@@ -211,7 +215,7 @@ CREATE TABLE `pj_perbaikans` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `pj_perbaikans`
+-- Dumping data for table `pj_perbaikans`
 --
 
 INSERT INTO `pj_perbaikans` (`id_pj`, `nama_pj`, `no_Hp`) VALUES
@@ -221,7 +225,7 @@ INSERT INTO `pj_perbaikans` (`id_pj`, `nama_pj`, `no_Hp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `rekapitulasi`
+-- Table structure for table `rekapitulasi`
 --
 
 CREATE TABLE `rekapitulasi` (
@@ -231,7 +235,7 @@ CREATE TABLE `rekapitulasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `rekapitulasi`
+-- Dumping data for table `rekapitulasi`
 --
 
 INSERT INTO `rekapitulasi` (`id`, `jenis_aset`, `kuantitas`) VALUES
@@ -243,59 +247,83 @@ INSERT INTO `rekapitulasi` (`id`, `jenis_aset`, `kuantitas`) VALUES
 --
 
 --
--- Indeks untuk tabel `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
--- Indeks untuk tabel `aset_jualbeli`
+-- Indexes for table `aset_jualbeli`
 --
 ALTER TABLE `aset_jualbeli`
   ADD PRIMARY KEY (`id_aset`);
 
 --
--- Indeks untuk tabel `aset_perbaikans`
+-- Indexes for table `aset_pengalihan`
+--
+ALTER TABLE `aset_pengalihan`
+  ADD PRIMARY KEY (`id_Aset`);
+
+--
+-- Indexes for table `aset_perbaikans`
 --
 ALTER TABLE `aset_perbaikans`
   ADD UNIQUE KEY `aset_perbaikans_id_aset_unique` (`id_aset`),
   ADD KEY `aset_perbaikans_pj_perbaikan_foreign` (`pj_perbaikan`);
 
 --
--- Indeks untuk tabel `piutang`
+-- Indexes for table `aset_tetaps`
+--
+ALTER TABLE `aset_tetaps`
+  ADD PRIMARY KEY (`id_Aset`);
+
+--
+-- Indexes for table `piutang`
 --
 ALTER TABLE `piutang`
   ADD PRIMARY KEY (`id_pinjaman`);
 
 --
--- Indeks untuk tabel `pj_perbaikans`
+-- Indexes for table `pj_perbaikans`
 --
 ALTER TABLE `pj_perbaikans`
   ADD PRIMARY KEY (`id_pj`),
   ADD UNIQUE KEY `pj_perbaikans_id_pj_unique` (`id_pj`);
 
 --
--- Indeks untuk tabel `rekapitulasi`
+-- Indexes for table `rekapitulasi`
 --
 ALTER TABLE `rekapitulasi`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `pj_perbaikans`
+-- AUTO_INCREMENT for table `aset_pengalihan`
+--
+ALTER TABLE `aset_pengalihan`
+  MODIFY `id_Aset` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `aset_tetaps`
+--
+ALTER TABLE `aset_tetaps`
+  MODIFY `id_Aset` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `pj_perbaikans`
 --
 ALTER TABLE `pj_perbaikans`
   MODIFY `id_pj` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `aset_perbaikans`
+-- Constraints for table `aset_perbaikans`
 --
 ALTER TABLE `aset_perbaikans`
   ADD CONSTRAINT `aset_perbaikans_pj_perbaikan_foreign` FOREIGN KEY (`pj_perbaikan`) REFERENCES `pj_perbaikans` (`id_pj`);
