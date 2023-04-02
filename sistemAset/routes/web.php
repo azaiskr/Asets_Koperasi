@@ -3,10 +3,12 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 use App\Http\Controllers\AsetPerbaikanController;
 use App\Http\Controllers\PjPerbaikanController;
 use App\Http\Controllers\AsetTersediaController;
 use App\Http\Controllers\AsetTerpinjamController;
+use App\Http\Controllers\rekapAset;
 
 /*Route::get('/', function () {
     return view('asetDashboard');
@@ -102,3 +104,14 @@ Route::put('/daftarAset/update/{id}',[AsetPerbaikanController::class,'update']);
 //Hapus Aset
 Route::get('/asetPerbaikan/daftarAset/hapus/{id}',[AsetPerbaikanController::class,'destroy']);
 
+
+//rekapitulasi aset
+Route::get('/rekapitulasiAset',[rekapAset::class,'index']);// Read
+
+Route::get('/rekapitulasiAset/create',[rekapAset::class,'create']);
+Route::post('/rekapitulasiAset/store',[rekapAset::class,'store']);
+
+Route::get('/rekapitulasiAset/edit/{id}',[rekapAset::class,'edit']);
+Route::post('/rekapitulasiAset/update/',[rekapAset::class,'update']);
+
+Route::get('/rekapitulasiAset/hapus/{id}',[rekapAset:: class,'destroy']);

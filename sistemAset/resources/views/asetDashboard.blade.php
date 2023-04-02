@@ -60,7 +60,7 @@
             </div>
         </a>
         
-        <a class="btn btn-outline-info mt-4 ml-4 shadow-sm p-3 mb-3 rounded" style="width:18rem" href="{{url('/rekapitulasi_aset')}}" role="button";>
+        <a class="btn btn-outline-info mt-4 ml-4 shadow-sm p-3 mb-3 rounded" style="width:18rem" href="{{url('/rekapitulasiAset')}}" role="button";>
             <div class="">
                 <h3 class="card-label"> Rekapitulasi Aset </h3>
             </div>
