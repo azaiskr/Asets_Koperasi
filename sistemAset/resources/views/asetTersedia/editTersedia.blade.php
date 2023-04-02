@@ -10,7 +10,7 @@
     @foreach($aset_tersedia as $at)
     <form action="/AsetTersedia/update" method="post">
 		{{ csrf_field() }}
-        <input type="hidden" name="id_aset" value="{{ $at->id_Aset }}"> <br/>
+        <input type="hidden" name="id_aset" value="{{ $at->id_aset }}"> <br/>
         Nama <input type="text" name="nama_aset" required="required" value="{{ $at->nama_aset }}"> <br/>
 		Stok <input type="text" name="stok" required="required" value="{{ $at->stok }}"> <br/>
 		<input type="submit" value="Simpan Data">
