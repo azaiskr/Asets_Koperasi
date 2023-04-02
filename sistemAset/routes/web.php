@@ -54,6 +54,12 @@ Route::get('/tambahAsetPengalihan', function(){
 Route::get('aset_perbaikan/daftarAset','AsetPerbaikanController@index');
 
 Route::get('/aset_tersedia', [AsetTersediaController::class, 'index']);
+Route::get('/AsetTersedia/tambah', 'App\Http\Controllers\AsetTersediaController@tambah');
+Route::post('/AsetTersedia/store', 'App\Http\Controllers\AsetTersediaController@store');
+Route::get('/AsetTersedia/edit/{id_aset}', 'App\Http\Controllers\AsetTersediaController@edit');
+Route::post('/AsetTersedia/update', 'App\Http\Controllers\AsetTersediaController@update');
+Route::get('/AsetTersedia/hapus/{id_aset}', 'App\Http\Controllers\AsetTersediaController@hapus');
+
 Route::get('/aset_terpinjam', [AsetTerpinjamController::class, 'index']);
 
 Route::get('/AsetTetap', 'App\Http\Controllers\AsetTetapController@index');

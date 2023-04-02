@@ -24,8 +24,8 @@
             <td>{{ $at->nama_aset }}</td>
             <td>{{ $at->stok }}</td>
 			<td>
-				<button class="btn btn-primary"><a href="/AsetTetap/edit/{{$at->id_aset}}">Edit</a></button>
-				<button class="btn btn-primary"><a href="/AsetTetap/hapus/{{$at->id_aset}}">Hapus</a></button>
+				<button class="btn btn-primary"><a href="/AsetTersedia/edit/{{$at->id_aset}}">Edit</a></button>
+				<button class="btn btn-primary"><a href="/AsetTersedia/hapus/{{$at->id_aset}}">Hapus</a></button>
 			</td>
 		</tr>
 		@endforeach
