@@ -27,7 +27,7 @@
 						<th class="text-center">KONDISI</th>
 						<th class="text-center">JUMLAH</th>
 						<th class="text-center">UKURAN</th>
-						<th class="text-center">NILAI EKONOMI</th>
+						<th class="text-center">NILAI</th>
 						<th>OPSI</th>
                     </tr>
                 </thead>
