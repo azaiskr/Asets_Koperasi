@@ -43,8 +43,8 @@
             <a class="btn btn-primary float-right mt-2" href="{{url('/asetPerbaikan/daftarPJ/create')}}" role="button"> Tambah data</a>
         </div>
         <div class="col-md-12 my-3">
-            <table class="table table-stripped">
-                <thead class="thead-primary">
+            <table class="table table-hover">
+                <thead class="thead-dark">
                     <tr>
                         <th class="text-center"> ID Servicer </th>
                         <th class="col-5"> Nama Servicer </th>
