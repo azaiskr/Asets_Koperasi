@@ -1,26 +1,23 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\asetPerbaikanController;
-use App\Http\Controllers\pjPerbaikanController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use Illuminate\Support\Facades\Route;
+
+
+use App\Http\Controllers\AsetPerbaikanController;
+use App\Http\Controllers\PjPerbaikanController;
+use App\Http\Controllers\AsetTersediaController;
+use App\Http\Controllers\AsetTerpinjamController;
+use App\Http\Controllers\rekapAset;
+use App\Http\Controllers\JualBeliController;
+
+/*Route::get('/', function () {
+    return view('asetDashboard');
+});*/
+
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/aset_perbaikan', function(){
-    return view('asetPerbaikan.home');
+    return view('asetDashboard');
 });
 
 Route::get('/AsetTetap', function(){
@@ -41,7 +38,21 @@ Route::get('/tambahAsetPengalihan', function(){
 
 Route::get('aset_perbaikan/daftarAset','AsetPerbaikanController@index');
 
-Route::get('aset_tersedia', 'AsetTersediaController@index');
+Route::get('/aset_tersedia', [AsetTersediaController::class, 'index']);
+//Route::get('/AsetTersedia', 'App\Http\Controllers\AsetTersediaController@index');
+Route::get('/AsetTersedia/tambah', 'App\Http\Controllers\AsetTersediaController@tambah');
+Route::post('/AsetTersedia/store', 'App\Http\Controllers\AsetTersediaController@store');
+Route::get('/AsetTersedia/edit/{id_aset}', 'App\Http\Controllers\AsetTersediaController@edit');
+Route::post('/AsetTersedia/update', 'App\Http\Controllers\AsetTersediaController@update');
+Route::get('/AsetTersedia/hapus/{id_aset}', 'App\Http\Controllers\AsetTersediaController@hapus');
+
+Route::get('/aset_terpinjam', [AsetTerpinjamController::class, 'index']);
+//Route::get('/AsetTerpinjam', 'App\Http\Controllers\AsetTersediaController@index');
+Route::get('/AsetTerpinjam/tambah', 'App\Http\Controllers\AsetTerpinjamController@tambah');
+Route::post('/AsetTerpinjam/store', 'App\Http\Controllers\AsetTerpinjamController@store');
+Route::get('/AsetTerpinjam/edit/{id_aset}', 'App\Http\Controllers\AsetTerpinjamController@edit');
+Route::post('/AsetTerpinjam/update', 'App\Http\Controllers\AsetTerpinjamController@update');
+Route::get('/AsetTerpinjam/hapus/{id_aset}', 'App\Http\Controllers\AsetTerpinjamController@hapus');
 
 Route::get('/AsetTetap', 'App\Http\Controllers\AsetTetapController@index');
 Route::get('/AsetTetap/tambah', 'App\Http\Controllers\AsetTetapController@tambah');
@@ -57,6 +68,49 @@ Route::get('/AsetPengalihan/edit/{id_Aset}', 'App\Http\Controllers\AsetPengaliha
 Route::post('/AsetPengalihan/update', 'App\Http\Controllers\AsetPengalihanController@update');
 Route::get('/AsetPengalihan/hapus/{id_Aset}', 'App\Http\Controllers\AsetPengalihanController@hapus');
 
+Route::get('/asetPerbaikan', function(){
+    return view('asetPerbaikan.home');
+});
+
+Route::get('/aset_jual_beli', [App\Http\Controllers\JualBeliController::class, 'index']);
+Route::get('tambahAsetJualBeli', [App\Http\Controllers\JualBeliController::class, 'create']);
+Route::post('/aset_jual_beli/tambah', [App\Http\Controllers\JualBeliController::class,'tambah']);
+Route::get('/aset_jual_beli/edit/{id}', [App\Http\Controllers\JualBeliController::class,'edit']);
+Route::post('/aset_jual_beli/update', [App\Http\Controllers\JualBeliController::class,'update']);
+Route::get('/aset_jual_beli/hapus/{id}', [App\Http\Controllers\JualBeliController::class,'destroy']);
 
 
 
+//PJ or SERVICER
+Route::get('/asetPerbaikan/daftarPJ',[PjPerbaikanController::class,'index']);// Read
+//Create PJ
+Route::get('/asetPerbaikan/daftarPJ/create',[PjPerbaikanController::class,'create']); 
+Route::post('/daftarPJ/store',[PjPerbaikanController::class,'store']);
+//Update PJ
+Route::get('/asetPerbaikan/daftarPJ/edit/{id}',[PjPerbaikanController::class,'edit']);
+Route::put('/daftarPJ/update/{id}',[PjPerbaikanController::class,'update']);
+//Hapus Pj
+Route::get('/asetPerbaikan/daftarPJ/hapus/{id}',[PjPerbaikanController::class,'destroy']);
+
+//ASET Perbaikan
+Route::get('/asetPerbaikan/daftarAset', [AsetPerbaikanController::class,'index']);
+//Create Aset
+Route::get('/asetPerbaikan/daftarAset/create',[AsetPerbaikanController::class,'create']); 
+Route::post('/daftarAset/store',[AsetPerbaikanController::class,'store']);
+//Update Aset
+Route::get('/asetPerbaikan/daftarAset/edit/{id}',[AsetPerbaikanController::class,'edit']);
+Route::put('/daftarAset/update/{id}',[AsetPerbaikanController::class,'update']);
+//Hapus Aset
+Route::get('/asetPerbaikan/daftarAset/hapus/{id}',[AsetPerbaikanController::class,'destroy']);
+
+
+//rekapitulasi aset
+Route::get('/rekapitulasiAset',[rekapAset::class,'index']);// Read
+
+Route::get('/rekapitulasiAset/create',[rekapAset::class,'create']);
+Route::post('/rekapitulasiAset/store',[rekapAset::class,'store']);
+
+Route::get('/rekapitulasiAset/edit/{id}',[rekapAset::class,'edit']);
+Route::post('/rekapitulasiAset/update/',[rekapAset::class,'update']);
+
+Route::get('/rekapitulasiAset/hapus/{id}',[rekapAset:: class,'destroy']);
