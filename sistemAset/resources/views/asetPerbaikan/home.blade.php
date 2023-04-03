@@ -2,7 +2,7 @@
 @section('container')
 @section('title', 'Manajemen Aset Perbaikan')
 
-<div class="container mt-4">
+<div class="container mt-3">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{url('/')}}"> Home </a></li>
