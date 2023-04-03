@@ -19,24 +19,6 @@ Route::get('/', function () {
     return view('asetDashboard');
 });
 
-
-
-Route::get('/AsetTetap', function(){
-    return view('asetTetap.AsetTetap');
-});
-
-Route::get('/tambahAset', function(){
-    return view('asetTetap.tambahAset');
-});
-
-Route::get('/AsetPengalihan', function(){
-    return view('asetPengalihan.AsetPengalihan');
-});
-
-Route::get('/tambahAsetPengalihan', function(){
-    return view('asetPengalihan.tambahAsetPengalihan');
-});
-
 Route::get('/AsetTetap', function(){
     return view('asetTetap.AsetTetap');
 });
@@ -56,6 +38,7 @@ Route::get('/tambahAsetPengalihan', function(){
 Route::get('aset_perbaikan/daftarAset','AsetPerbaikanController@index');
 
 Route::get('/aset_tersedia', [AsetTersediaController::class, 'index']);
+//Route::get('/AsetTersedia', 'App\Http\Controllers\AsetTersediaController@index');
 Route::get('/AsetTersedia/tambah', 'App\Http\Controllers\AsetTersediaController@tambah');
 Route::post('/AsetTersedia/store', 'App\Http\Controllers\AsetTersediaController@store');
 Route::get('/AsetTersedia/edit/{id_aset}', 'App\Http\Controllers\AsetTersediaController@edit');
@@ -63,6 +46,12 @@ Route::post('/AsetTersedia/update', 'App\Http\Controllers\AsetTersediaController
 Route::get('/AsetTersedia/hapus/{id_aset}', 'App\Http\Controllers\AsetTersediaController@hapus');
 
 Route::get('/aset_terpinjam', [AsetTerpinjamController::class, 'index']);
+//Route::get('/AsetTerpinjam', 'App\Http\Controllers\AsetTersediaController@index');
+Route::get('/AsetTerpinjam/tambah', 'App\Http\Controllers\AsetTerpinjamController@tambah');
+Route::post('/AsetTerpinjam/store', 'App\Http\Controllers\AsetTerpinjamController@store');
+Route::get('/AsetTerpinjam/edit/{id_aset}', 'App\Http\Controllers\AsetTerpinjamController@edit');
+Route::post('/AsetTerpinjam/update', 'App\Http\Controllers\AsetTerpinjamController@update');
+Route::get('/AsetTerpinjam/hapus/{id_aset}', 'App\Http\Controllers\AsetTerpinjamController@hapus');
 
 Route::get('/AsetTetap', 'App\Http\Controllers\AsetTetapController@index');
 Route::get('/AsetTetap/tambah', 'App\Http\Controllers\AsetTetapController@tambah');

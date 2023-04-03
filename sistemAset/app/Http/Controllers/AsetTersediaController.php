@@ -12,4 +12,42 @@ class AsetTersediaController extends Controller
 
         return view('asetTersedia\AsetTersedia',['aset_tersedia' => $aset_tersedia]);
     }
+    public function tambah()
+    {
+        return view('asetTersedia.tambahTersedia');
+    }
+
+    public function store(Request $request)
+    {
+        DB::table('aset_tersedia')->insert([
+            'nama_aset' => $request->nama_aset,
+            'stok' => $request->stok,
+        ]);
+
+        return redirect('/AsetTersedia');
+    }
+
+    public function edit($id_aset)
+    {
+        $aset_tersedia = DB::table('aset_tersedia')->where('id_aset',$id_aset)->get();
+
+        return view('asetTersedia.editTersedia',['aset_tersedia' => $aset_tersedia]);
+    }
+
+    public function update(Request $request)
+    {
+        DB::table('aset_tersedia')->where('id_aset',$request->id_aset)->update([
+            'nama_aset' => $request->nama_aset,
+            'stok' => $request->stok,
+        ]);
+
+        return redirect('/AsetTersedia');
+    }
+
+    public function hapus($id_aset)
+    {
+        DB::table('aset_tersedia')->where('id_aset',$id_aset)->delete();
+
+        return redirect('/AsetTersedia');
+    }
 }
