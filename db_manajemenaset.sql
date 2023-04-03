@@ -3,9 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+
 -- Generation Time: Apr 02, 2023 at 10:59 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +20,9 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_manajemenaset2`
+
+-- Database: `db_manajemenaset`
+
 --
 
 -- --------------------------------------------------------
@@ -134,9 +138,11 @@ INSERT INTO `aset_terpinjam` (`id_aset`, `nama_aset`, `nama_peminjam`, `jumlah_p
 ('A0001', 'Monitor PC', 'Juleha', 1, '2023-03-21', '2023-03-30'),
 ('A0002', 'Proyektor LG', 'David', 2, '2023-03-30', '2023-04-06');
 
+
 -- --------------------------------------------------------
 
 --
+
 -- Table structure for table `aset_tersedia`
 --
 
@@ -153,7 +159,6 @@ CREATE TABLE `aset_tersedia` (
 INSERT INTO `aset_tersedia` (`id_aset`, `nama_aset`, `stok`) VALUES
 ('A0003', 'Layar LCD', 3),
 ('A0004', 'Camera Sony Mirrorlens', 2);
-
 -- --------------------------------------------------------
 
 --
@@ -242,12 +247,8 @@ INSERT INTO `rekapitulasi` (`id`, `jenis_aset`, `kuantitas`) VALUES
 (1, 'Aset Tetap', 30),
 (2, 'Aset Diperbaiki', 10);
 
---
--- Indexes for dumped tables
---
 
 --
--- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`);
@@ -327,6 +328,7 @@ ALTER TABLE `pj_perbaikans`
 --
 ALTER TABLE `aset_perbaikans`
   ADD CONSTRAINT `aset_perbaikans_pj_perbaikan_foreign` FOREIGN KEY (`pj_perbaikan`) REFERENCES `pj_perbaikans` (`id_pj`);
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

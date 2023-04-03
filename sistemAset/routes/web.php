@@ -9,6 +9,8 @@ use App\Http\Controllers\PjPerbaikanController;
 use App\Http\Controllers\AsetTersediaController;
 use App\Http\Controllers\AsetTerpinjamController;
 use App\Http\Controllers\rekapAset;
+use App\Http\Controllers\JualBeliController;
+
 
 /*Route::get('/', function () {
     return view('asetDashboard');
@@ -70,6 +72,39 @@ Route::get('/AsetPengalihan/hapus/{id_Aset}', 'App\Http\Controllers\AsetPengalih
 Route::get('/asetPerbaikan', function(){
     return view('asetPerbaikan.home');
 });
+
+
+Route::get('/aset_jual_beli', [App\Http\Controllers\JualBeliController::class, 'index']);
+Route::get('tambahAsetJualBeli', [App\Http\Controllers\JualBeliController::class, 'create']);
+Route::post('/aset_jual_beli/tambah', [App\Http\Controllers\JualBeliController::class,'tambah']);
+Route::get('/aset_jual_beli/edit/{id}', [App\Http\Controllers\JualBeliController::class,'edit']);
+Route::post('/aset_jual_beli/update', [App\Http\Controllers\JualBeliController::class,'update']);
+Route::get('/aset_jual_beli/hapus/{id}', [App\Http\Controllers\JualBeliController::class,'destroy']);
+
+
+
+//PJ or SERVICER
+Route::get('/asetPerbaikan/daftarPJ',[PjPerbaikanController::class,'index']);// Read
+//Create PJ
+Route::get('/asetPerbaikan/daftarPJ/create',[PjPerbaikanController::class,'create']); 
+Route::post('/daftarPJ/store',[PjPerbaikanController::class,'store']);
+//Update PJ
+Route::get('/asetPerbaikan/daftarPJ/edit/{id}',[PjPerbaikanController::class,'edit']);
+Route::put('/daftarPJ/update/{id}',[PjPerbaikanController::class,'update']);
+//Hapus Pj
+Route::get('/asetPerbaikan/daftarPJ/hapus/{id}',[PjPerbaikanController::class,'destroy']);
+
+//ASET Perbaikan
+Route::get('/asetPerbaikan/daftarAset', [AsetPerbaikanController::class,'index']);
+//Create Aset
+Route::get('/asetPerbaikan/daftarAset/create',[AsetPerbaikanController::class,'create']); 
+Route::post('/daftarAset/store',[AsetPerbaikanController::class,'store']);
+//Update Aset
+Route::get('/asetPerbaikan/daftarAset/edit/{id}',[AsetPerbaikanController::class,'edit']);
+Route::put('/daftarAset/update/{id}',[AsetPerbaikanController::class,'update']);
+//Hapus Aset
+Route::get('/asetPerbaikan/daftarAset/hapus/{id}',[AsetPerbaikanController::class,'destroy']);
+
 
 //PJ or SERVICER
 Route::get('/asetPerbaikan/daftarPJ',[PjPerbaikanController::class,'index']);// Read
