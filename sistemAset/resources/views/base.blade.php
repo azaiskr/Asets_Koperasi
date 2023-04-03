@@ -13,9 +13,9 @@
         <title>@yield('title')</title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-                <a class="navbar-brand" href="{{url('/')}}"> Sistem Manajemen Aset </a>
+                <a class="navbar-brand" href="{{url('/')}}"> <b> Sistem Manajemen Aset </b> </a>
                 <button 
                 class = "navbar-toggler" 
                 type="button" 
@@ -42,4 +42,13 @@
                 crossorigin="anonymus">
         </script>
 </body>
+
+<style>
+        .center{
+                text-align: center;
+        }
+
+
+</style>
+
 </html>

@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pj_perbaikans', function (Blueprint $table) {
-            $table->autoincrement('id_pj')->unique();
+            $table->increments('id_pj')->unique();
             $table->string('nama_pj');
-            $table->string('no_Hp',13);
+            $table->double('no_Hp');
         });
     }
 

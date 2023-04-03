@@ -1,66 +1,58 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Http\Request;
 use App\Models\pj_perbaikan;
-use App\Http\Requests\Storepj_perbaikanRequest;
-use App\Http\Requests\Updatepj_perbaikanRequest;
 
 class PjPerbaikanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        //
+        $person = pj_perbaikan::all();
+        return view('asetPerbaikan.daftarPJ', compact('person'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
+    
     public function create()
     {
-        //
+        return view('asetPerbaikan.tambahPJ');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Storepj_perbaikanRequest $request)
+    public function store(Request $request)
     {
-        //
+        pj_perbaikan::create([
+            'nama_pj' => $request->nama_pj,
+            'no_Hp' => $request->no_Hp,
+        ]);
+        return redirect('asetPerbaikan/daftarPJ')->with('status','DATA BERHASIL DITAMBAHKAN!');
     }
+    
 
-    /**
-     * Display the specified resource.
-     */
     public function show(pj_perbaikan $pj_perbaikan)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(pj_perbaikan $pj_perbaikan)
+
+    public function edit($id)
     {
-        //
+        $person = pj_perbaikan::find($id);
+        return view('asetPerbaikan.editPJ', compact('person'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Updatepj_perbaikanRequest $request, pj_perbaikan $pj_perbaikan)
+    public function update($id, Request $request)
     {
-        //
+        $person = pj_perbaikan::find($id);
+        $person->nama_pj = $request->nama;
+        $person->no_Hp = $request->Hp;
+        $person->save();
+        return redirect('asetPerbaikan/daftarPJ')->with('status','DATA BERHASIL DIUPDATE!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(pj_perbaikan $pj_perbaikan)
+    public function destroy($id)
     {
-        //
+        $person = pj_perbaikan::find($id);
+        $person->delete();
+        return redirect('asetPerbaikan/daftarPJ')->with('danger', 'DATA BERHASIL DIHAPUS!');
     }
 }

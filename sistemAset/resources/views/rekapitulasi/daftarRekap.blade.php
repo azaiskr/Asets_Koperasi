@@ -1,23 +1,21 @@
 @extends('base')
 @section('container')
-@section('title', 'Daftar Aset Perbaikan')
+@section('title', 'Rekapitulasi Aset')
 
 <div class="container mt-3">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{url('/')}}"> Home </a></li>
-            <li class="breadcrumb-item"><a href="{{url('/asetPerbaikan')}}"> Manajemen Aset Perbaikan </a> </li>
             <li class="breadcrumb-item active" aria-current="page">@yield('title')</li>
         </ol>
     </nav>
 </div>
 
-
 <div class="container">
     <div class="row">
 
         <div class="col-12 mt-2">
-            <h2 class="center"><b> Daftar Aset Perbaikan</b></h2>
+            <h2 class="center"><b> Rekapitulasi Aset</b></h2>
             @if(session('status'))
                 <div class="alert alert-success mt-2 mb-2" id="alert">
                     {{session('status')}}
@@ -39,40 +37,32 @@
                 </script>
             @endif
         </div>
-
+        
         <div class="col-12">
-            <a class="btn btn-primary float-right mt-2" href="{{url('/asetPerbaikan/daftarAset/create')}}" role="button"> Tambah data</a>
+            <a class="btn btn-primary float-right mt-2" href="{{url('/rekapitulasiAset/create')}}" role="button"> Tambah data</a>
         </div>
-        <div class="col my-2">
+        <div class="col-md-12 my-3">
             <table class="table table-stripped">
                 <thead class="thead-primary">
                     <tr>
-                        <th class="col-0.5"> ID </th>
-                        <th class="col-4"> Nama Aset </th>
-                        <th class="text-center"> Status </th>
-                        <th class="text-center"> Tanggal Perbaikan </th>
-                        <th class="text-right col-3"> Servicer </th>
+                        <th class="text-center"> ID Aset </th>
+                        <th class="col-5"> Jenis Aset </th>
+                        <th class="text-center"> Kuantitas </th>
                         <th> </th>
                     </tr>
                 </thead>
                 <tbody>
-                @foreach($aset as $a)
+                    @foreach($rekap as $rp)
                     <tr>
-                        <td> {{$a->id_aset}} </td>
-                        <td> {{$a->nama_aset}} </td>
-                        <td class="text-center"> {{$a->status_perbaikan}} </td>
-                        <td class="text-center"> {{$a->tanggal_perbaikan}} </td>
-                        @foreach($pj as $p)
-                            @if($a->pj_perbaikan == $p->id_pj)
-                                <td class="text-right">{{$p->nama_pj}}</td>
-                            @endif
-                        @endforeach
+                        <td class="text-center"> {{$rp->id}} </td>
+                        <td> {{$rp->jenis_aset}} </td>
+                        <td class="text-center"> {{$rp->kuantitas}} </td>
                         <td> 
-                            <a href="/asetPerbaikan/daftarAset/edit/{{$a->id_aset}}" class="badge badge-warning" >Edit</a>
-                            <a href="/asetPerbaikan/daftarAset/hapus/{{$a->id_aset}}" class="badge badge-danger" > Hapus </a>
+                            <a href="/rekapitulasiAset/edit/{{$rp->id}}" class="badge badge-warning" >Edit</a>
+                            <a href="/rekapitulasiAset/hapus/{{$rp->id}}" class="badge badge-danger" > Hapus </a>
                         </td>    
                     </tr>
-                @endforeach
+                    @endforeach
                 </tbody>
             </table>
         </div>
