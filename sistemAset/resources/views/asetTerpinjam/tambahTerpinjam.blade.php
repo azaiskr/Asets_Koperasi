@@ -1,6 +1,6 @@
 @extends('base')
 @section('container')
-@section('title', 'Tambah data')
+@section('title', 'Tambah Aset Terpinjam')
 
 <div class="container mt-4">
     <nav aria-label="breadcrumb">
@@ -15,7 +15,7 @@
 <div class="container"> 
     <div class="row">
         <div class="col-md-12 mt-3">
-            <h3 style="text-align: center"> Tambah Data Aset Aset Terpinjam </h3>
+            <h3 style="text-align: center"> Tambah Data Aset Terpinjam </h3>
             <form action="/AsetTerpinjam/store" method="post">
                 @csrf
                 <div class="form-group">
@@ -48,7 +48,7 @@
                 </div>
                 <div class="form-group">
                     <label for="tanggal_pinjaman"> <h5> Tanggal Pinjaman </h5> </label>
-                    <input class="form-control" type="number" name="tanggal_pinjaman" required="required" placeholder="tanggal_pinjaman ">
+                    <input class="form-control" type="date" name="tanggal_pinjaman" required="required" placeholder="tanggal pinjaman ">
                     @if ($errors->has('tanggal_pinjaman'))
                         <div class="text-danger">
                             {{$errors->first('tanggal_pinjaman')}}
@@ -57,7 +57,7 @@
                 </div>
                 <div class="form-group">
                     <label for="tanggal_jatuh_tempo"> <h5> Tanggal Jatuh Tempo </h5> </label>
-                    <input class="form-control" type="number" name="tanggal_jatuh_tempo" required="required" placeholder="tanggal_jatuh_tempo ">
+                    <input class="form-control" type="date" name="tanggal_jatuh_tempo" required="required" placeholder="tanggal jatuh tempo ">
                     @if ($errors->has('tanggal_jatuh_tempo'))
                         <div class="text-danger">
                             {{$errors->first('tanggal_jatuh_tempo')}}
