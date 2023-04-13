@@ -4,12 +4,14 @@
 use Illuminate\Support\Facades\Route;
 
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AsetPerbaikanController;
 use App\Http\Controllers\PjPerbaikanController;
 use App\Http\Controllers\AsetTersediaController;
 use App\Http\Controllers\AsetTerpinjamController;
 use App\Http\Controllers\rekapAset;
 use App\Http\Controllers\JualBeliController;
+use App\Http\Controllers\PiutangController;
 
 
 /*Route::get('/', function () {
@@ -20,11 +22,6 @@ use App\Http\Controllers\JualBeliController;
 Route::get('/', function () { return view('login.masuk');});
 Route::get('/lupaPassword', function () { return view('login.lupaPassword');});
 Route::get('/daftar', function () { return view('login.daftar');});
-
-
-
-
-
 
 Route::get('/dashboard', function () {
     return view('asetDashboard');
@@ -148,3 +145,25 @@ Route::get('/rekapitulasiAset/edit/{id}',[rekapAset::class,'edit']);
 Route::post('/rekapitulasiAset/update/',[rekapAset::class,'update']);
 
 Route::get('/rekapitulasiAset/hapus/{id}',[rekapAset:: class,'destroy']);
+
+//admin
+Route::get('/user',[UserController::class,'index']);// Read
+
+Route::get('/user/create',[UserController::class,'create']);
+Route::post('/user/store',[UserController::class,'store']);
+
+Route::get('/rekapitulasiAset/edit/{id}',[UserController::class,'edit']);
+Route::post('/rekapitulasiAset/update/',[UserController::class,'update']);
+
+Route::get('/rekapitulasiAset/hapus/{id}',[UserController:: class,'destroy']);
+
+//Piutang
+Route::get('/aset_piutang',[PiutangController::class,'index']);// Read
+
+Route::get('/aset_piutang/create',[PiutangController::class,'create']);
+Route::post('/aset_piutang/store',[PiutangController::class,'store']);
+
+Route::get('/aset_piutang/edit/{id}',[PiutangController::class,'edit']);
+Route::post('/aset_piutang/update/',[PiutangController::class,'update']);
+
+Route::get('/aset_piutang/hapus/{id}',[PiutangController:: class,'destroy']);

@@ -14,9 +14,9 @@
     
     
     <div class="row row-cols-4">
-        <a class="btn btn-outline-info mt-4 ml-4 shadow-sm p-3 mb-3 rounded" style="width:18rem" href="{{url('/admin')}}" role="button";>
+        <a class="btn btn-outline-info mt-4 ml-4 shadow-sm p-3 mb-3 rounded" style="width:18rem" href="{{url('/user')}}" role="button";>
             <div class="">
-                <h3 class="btn-label"> Admin </h3>
+                <h3 class="btn-label"> User </h3>
             </div>
         </a>
         <a class="btn btn-outline-info mt-4 ml-4 shadow-sm p-3 mb-3 rounded" style="width:18rem" href="{{url('/AsetTetap')}}" role="button";>
