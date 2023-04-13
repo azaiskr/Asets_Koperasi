@@ -1,6 +1,6 @@
 @extends('base')
 @section('container')
-@section('title', 'Rekapitulasi Aset')
+@section('title', 'Daftar User')
 
 <div class="container mt-3">
     <nav aria-label="breadcrumb">
@@ -15,7 +15,7 @@
     <div class="row">
 
         <div class="col-12 mt-2">
-            <h2 class="center"><b> Rekapitulasi Aset</b></h2>
+            <h2 class="center"><b> Daftar User</b></h2>
             @if(session('status'))
                 <div class="alert alert-success mt-2 mb-2" id="alert">
                     {{session('status')}}
@@ -38,28 +38,24 @@
             @endif
         </div>
         
-        <div class="col-12">
-            <a class="btn btn-primary float-right mt-2" href="{{url('/rekapitulasiAset/create')}}" role="button"> Tambah data</a>
-        </div>
         <div class="col-md-12 my-3">
             <table class="table table-hover">
                 <thead class="thead-dark">
                     <tr>
-                        <th class="text-center"> ID Aset </th>
-                        <th class="col-5"> Jenis Aset </th>
-                        <th class="text-center"> Kuantitas </th>
+                        <th class="text-center"> ID User </th>
+                        <th class="col-5"> Nama User </th>
+                        <th class="text-center"> Email </th>
                         <th> </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($rekap as $rp)
+                    @foreach($user as $adm)
                     <tr>
-                        <td class="text-center"> {{$rp->id}} </td>
-                        <td> {{$rp->jenis_aset}} </td>
-                        <td class="text-center"> {{$rp->kuantitas}} </td>
+                        <td class="text-center"> {{$adm->id}} </td>
+                        <td> {{$adm->name}} </td>
+                        <td class="text-center"> {{$adm->email}} </td>
                         <td> 
-                            <a href="/rekapitulasiAset/edit/{{$rp->id}}" class="badge badge-warning" >Edit</a>
-                            <a href="/rekapitulasiAset/hapus/{{$rp->id}}" class="badge badge-danger" > Hapus </a>
+                            <a href="/admin/hapus/{{$adm->id}}" class="badge badge-danger" > Hapus </a>
                         </td>    
                     </tr>
                     @endforeach
