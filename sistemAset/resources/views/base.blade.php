@@ -26,6 +26,12 @@
                 aria-label="Toogle navigation">
                 <span class = "navbar-toggler-icon"> </span>
                 </button>
+@if (Route::has('login'))
+        @auth
+                <a class="navbar-brand" href="{{url('/logout')}}"> <b> Logout </b> </a>
+        @endauth
+@endif
+                
         </div>
         </nav>
         @yield('container')
