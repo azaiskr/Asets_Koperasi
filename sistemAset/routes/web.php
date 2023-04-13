@@ -16,8 +16,17 @@ use App\Http\Controllers\Auth\LoginController;
     return view('asetDashboard');
 });*/
 
+//Welcome Page
+Route::get('/', function () { return view('login.masuk');});
+Route::get('/lupaPassword', function () { return view('login.lupaPassword');});
+Route::get('/daftar', function () { return view('login.daftar');});
 
-Route::get('/', function () {
+
+
+
+
+
+Route::get('/dashboard', function () {
     return view('asetDashboard');
 });
 
