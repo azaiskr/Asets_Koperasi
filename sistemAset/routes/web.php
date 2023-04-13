@@ -52,6 +52,9 @@ Route::post('/AsetTersedia/store', 'App\Http\Controllers\AsetTersediaController@
 Route::get('/AsetTersedia/edit/{id_aset}', 'App\Http\Controllers\AsetTersediaController@edit');
 Route::post('/AsetTersedia/update', 'App\Http\Controllers\AsetTersediaController@update');
 Route::get('/AsetTersedia/hapus/{id_aset}', 'App\Http\Controllers\AsetTersediaController@hapus');
+Route::get('/tambahTersedia', function(){
+    return view('asetTersedia.tambahTersedia');
+});
 
 Route::get('/aset_terpinjam', [AsetTerpinjamController::class, 'index']);
 //Route::get('/AsetTerpinjam', 'App\Http\Controllers\AsetTersediaController@index');
@@ -60,6 +63,9 @@ Route::post('/AsetTerpinjam/store', 'App\Http\Controllers\AsetTerpinjamControlle
 Route::get('/AsetTerpinjam/edit/{id_aset}', 'App\Http\Controllers\AsetTerpinjamController@edit');
 Route::post('/AsetTerpinjam/update', 'App\Http\Controllers\AsetTerpinjamController@update');
 Route::get('/AsetTerpinjam/hapus/{id_aset}', 'App\Http\Controllers\AsetTerpinjamController@hapus');
+Route::get('/tambahTerpinjam', function(){
+    return view('asetTerpinjam.tambahTerpinjam');
+});
 
 Route::get('/AsetTetap', 'App\Http\Controllers\AsetTetapController@index');
 Route::get('/AsetTetap/tambah', 'App\Http\Controllers\AsetTetapController@tambah');
