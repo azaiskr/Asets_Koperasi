@@ -162,13 +162,6 @@ Route::get('/rekapitulasiAset/hapus/{id}',[rekapAset:: class,'destroy']);
 //admin
 Route::get('/user',[UserController::class,'index']);// Read
 
-Route::get('/user/create',[UserController::class,'create']);
-Route::post('/user/store',[UserController::class,'store']);
-
-Route::get('/rekapitulasiAset/edit/{id}',[UserController::class,'edit']);
-Route::post('/rekapitulasiAset/update/',[UserController::class,'update']);
-
-Route::get('/rekapitulasiAset/hapus/{id}',[UserController:: class,'destroy']);
 
 //Piutang
 Route::get('/aset_piutang',[PiutangController::class,'index']);// Read
