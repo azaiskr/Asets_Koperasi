@@ -11,24 +11,14 @@ use App\Http\Controllers\rekapAset;
 use App\Http\Controllers\JualBeliController;
 use App\Http\Controllers\Auth\PendaftaranController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\DashboardController;
 
 /*Route::get('/', function () {
     return view('asetDashboard');
 });*/
 
 //Welcome Page
-Route::get('/', function () { return view('login.masuk');});
 Route::get('/lupaPassword', function () { return view('login.lupaPassword');});
-Route::get('/daftar', function () { return view('login.daftar');});
-
-
-
-
-
-
-Route::get('/dashboard', function () {
-    return view('asetDashboard');
-});
 
 Route::get('/AsetTetap', function(){
     return view('asetTetap.AsetTetap');
@@ -46,8 +36,7 @@ Route::get('/tambahAsetPengalihan', function(){
     return view('asetPengalihan.tambahAsetPengalihan');
 });
 
-Route::get('/register', [RegisterController::class, 'register'])->name('register');
-Route::post('/register/action', [RegisterController::class, 'actionregister'])->name('actionregister');
+Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login/actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
