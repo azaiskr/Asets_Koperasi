@@ -27,6 +27,7 @@
 						<th class="text-center">JUMLAH</th>
 						<th class="text-center">TANGGAL PINJAMAN</th>
 						<th class="text-center">TANGGAL JATUH TEMPO</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
