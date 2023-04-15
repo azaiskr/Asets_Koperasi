@@ -3,7 +3,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AsetPerbaikanController;
 use App\Http\Controllers\PjPerbaikanController;
@@ -11,21 +10,17 @@ use App\Http\Controllers\AsetTersediaController;
 use App\Http\Controllers\AsetTerpinjamController;
 use App\Http\Controllers\rekapAset;
 use App\Http\Controllers\JualBeliController;
+use App\Http\Controllers\Auth\PendaftaranController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PiutangController;
-
 
 /*Route::get('/', function () {
     return view('asetDashboard');
 });*/
 
 //Welcome Page
-Route::get('/', function () { return view('login.masuk');});
 Route::get('/lupaPassword', function () { return view('login.lupaPassword');});
-Route::get('/daftar', function () { return view('login.daftar');});
-
-Route::get('/dashboard', function () {
-    return view('asetDashboard');
-});
 
 Route::get('/AsetTetap', function(){
     return view('asetTetap.AsetTetap');
@@ -42,6 +37,18 @@ Route::get('/AsetPengalihan', function(){
 Route::get('/tambahAsetPengalihan', function(){
     return view('asetPengalihan.tambahAsetPengalihan');
 });
+
+Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/login/actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
+
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
+
+Route::get('/pendaftaran', [PendaftaranController::class, 'register'])->name('register');
+Route::post('pendaftaran/action', [PendaftaranController::class, 'actionregister'])->name('actionregister');
+
+Route::get('register/verify/{verify_key}', [PendaftaranController::class, 'verify'])->name('verify');
 
 Route::get('aset_perbaikan/daftarAset','AsetPerbaikanController@index');
 
