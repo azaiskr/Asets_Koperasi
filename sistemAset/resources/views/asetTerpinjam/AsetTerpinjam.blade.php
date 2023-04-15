@@ -5,7 +5,7 @@
 <div class="container mt-4">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/dashboard"> Home </a></li>
+            <li class="breadcrumb-item"><a href="/"> Home </a></li>
             <li class="breadcrumb-item active" aria-current="page">@yield('title')</li>
         </ol>
     </nav>
@@ -27,6 +27,7 @@
 						<th class="text-center">JUMLAH</th>
 						<th class="text-center">TANGGAL PINJAMAN</th>
 						<th class="text-center">TANGGAL JATUH TEMPO</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>

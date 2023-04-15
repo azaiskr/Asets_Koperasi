@@ -24,7 +24,7 @@
 						<th>ID ASET</th>
 						<th>NAMA ASET</th>
 						<th class="text-center">STOK</th>
-
+                        <th> </th>
                 </thead>
                 <tbody>
                 @foreach($aset_tersedia as $at)
