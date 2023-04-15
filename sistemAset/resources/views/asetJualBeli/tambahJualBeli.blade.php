@@ -5,7 +5,7 @@
 <div class="container mt-4">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/dashboard"> Home </a></li>
+            <li class="breadcrumb-item"><a href="/"> Home </a></li>
             <li class="breadcrumb-item"><a href="aset_jual_beli"> Daftar Aset Pengalihan </a> </li>
             <li class="breadcrumb-item active" aria-current="page">@yield('title')</li>
         </ol>
