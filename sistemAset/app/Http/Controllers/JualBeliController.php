@@ -13,7 +13,7 @@ class JualBeliController extends Controller
     public function index()
     {
         $aset_jualbeli = DB::table('aset_jualbeli')->get();
-        return view('asetJualBeli\daftaraset',['aset_jualbeli' => $aset_jualbeli]);
+        return view('asetJualBeli.daftaraset',['aset_jualbeli' => $aset_jualbeli]);
     }
 
     /**
