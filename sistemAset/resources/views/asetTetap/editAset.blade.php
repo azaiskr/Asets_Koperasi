@@ -1,6 +1,6 @@
 @extends('base')
 @section('container')
-@section('title', 'Tambah data')
+@section('title', 'Edit data')
 
 <div class="container mt-4">
     <nav aria-label="breadcrumb">
