@@ -2,6 +2,7 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AsetPerbaikanController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\Auth\PendaftaranController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PiutangController;
+use App\Http\Controllers\Auth\VerifikasiEmailController;
 
 /*Route::get('/', function () {
     return view('asetDashboard');
@@ -38,7 +40,9 @@ Route::get('/tambahAsetPengalihan', function(){
     return view('asetPengalihan.tambahAsetPengalihan');
 });
 
-Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+//Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::get('/', [DashboardController::class, 'dashboard'])->middleware(['auth', 'is_verify_email']);
+//Route::get('/', [DashboardController::class, 'dashboard'])->middleware('auth');
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login/actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
@@ -49,6 +53,7 @@ Route::get('/pendaftaran', [PendaftaranController::class, 'register'])->name('re
 Route::post('pendaftaran/action', [PendaftaranController::class, 'actionregister'])->name('actionregister');
 
 Route::get('register/verify/{verify_key}', [PendaftaranController::class, 'verify'])->name('verify');
+Route::get('account/verify/{token}', [VerifikasiEmailController::class, 'verifikasi'])->name('user.verify');
 
 Route::get('aset_perbaikan/daftarAset','AsetPerbaikanController@index');
 
@@ -74,12 +79,12 @@ Route::get('/tambahTerpinjam', function(){
     return view('asetTerpinjam.tambahTerpinjam');
 });
 
-Route::get('/AsetTetap', 'App\Http\Controllers\AsetTetapController@index');
-Route::get('/AsetTetap/tambah', 'App\Http\Controllers\AsetTetapController@tambah');
-Route::post('/AsetTetap/store', 'App\Http\Controllers\AsetTetapController@store');
-Route::get('/AsetTetap/edit/{id_Aset}', 'App\Http\Controllers\AsetTetapController@edit');
-Route::post('/AsetTetap/update', 'App\Http\Controllers\AsetTetapController@update');
-Route::get('/AsetTetap/hapus/{id_Aset}', 'App\Http\Controllers\AsetTetapController@hapus');
+Route::get('/AsetTetap', 'App\Http\Controllers\AsetTetapController@index')->middleware('auth');;
+Route::get('/AsetTetap/tambah', 'App\Http\Controllers\AsetTetapController@tambah')->middleware('auth');;
+Route::post('/AsetTetap/store', 'App\Http\Controllers\AsetTetapController@store')->middleware('auth');;
+Route::get('/AsetTetap/edit/{id_Aset}', 'App\Http\Controllers\AsetTetapController@edit')->middleware('auth');;
+Route::post('/AsetTetap/update', 'App\Http\Controllers\AsetTetapController@update')->middleware('auth');;
+Route::get('/AsetTetap/hapus/{id_Aset}', 'App\Http\Controllers\AsetTetapController@hapus')->middleware('auth');;
 
 Route::get('/AsetPengalihan', 'App\Http\Controllers\AsetPengalihanController@index');
 Route::get('/AsetPengalihan/tambah', 'App\Http\Controllers\AsetPengalihanController@tambah');
