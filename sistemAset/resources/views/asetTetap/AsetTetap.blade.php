@@ -15,7 +15,7 @@
     <div class="row">
         <div class="my-4 col-12">
             <h2 class="float-left"> Daftar Aset Tetap </h2>
-            <a class="btn btn-primary float-right mt-2" href="/tambahAset" role="button"> Tambah data</a>
+            <a class="btn btn-primary float-right mt-2" href="/AsetTetap/tambah" role="button"> Tambah data</a>
         </div>
         <div class="col-md-12">
             <table class="table table-stripped">
