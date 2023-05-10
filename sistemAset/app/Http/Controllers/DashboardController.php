@@ -9,6 +9,12 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-        return view('asetDashboard');
+        if (Auth::check()) {
+            #return view('asetDashboard');
+            return view('home');
+        }else{
+            return redirect('/login');
+        }
+
     }
 }

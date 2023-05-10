@@ -17,7 +17,7 @@
     <div class="row">
         <div class="col-md-12 mt-3">
             <h3 style="text-align: center"> Tambah Data Aset </h3>
-            <form action="/daftarAset/store" method="post">
+            <form action="/asetPerbaikan/store" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="id"> <h5> ID Aset </h5> </label>

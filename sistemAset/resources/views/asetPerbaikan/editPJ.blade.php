@@ -17,7 +17,7 @@
         <div class="col-md-12 mt-3">
             <h3 style="text-align: center"> Edit Data Servicer </h3>
 
-            <form action="/daftarPJ/update/{{$person->id_pj}}" method="post">
+            <form action="/daftarServicer/update/{{$person->id_pj}}" method="post">
                 {{csrf_field()}}
                 {{method_field('PUT')}}
                 <div class="form-group">

@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-md-12 mt-3">
             <h3 style="text-align: center"> Tambah Data Servicer </h3>
-            <form action="/daftarPJ/store" method="post">
+            <form action="/daftarServicer/store" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="nama_pj"> <h5> Nama Servicer</h5> </label>

@@ -17,7 +17,7 @@
         <div class="col-md-12 mt-3">
             <h3 style="text-align: center"> Edit Data Aset </h3>
 
-            <form action="/daftarAset/update/{{$aset->id_aset}}" method="post">
+            <form action="/asetPerbaikan/update/{{$aset->id_aset}}" method="post">
                 {{csrf_field()}}
                 {{method_field('PUT')}}
                 <div class="form-group">

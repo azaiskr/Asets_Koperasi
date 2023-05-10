@@ -24,7 +24,7 @@ class PjPerbaikanController extends Controller
             'nama_pj' => $request->nama_pj,
             'no_Hp' => $request->no_Hp,
         ]);
-        return redirect('asetPerbaikan/daftarPJ')->with('status','DATA BERHASIL DITAMBAHKAN!');
+        return redirect('/daftarServicer')->with('status','DATA BERHASIL DITAMBAHKAN!');
     }
     
 
@@ -46,13 +46,13 @@ class PjPerbaikanController extends Controller
         $person->nama_pj = $request->nama;
         $person->no_Hp = $request->Hp;
         $person->save();
-        return redirect('asetPerbaikan/daftarPJ')->with('status','DATA BERHASIL DIUPDATE!');
+        return redirect('/daftarServicer')->with('status','DATA BERHASIL DIUPDATE!');
     }
 
     public function destroy($id)
     {
         $person = pj_perbaikan::find($id);
         $person->delete();
-        return redirect('asetPerbaikan/daftarPJ')->with('danger', 'DATA BERHASIL DIHAPUS!');
+        return redirect('/daftarServicer')->with('danger', 'DATA BERHASIL DIHAPUS!');
     }
 }
