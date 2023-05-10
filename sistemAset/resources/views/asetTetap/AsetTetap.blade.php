@@ -1,5 +1,5 @@
-@extends('base')
-@section('container')
+@extends('base2')
+@section('pageView')
 @section('title', 'Daftar Aset')
 
 <div class="container mt-4">
@@ -11,39 +11,48 @@
     </nav>
 </div>
 
-<div class="container">
+<div class="pageSection">
+    <div class="pageTitle">
+        <span>Daftar Aset Tetap</span>
+    </div>
+    
     <div class="row">
-        <div class="my-4 col-12">
-            <h2 class="float-left"> Daftar Aset Tetap </h2>
-            <a class="btn btn-primary float-right mt-2" href="/tambahAset" role="button"> Tambah data</a>
-        </div>
-        <div class="col-md-12">
-            <table class="table table-stripped">
+        <a class="btnAdd" href="/tambahAset" role="button"> 
+            <i class="bi bi-plus-lg"></i>
+            <span class="btnLabel">Tambah data</span>
+        </a>
+
+        <div>
+            <table class="table-div">
                 <thead class="thead-primary">
                     <tr>
-					<th>ID ASET</th>
-						<th>NAMA ASET</th>
-						<th class="text-center">LOKASI</th>
-						<th class="text-center">KONDISI</th>
-						<th class="text-center">JUMLAH</th>
-						<th class="text-center">UKURAN</th>
-						<th class="text-center">NILAI EKONOMI</th>
-						<th>OPSI</th>
+                        <th class="text-center">ID Aset</th>
+                        <th class="text-left">Nama Aset</th>
+                        <th class="text-center">Lokasi</th>
+                        <th class="text-center">Kondisi</th>
+                        <th class="text-center">Jumlah</th>
+                        <th class="text-center">Ukuran</th>
+                        <th class="text-right">Nilai Ekonomi</th>
+                    <th></th>
                     </tr>
                 </thead>
                 <tbody>
                 @foreach($aset_tetaps as $at)
                     <tr>
-						<td>{{ $at->id_Aset }}</td>
-						<td>{{ $at->nama_Aset }}</td>
+						<td class="text-center">{{ $at->id_Aset }}</td>
+						<td class="text-left">{{ $at->nama_Aset }}</td>
 						<td class="text-center">{{ $at->lokasi }}</td>
 						<td class="text-center">{{ $at->kondisi }}</td>
 						<td class="text-center">{{ $at->jumlah }}</td>
 						<td class="text-center">{{ $at->ukuran }}</td>
-						<td class="text-center">Rp{{ $at->nilai_ekonomi }}</td>
-						<td>
-							<a href="/AsetTetap/edit/{{$at->id_Aset}}" class="badge badge-warning">Edit</a>
-							<a href="/AsetTetap/hapus/{{$at->id_Aset}}" class="badge badge-danger">Hapus</a>
+                        <td class="text-right">Rp{{ number_format($at->nilai_ekonomi, 0, ',', '.') }}</td>
+							<td>
+                            <a class="btnEdit" href="/AsetTetap/edit/{{$at->id_Aset}}">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <a class="btnRemove" href="/AsetTetap/hapus/{{$at->id_Aset}}"> 
+                                <i class="bi bi-trash"></i>
+                            </a>
 						</td>   
                     </tr>
                 @endforeach

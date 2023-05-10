@@ -1,5 +1,5 @@
-@extends('base')
-@section('container')
+@extends('base2')
+@section('pageView')
 @section('title', 'Piutang')
 
 <div class="container mt-3">
@@ -11,12 +11,10 @@
     </nav>
 </div>
 
-<div class="container">
-    <div class="row">
-
-        <div class="col-12 mt-2">
-            <h2 class="center"><b> Daftar Aset Piutang</b></h2>
-            @if(session('status'))
+<div class="pageSection">
+    <div class="pageTitle">
+        <span>Daftar Aset Piutang</span>
+        @if(session('status'))
                 <div class="alert alert-success mt-2 mb-2" id="alert">
                     {{session('status')}}
                 </div>
@@ -36,17 +34,20 @@
                     }, 3000);
                 </script>
             @endif
-        </div>
-        
-        <div class="col-12">
-            <a class="btn btn-primary float-right mt-2" href="{{url('/aset_piutang/create')}}" role="button"> Tambah data</a>
-        </div>
-        <div class="col-md-12 my-3">
-            <table class="table table-hover">
-                <thead class="thead-dark">
+    </div>
+
+    <div class="row">
+        <a class="btnAdd" href="/aset_piutang/create" role="button"> 
+            <i class="bi bi-plus-lg"></i>
+            <span class="btnLabel">Tambah data</span>
+        </a>
+       
+        <div>
+            <table class="table-div">
+                <thead class="thead-primary">
                     <tr>
-                        <th> ID Pinjaman </th>
-                        <th class="col-4"> Nama Peminjam </th>
+                        <th class="text-center" > ID Pinjaman </th>
+                        <th class="text-left"> Nama Peminjam </th>
                         <th class="text-center"> Jumlah </th>
                         <th class="text-center"> Jatuh Tempo</th>
                         <th class="text-center"> Pelunasan </th>
@@ -56,20 +57,25 @@
                 <tbody>
                     @foreach($data as $dt)
                     <tr>
-                        <td> {{$dt->id_pinjaman}} </td>
-                        <td> {{$dt->nama_peminjam}} </td>
-                        <td class="text-right"> {{$dt->jumlah_pinjaman}} </td>
+                        <td class="text-center" > {{$dt->id_pinjaman}} </td>
+                        <td class="text-left" > {{$dt->nama_peminjam}} </td>
+                        <td class="text-right">Rp{{ number_format($dt->jumlah_pinjaman, 0, ',', '.') }}</td>
                         <td class="text-center"> {{$dt->waktu_pinjaman}} </td>
                         <td class="text-center"> {{$dt->pelunasan}} </td>
                         <td> 
-                            <a href="/aset_piutang/edit/{{$dt->id_pinjaman}}" class="badge badge-warning" >Edit</a>
-                            <a href="/aset_piutang/hapus/{{$dt->id_pinjaman}}" class="badge badge-danger" > Hapus </a>
-                        </td>    
+                            <a class="btnEdit" href="/aset_piutang/edit/{{$dt->id_pinjaman}}">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <a class="btnRemove" href="/aset_piutang/hapus/{{$dt->id_pinjaman}}"> 
+                                <i class="bi bi-trash"></i>
+                            </a>
+						</td>   
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
     </div>
+    
 </div>
 @endsection

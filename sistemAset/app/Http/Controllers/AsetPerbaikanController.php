@@ -30,7 +30,7 @@ class AsetPerbaikanController extends Controller
             'tanggal_perbaikan'=>$request->tanggal,
             'pj_perbaikan'=>$request->servicer,
         ]);
-        return redirect('/asetPerbaikan/daftarAset')->with('status', 'DATA BERHASIL DITAMBAHKAN!');
+        return redirect('/asetPerbaikan')->with('status', 'DATA BERHASIL DITAMBAHKAN!');
     }
 
 
@@ -54,13 +54,13 @@ class AsetPerbaikanController extends Controller
         $aset->tanggal_perbaikan = $request->tanggal;
         $aset->pj_perbaikan = $request->servicer;
         $aset->save();
-        return redirect('asetPerbaikan/daftarAset')->with('status', 'DATA BERHASIL DIUPDATE!');
+        return redirect('/asetPerbaikan')->with('status', 'DATA BERHASIL DIUPDATE!');
     }
 
     public function destroy($id)
     {
         $aset = asetPerbaikan::find($id);
         $aset->delete();
-        return redirect('asetPerbaikan/daftarAset')->with('danger', 'DATA BERHASIL DIHAPUS!');
+        return redirect('/asetPerbaikan')->with('danger', 'DATA BERHASIL DIHAPUS!');
     }
 }

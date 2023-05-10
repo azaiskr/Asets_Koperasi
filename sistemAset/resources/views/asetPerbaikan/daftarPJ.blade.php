@@ -1,5 +1,5 @@
-@extends('base')
-@section('container')
+@extends('base2')
+@section('pageView')
 @section('title', 'Daftar Servicer')
 
 <div class="container mt-3">
@@ -12,43 +12,44 @@
     </nav>
 </div>
 
-<div class="container">
-    <div class="row">
+<div class="pageSection">
+    <div class="pageTitle">
+        <span>Daftar Servicer</span>
+        @if(session('status'))
+        <div class="alert alert-success mt-2 mb-2" id="alert">
+            {{session('status')}}
+        </div>
+        <script>
+            setTimeout(function(){
+                document.getElementById('alert').style.display = 'none';
+            }, 3000);
+        </script>
+    @endif
+    @if(session('danger'))
+        <div class="alert alert-danger mt-2 mb-2" id="alert">
+            {{session('danger')}}
+        </div>
+        <script>
+            setTimeout(function(){
+                document.getElementById('alert').style.display = 'none';
+            }, 3000);
+        </script>
+    @endif
+    </div>
 
-        <div class="col-12 mt-2">
-            <h2 class="center"><b> Daftar Servicer</b></h2>
-            @if(session('status'))
-                <div class="alert alert-success mt-2 mb-2" id="alert">
-                    {{session('status')}}
-                </div>
-                <script>
-                    setTimeout(function(){
-                        document.getElementById('alert').style.display = 'none';
-                    }, 3000);
-                </script>
-            @endif
-            @if(session('danger'))
-                <div class="alert alert-danger mt-2 mb-2" id="alert">
-                    {{session('danger')}}
-                </div>
-                <script>
-                    setTimeout(function(){
-                        document.getElementById('alert').style.display = 'none';
-                    }, 3000);
-                </script>
-            @endif
-        </div>
-        
-        <div class="col-12">
-            <a class="btn btn-primary float-right mt-2" href="{{url('/asetPerbaikan/daftarPJ/create')}}" role="button"> Tambah data</a>
-        </div>
-        <div class="col-md-12 my-3">
-            <table class="table table-hover">
-                <thead class="thead-dark">
+    <div class="row">
+        <a class="btnAdd" href="/daftarServicer/create" role="button"> 
+            <i class="bi bi-plus-lg"></i>
+            <span class="btnLabel">Tambah data</span>
+        </a>
+
+        <div>
+            <table class="table-div">
+                <thead class="thead-primary">
                     <tr>
                         <th class="text-center"> ID Servicer </th>
-                        <th class="col-5"> Nama Servicer </th>
-                        <th class="text-center col-4"> No HP </th>
+                        <th class="text-lefy"> Nama Servicer </th>
+                        <th class="text-center"> No HP </th>
                         <th> </th>
                     </tr>
                 </thead>
@@ -56,11 +57,15 @@
                     @foreach($person as $p)
                     <tr>
                         <td class="text-center"> {{$p->id_pj}} </td>
-                        <td> {{$p->nama_pj}} </td>
+                        <td class="text-left"> {{$p->nama_pj}} </td>
                         <td class="text-center"> {{$p->no_Hp}} </td>
                         <td> 
-                            <a href="/asetPerbaikan/daftarPJ/edit/{{$p->id_pj}}" class="badge badge-warning" >Edit</a>
-                            <a href="/asetPerbaikan/daftarPJ/hapus/{{$p->id_pj}}" class="badge badge-danger" > Hapus </a>
+                            <a class="btnEdit" href="/daftarServicer/edit/{{$p->id_pj}}">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <a class="btnRemove" href="/daftarServicer/hapus/{{$p->id_pj}}"> 
+                                <i class="bi bi-trash"></i>
+                            </a>
                         </td>    
                     </tr>
                     @endforeach
@@ -68,5 +73,6 @@
             </table>
         </div>
     </div>
+    
 </div>
 @endsection

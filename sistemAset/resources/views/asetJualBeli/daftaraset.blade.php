@@ -1,5 +1,5 @@
-@extends('base')
-@section('container')
+@extends('base2')
+@section('pageView')
 @section('title', 'Daftar Aset Jual Beli')
 
 <div class="container mt-4">
@@ -11,35 +11,44 @@
     </nav>
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="my-4 col-12">
-            <h2 class="float-left"> Daftar Aset Jual Beli </h2>
-            <a class="btn btn-primary float-right mt-2" href="/tambahAsetJualBeli" role="button"> Tambah data</a>
-        </div>
-        <div class="col-md-12">
-            <table class="table table-stripped">
+<div class="pageSection">
+    <div class="pageTitle">
+        <span>Daftar Aset Jual Beli</span>
+    </div>
+
+    <div class="row"> 
+        <a class="btnAdd" href="/tambahAsetJualBeli" role="button"> 
+            <i class="bi bi-plus-lg"></i>
+            <span class="btnLabel">Tambah data</span>
+        </a>
+
+        <div>
+            <table class="table-div">
                 <thead class="thead-primary">
                     <tr>
-						<th class="text-center">ID ASET</th>
-						<th class="text-center">NAMA ASET</th>
-						<th class="text-center">STOK</th>
-						<th class="text-center">NILAI EKONOMI</th>
-						<th class="text-center">LOKASI JUAL</th>
-						<th>OPSI</th>
+						<th class="text-center">ID Aset</th>
+						<th class="text-left" >Nama Aset</th>
+						<th class="text-center">Stok</th>
+						<th class="text-center">Nilai Ekonomi</th>
+						<th class="text-center">Lokasi Jual</th>
+						<th></th>
                     </tr>
                 </thead>
                 <tbody>
                 @foreach($aset_jualbeli as $aj)
                     <tr>
 						<td class="text-center">{{ $aj->id_aset }}</td>
-						<td class="text-center">{{ $aj->nama_aset }}</td>
+						<td>{{ $aj->nama_aset }}</td>
 						<td class="text-center">{{ $aj->stok }}</td>
-						<td class="text-center">{{ $aj->nilai_ekonomi }}</td>
+                        <td class="text-right">Rp{{ number_format($aj->nilai_ekonomi, 0, ',', '.') }}</td>
 						<td class="text-center">{{ $aj->lokasi_jual }}</td>
 						<td>
-							<a href="/aset_jual_beli/edit/{{$aj->id_aset}}" class="badge badge-warning">Edit</a>
-							<a href="/aset_jual_beli/hapus/{{$aj->id_aset}}" class="badge badge-danger">Hapus</a>
+                            <a class="btnEdit" href="/aset_jual_beli/edit/{{$aj->id_aset}}">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <a class="btnRemove" href="/aset_jual_beli/hapus/{{$aj->id_aset}}"> 
+                                <i class="bi bi-trash"></i>
+                            </a>
 						</td>   
                     </tr>
                 @endforeach

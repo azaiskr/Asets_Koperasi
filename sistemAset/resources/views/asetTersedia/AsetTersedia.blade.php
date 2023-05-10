@@ -1,5 +1,5 @@
-@extends('base')
-@section('container')
+@extends('base2')
+@section('pageView')
 @section('title', 'Aset Tersedia')
 
 <div class="container mt-4">
@@ -11,30 +11,41 @@
     </nav>
 </div>
 
-<div class="container">
+<div class="pageSection">
+    <div class="pageTitle">
+        <span>Daftar Aset Tersedia</span>
+    </div>
+
+    
     <div class="row">
-        <div class="my-4 col-12">
-            <h2 class="float-left"> Daftar Aset Tersedia </h2>
-            <a class="btn btn-primary float-right mt-2" href="/tambahTersedia" role="button">Tambah data</a>
-        </div>
-        <div class="col-md-12">
-            <table class="table table-stripped">
+
+        <a class="btnAdd" href="/tambahTersedia" role="button"> 
+            <i class="bi bi-plus-lg"></i>
+            <span class="btnLabel">Tambah data</span>
+        </a>
+
+        <div>
+            <table class="table-div">
                 <thead class="thead-primary">
                     <tr>
-						<th>ID ASET</th>
-						<th>NAMA ASET</th>
-						<th class="text-center">STOK</th>
+						<th class="text-center">ID Aset</th>
+						<th class="text-left">Nama Aset</th>
+						<th class="text-center">Stok</th>
                         <th> </th>
                 </thead>
                 <tbody>
                 @foreach($aset_tersedia as $at)
                     <tr>
-						<td>{{ $at->id_aset }}</td>
-						<td>{{ $at->nama_aset }}</td>
+						<td class="text-center" >{{ $at->id_aset }}</td>
+						<td class="text-left" >{{ $at->nama_aset }}</td>
 						<td class="text-center">{{ $at->stok }}</td>
 						<td>
-							<a href="/AsetTersedia/edit/{{$at->id_aset}}" class="badge badge-warning">Edit</a>
-							<a href="/AsetTersedia/hapus/{{$at->id_aset}}" class="badge badge-danger">Hapus</a>
+                            <a class="btnEdit" href="/AsetTersedia/edit/{{$at->id_aset}}">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <a class="btnRemove" href="/AsetTersedia/hapus/{{$at->id_aset}}"> 
+                                <i class="bi bi-trash"></i>
+                            </a>
 						</td>   
                     </tr>
                 @endforeach
