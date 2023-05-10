@@ -22,7 +22,19 @@
             <div class="right"> <a href='/lupaPassword'> Lupa password? </a> </div>
         </div>
 
+        @if ($message = Session::get('verifikasi'))
+            <div class="center error-message">
+                {{ $message }}
+            </div>
+        @endif
+
         @if ($message = Session::get('error'))
+            <div class="center error-message">
+                {{ $message }}
+            </div>
+        @endif
+
+        @if ($message = Session::get('verifIssues'))
             <div class="center error-message">
                 {{ $message }}
             </div>

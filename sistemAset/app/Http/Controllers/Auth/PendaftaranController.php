@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+use Mail; 
 
 class PendaftaranController extends Controller
 {
@@ -37,16 +39,24 @@ class PendaftaranController extends Controller
             'password.min' => 'Masukkan setidaknya 8 karakter',
             'password.confirmed' => 'Password tidak sesuai',
         ]
-    );
+        );
+
+        $token = Str::random(64);
 
         $user = User::create([
             'email' => $request->email,
             'name' => $request->name,
             'password' => Hash::make($request->password),
+            'token' => $token,
             'active' => 1
         ]);
-
-        return redirect('/login');
+  
+        Mail::send('login.VerifikasiEmail', ['token' => $token], function($message) use($request){
+              $message->to($request->email);
+              $message->subject('Verifikasi Email Anda');
+          });
+        
+        return redirect('/login')->with('verifikasi', 'Silahkan periksa email Anda');
     }
 
 }
