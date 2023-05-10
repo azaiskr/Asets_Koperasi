@@ -18,7 +18,8 @@
 
     
     <div class="row">
-        <a class="btnAdd" href="/tambahAsetPengalihan" role="button"> 
+
+        <a class="btnAdd" href="/AsetPengalihan/tambah" role="button"> 
             <i class="bi bi-plus-lg"></i>
             <span class="btnLabel">Tambah data</span>
         </a>
