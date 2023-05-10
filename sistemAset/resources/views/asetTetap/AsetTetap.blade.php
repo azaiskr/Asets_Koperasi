@@ -17,7 +17,7 @@
     </div>
     
     <div class="row">
-        <a class="btnAdd" href="/tambahAset" role="button"> 
+        <a class="btnAdd" href="/AsetTetap/tambah" role="button"> 
             <i class="bi bi-plus-lg"></i>
             <span class="btnLabel">Tambah data</span>
         </a>
