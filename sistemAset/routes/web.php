@@ -16,6 +16,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PiutangController;
 use App\Http\Controllers\Auth\VerifikasiEmailController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 
 /*Route::get('/', function () {
     return view('asetDashboard');
@@ -36,8 +37,13 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout')->middl
 Route::get('/pendaftaran', [PendaftaranController::class, 'register'])->name('register');
 Route::post('pendaftaran/action', [PendaftaranController::class, 'actionregister'])->name('actionregister');
 
-Route::get('register/verify/{verify_key}', [PendaftaranController::class, 'verify'])->name('verify');
+//Route::get('register/verify/{verify_key}', [PendaftaranController::class, 'verify'])->name('verify');
 Route::get('account/verify/{token}', [VerifikasiEmailController::class, 'verifikasi'])->name('user.verify');
+
+Route::get('/ResetPassword/reset', [ResetPasswordController::class, 'reset'])->name('reset');
+//oute::get('/ResetPassword/edit', [ResetPasswordController::class, 'edit'])->name('edit');
+Route::get('account/edit/{email}', [ResetPasswordController::class, 'edit'])->name('user.edit');
+Route::post('/ResetPassword/update', [ResetPasswordController::class, 'update'])->name('update');
 
 Route::get('aset_perbaikan/daftarAset','AsetPerbaikanController@index');
 
