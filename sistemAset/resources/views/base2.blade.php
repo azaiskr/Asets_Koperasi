@@ -123,8 +123,8 @@
           </div>
 
           <div class="name-job">
-            <div class="profile_name">Papa Drac</div>
-            <div class="status">Vampire</div>
+            <div class="profile_name">{{ auth()->user()->name }}</div>
+            <div class="status">{{ auth()->user()->email }}</div>
           </div>
 
           @if(Route::has('login'))
