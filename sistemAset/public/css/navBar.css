@@ -271,7 +271,7 @@
 }
 .sidebar .profile-details .logout {
   font-size: 30px;
-  color: white; 
+  color: red; 
   margin-top: 10px;
   transition-delay: 0.5s;
 }
