@@ -2,20 +2,9 @@
 @section('pageView')
 @section('title', 'Daftar Aset Perbaikan')
 
-<div class="container mt-3">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/"> Home </a></li>
-            <li class="breadcrumb-item"><a href="{{url('/asetPerbaikan')}}"> Manajemen Aset Perbaikan </a> </li>
-            <li class="breadcrumb-item active" aria-current="page">@yield('title')</li>
-        </ol>
-    </nav>
-</div>
-
-
 <div class="pageSection">
     <div class="pageTitle">
-        <h2 class="center"><b> Daftar Aset Perbaikan</b></h2>
+        <span> Daftar Aset Perbaikan</span>
         @if(session('status'))
             <div class="alert alert-success mt-2 mb-2" id="alert">
                 {{session('status')}}
