@@ -1,0 +1,87 @@
+/*.pageSection{
+    margin-left: 55px;
+    margin-right: 20px;
+
+.row .table{
+    margin-top: 10px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+.row .table .text-center{
+    text-align: center ;
+}*/
+
+.table-div{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 15px;
+    box-shadow: 0 0 10px gray;
+}
+
+.pageSection .row {
+    margin-top: 30px;
+}
+
+.table-div thead tr {
+    background-color: orange;
+    color: white;
+    text-align: left;
+}
+
+.table-div th,
+.table-div td{
+    padding: 12px 15px;
+}
+
+.table-div tbody tr {
+    border-bottom: 1px solid rgb(209, 209, 209);
+}
+
+.table-div tbody tr:nth-of-type(even){
+    background-color: rgb(236, 236, 236);
+}
+
+.table-div tbody tr:last-of-type{
+    border-bottom: 2px solid orange;
+}
+
+.table-div tbody tr:hover{
+    font-weight: 600;
+}
+
+.btnAdd{
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--white);
+    padding: 8px;
+    background-color: var(--blue);
+    border-radius: 5px;
+}
+.btnEdit{
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--white);
+    padding: 5px 7px;
+    background-color: green;
+    border-radius: 5px;
+}
+.btnRemove{
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--white);
+    padding: 5px 7px;
+    background-color: red;
+    border-radius: 5px;
+}
