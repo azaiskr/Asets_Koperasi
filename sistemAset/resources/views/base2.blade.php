@@ -6,8 +6,9 @@
     <title> @yield('pageTitle') </title>
     
     <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="{{asset('css/layout.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/navBar.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/table.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/crud.css')}}">
     
     <!-- CSS ICON -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
