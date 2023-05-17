@@ -30,19 +30,21 @@
                 </div>
                 <div class="form-group">
                     <label for="nama_Aset"> <h5> Nama Aset </h5> </label>
-                    <input class="form-control" type="text" name="nama_Aset" required="required" value="{{ $ap->nama_Aset }}">
+                    @foreach ($aset_tetaps as $at)
+                    <label class="form-control" type="text" name="nama_Aset" required="required" >{{ $at->nama_Aset }}</label>
                     @if ($errors->has('nama_Aset'))
                         <div class="text-danger">
                             {{$errors->first('nama_Aset')}}
                         </div>
                     @endif
+                    @endforeach
                 </div>
                 <div class="form">
                     <label for="jenis_Pengalihan"> <h5> Jenis Pengalihan </h5> </label><br>
                     <select class="col-md-2" name="jenis_Pengalihan" id="jenis_Pengalihan" required="required" >
                         <option class="text-center"> {{ $ap->jenis_Pengalihan }} </option>
-                        <option class="text-center"> alih </option>
-                        <option class="text-center"> oleh </option>
+                        <option class="text-center"> Dijual </option>
+                        <option class="text-center"> Dipindahtangankan </option>
                     </select><br>
                     @if ($errors->has('jenis_Pengalihan'))
                         <div class="text-danger">
