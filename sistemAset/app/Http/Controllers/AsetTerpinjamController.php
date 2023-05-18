@@ -20,6 +20,7 @@ class AsetTerpinjamController extends Controller
     public function store(Request $request)
     {
         DB::table('aset_terpinjam')->insert([
+            'id_aset' => $request->id_aset,
             'nama_aset' => $request->nama_aset,
             'nama_peminjam' => $request->nama_peminjam,
             'jumlah_pinjaman' => $request->jumlah_pinjaman,
@@ -33,7 +34,7 @@ class AsetTerpinjamController extends Controller
             'kuantitas' => $count_aset_terpinjam
         ]);
 
-        return redirect('/AsetTerpinjam');
+        return redirect('/aset_terpinjam');
     }
 
     public function edit($id_aset)
@@ -53,7 +54,7 @@ class AsetTerpinjamController extends Controller
             'tanggal_jatuh_tempo' => $request->tanggal_jatuh_tempo,
         ]);
 
-        return redirect('/AsetTerpinjam');
+        return redirect('/aset_terpinjam');
     }
 
     public function hapus($id_aset)
@@ -66,6 +67,6 @@ class AsetTerpinjamController extends Controller
             'kuantitas' => $count_aset_terpinjam
         ]);
 
-        return redirect('/AsetTerpinjam');
+        return redirect('/aset_terpinjam');
     }   
 }
