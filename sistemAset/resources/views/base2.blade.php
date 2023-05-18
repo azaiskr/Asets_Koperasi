@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Coding by CodingNepal | www.codingnepalweb.com -->
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
@@ -177,14 +176,14 @@
       sidebar.classList.toggle("close");
     });
 
-    let list = document.querySelector(".sidebar.close .nav-links li"); //still has an error
-    function activeLink(){
-      list.forEach((item) => {
-        item.classList.remove("hovered");
-      });
-      this.classList.add("hovered");
+    let links = document.querySelectorAll(".sidebar.close .nav-links li"); //still has an error
+    function activeLink() {
+    links.forEach((link) => {
+      link.classList.remove("hovered");
+    });
+    this.classList.add("hovered");
     }
-    list.forEach((item) => item.addEventListener("mouseover",activeLink))
+    links.forEach((link) => link.addEventListener("click", activeLink));
 
   </script>
 

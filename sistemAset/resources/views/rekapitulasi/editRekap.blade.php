@@ -1,16 +1,8 @@
-@extends('base')
-@section('container')
+@extends('base2')
+@section('pageView')
 @section('title', 'Edit data')
 
-<div class="container mt-4">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{url('/')}}"> Home </a></li>
-            <li class="breadcrumb-item"><a href="{{url('/rekapitulasiAset')}}"> Rekapitulasi Aset </a> </li>
-            <li class="breadcrumb-item active" aria-current="page">@yield('title')</li>
-        </ol>
-    </nav>
-</div>
+
 <div class="container"> 
     <div class="row">
         <div class="col-md-12 mt-3">
