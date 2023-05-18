@@ -25,9 +25,10 @@ class AsetPengalihanController extends Controller
     public function store(Request $request)
     {
 
-       // DB::table('aset_tetaps')->where('')
+        $nama_aset = DB::table('aset_tetaps')->where('id_Aset',$request->id_Aset)->first();
+
         DB::table('aset_pengalihan')->insert([
-            'nama_Aset' => $request->nama_Aset,
+            'nama_Aset' => $nama_aset->nama_Aset,
             'jenis_Pengalihan' => $request->jenis_Pengalihan,
             'jumlah' => $request->jumlah,
             'lokasi_Pengalihan' => $request->lokasi_Pengalihan,

@@ -20,7 +20,7 @@
                 <thead class="thead-primary">
                     <tr>
 						<th class="text-center">ID Aset</th>
-						<!--<th class="text-center">Nama Aset</th>-->
+						<th class="text-center">Nama Aset</th>
 						<th class="text-center">Jenis Pengalihan</th>
 						<th class="text-center">Jumlah</th>
 						<th class="text-center">Lokasi Pengalihan</th>
@@ -31,6 +31,7 @@
                 @foreach($aset_pengalihan as $ap)
                     <tr>
 						<td class="text-center">{{ $ap->id_Aset }}</td>
+                        <td class="text-center">{{ $ap->nama_Aset }}</td>
 						<td class="text-center">{{ $ap->jenis_Pengalihan }}</td>
 						<td class="text-center">{{ $ap->jumlah }}</td>
 						<td class="text-center">{{ $ap->lokasi_Pengalihan }}</td>
