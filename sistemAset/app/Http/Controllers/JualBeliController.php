@@ -37,6 +37,12 @@ class JualBeliController extends Controller
             'lokasi_jual' => $request->lokasi_jual
         ]);
 
+        $count_aset_jualbeli = DB::table('aset_jualbeli')->count();
+        
+        DB::table('rekapitulasi')->where('id',5)->update([
+            'kuantitas' => $count_aset_jualbeli
+        ]);
+        
         return redirect('/aset_jual_beli');
     }
 
@@ -79,6 +85,12 @@ class JualBeliController extends Controller
     public function destroy($id)
     {
         DB::table('aset_jualbeli')->where('id_aset',$id)->delete();
+
+        $count_aset_jualbeli = DB::table('aset_jualbeli')->count();
+        
+        DB::table('rekapitulasi')->where('id',5)->update([
+            'kuantitas' => $count_aset_jualbeli
+        ]);
 
         return redirect('/aset_jual_beli');
     }

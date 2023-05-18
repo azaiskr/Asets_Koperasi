@@ -18,20 +18,21 @@
             <h3 style="text-align: center"> Tambah Data Aset Pengalihan </h3>
             <form action="/AsetPengalihan/store" method="post">
                 @csrf
-                <div class="form-group">
-                    <label for="nama_Aset"> <h5> Nama Aset </h5> </label>
-                    <input class="form-control" type="text" name="nama_Aset" required="required" placeholder="nama aset pengalihan ... ">
-                    @if ($errors->has('nama_Aset'))
-                        <div class="text-danger">
-                            {{$errors->first('nama_Aset')}}
-                        </div>
-                    @endif
+                
+                <div class="form">
+                    <label for="id_Aset"> <h5> Nama Aset </h5> </label><br>
+                    <select class="col-md-2" name="id_Aset" id="id_Aset" required="required">
+                    @foreach($aset_tetaps as $at)
+                        <option class="text-center" value="{{ $at->id_Aset }}"> {{ $at->nama_Aset }} </option>
+                    @endforeach
+                    </select>
                 </div>
+                
                 <div class="form">
                     <label for="jenis_Pengalihan"> <h5> Jenis Pengalihan </h5> </label><br>
                     <select class="col-md-2" name="jenis_Pengalihan" id="jenis_Pengalihan" required="required">
-                        <option class="text-center"> alih </option>
-                        <option class="text-center"> oleh </option>
+                        <option class="text-center"> Dijual </option>
+                        <option class="text-center"> Dipindahtangankan </option>
                     </select><br>
                     @if ($errors->has('jenis_Pengalihan'))
                         <div class="text-danger">

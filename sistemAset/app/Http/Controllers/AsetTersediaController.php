@@ -24,6 +24,12 @@ class AsetTersediaController extends Controller
             'stok' => $request->stok,
         ]);
 
+        $count_aset_tersedia = DB::table('aset_tersedia')->count();
+
+        DB::table('rekapitulasi')->where('id',3)->update([
+            'kuantitas' => $count_aset_tersedia
+        ]);
+
         return redirect('/AsetTersedia');
     }
 
@@ -47,6 +53,12 @@ class AsetTersediaController extends Controller
     public function hapus($id_aset)
     {
         DB::table('aset_tersedia')->where('id_aset',$id_aset)->delete();
+
+        $count_aset_tersedia = DB::table('aset_tersedia')->count();
+
+        DB::table('rekapitulasi')->where('id',3)->update([
+            'kuantitas' => $count_aset_tersedia
+        ]);
 
         return redirect('/AsetTersedia');
     }

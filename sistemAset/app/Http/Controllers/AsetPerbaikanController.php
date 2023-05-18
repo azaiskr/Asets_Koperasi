@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\asetPerbaikan;
 use App\Models\pj_perbaikan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AsetPerbaikanController extends Controller
 {
@@ -30,6 +31,13 @@ class AsetPerbaikanController extends Controller
             'tanggal_perbaikan'=>$request->tanggal,
             'pj_perbaikan'=>$request->servicer,
         ]);
+
+        $count_aset_perbaikans = DB::table('aset_perbaikans')->count();
+
+        DB::table('rekapitulasi')->where('id',4)->update([
+            'kuantitas' => $count_aset_perbaikans
+        ]);
+
         return redirect('/asetPerbaikan')->with('status', 'DATA BERHASIL DITAMBAHKAN!');
     }
 
@@ -61,6 +69,13 @@ class AsetPerbaikanController extends Controller
     {
         $aset = asetPerbaikan::find($id);
         $aset->delete();
+
+        $count_aset_perbaikans = DB::table('aset_perbaikans')->count();
+        
+        DB::table('rekapitulasi')->where('id',4)->update([
+            'kuantitas' => $count_aset_perbaikans
+        ]);
+
         return redirect('/asetPerbaikan')->with('danger', 'DATA BERHASIL DIHAPUS!');
     }
 }
