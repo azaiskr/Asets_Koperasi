@@ -30,7 +30,7 @@ class AsetTersediaController extends Controller
             'kuantitas' => $count_aset_tersedia
         ]);
 
-        return redirect('/AsetTersedia');
+        return redirect('/aset_tersedia');
     }
 
     public function edit($id_aset)
@@ -47,7 +47,7 @@ class AsetTersediaController extends Controller
             'stok' => $request->stok,
         ]);
 
-        return redirect('/AsetTersedia');
+        return redirect('/aset_tersedia');
     }
 
     public function hapus($id_aset)
@@ -60,6 +60,6 @@ class AsetTersediaController extends Controller
             'kuantitas' => $count_aset_tersedia
         ]);
 
-        return redirect('/AsetTersedia');
+        return redirect('/aset_tersedia');
     }
 }

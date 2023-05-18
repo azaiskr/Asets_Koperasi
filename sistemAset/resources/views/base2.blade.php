@@ -124,7 +124,7 @@
           </div>
 
           <div class="name-job">
-            <div class="profile_name">{{ auth()->user()->nama }}</div>
+            <div class="profile_name">{{ auth()->user()->name }}</div>
             <div class="status">{{ auth()->user()->email }}</div>
           </div>
 
