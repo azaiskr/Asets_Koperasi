@@ -21,7 +21,6 @@ class rekapAset extends Controller
 
     public function create()
     {
-        $aset_pengalihan = DB::table('aset_pengalihan')->count();
         return view('rekapitulasi.tambahRekap', compact('aset_pengalihan'));
     }
 

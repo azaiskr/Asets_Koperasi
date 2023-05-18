@@ -30,6 +30,12 @@ class AsetTetapController extends Controller
             'nilai_ekonomi' => $request->nilai_ekonomi
         ]);
 
+        $count_aset_tetaps = DB::table('aset_tetaps')->count();
+
+        DB::table('rekapitulasi')->where('id',1)->update([
+            'kuantitas' => $count_aset_tetaps
+        ]);
+
         return redirect('/AsetTetap');
     }
 
@@ -57,6 +63,12 @@ class AsetTetapController extends Controller
     public function hapus($id_Aset)
     {
         DB::table('aset_tetaps')->where('id_Aset',$id_Aset)->delete();
+
+        $count_aset_tetaps = DB::table('aset_tetaps')->count();
+
+        DB::table('rekapitulasi')->where('id',1)->update([
+            'kuantitas' => $count_aset_tetaps
+        ]);
 
         return redirect('/AsetTetap');
     }

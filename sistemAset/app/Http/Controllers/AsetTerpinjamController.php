@@ -27,6 +27,12 @@ class AsetTerpinjamController extends Controller
             'tanggal_jatuh_tempo' => $request->tanggal_jatuh_tempo,
         ]);
 
+        $count_aset_terpinjam = DB::table('aset_terpinjam')->count();
+
+        DB::table('rekapitulasi')->where('id',2)->update([
+            'kuantitas' => $count_aset_terpinjam
+        ]);
+
         return redirect('/AsetTerpinjam');
     }
 
@@ -53,6 +59,12 @@ class AsetTerpinjamController extends Controller
     public function hapus($id_aset)
     {
         DB::table('aset_terpinjam')->where('id_aset',$id_aset)->delete();
+
+        $count_aset_terpinjam = DB::table('aset_terpinjam')->count();
+
+        DB::table('rekapitulasi')->where('id',2)->update([
+            'kuantitas' => $count_aset_terpinjam
+        ]);
 
         return redirect('/AsetTerpinjam');
     }   

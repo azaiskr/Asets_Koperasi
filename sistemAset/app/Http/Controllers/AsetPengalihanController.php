@@ -25,6 +25,7 @@ class AsetPengalihanController extends Controller
     public function store(Request $request)
     {
 
+       // DB::table('aset_tetaps')->where('')
         DB::table('aset_pengalihan')->insert([
             'nama_Aset' => $request->nama_Aset,
             'jenis_Pengalihan' => $request->jenis_Pengalihan,
@@ -34,6 +35,18 @@ class AsetPengalihanController extends Controller
         ]);
 
         DB::table('aset_tetaps')->where('id_Aset',$request->id_Aset)->delete();
+        
+        $aset_pengalihan = DB::table('aset_pengalihan')->count();
+
+        DB::table('rekapitulasi')->where('id',6)->update([
+            'kuantitas' => $aset_pengalihan
+        ]);
+
+        $count_aset_tetaps = DB::table('aset_tetaps')->count();
+
+        DB::table('rekapitulasi')->where('id',1)->update([
+            'kuantitas' => $count_aset_tetaps
+        ]);
 
         return redirect('/AsetPengalihan');
     }
@@ -61,6 +74,12 @@ class AsetPengalihanController extends Controller
     public function hapus($id_Aset)
     {
         DB::table('aset_pengalihan')->where('id_Aset',$id_Aset)->delete();
+
+        $count_aset_pengalihan = DB::table('aset_pengalihan')->count();
+
+        DB::table('rekapitulasi')->where('id',6)->update([
+            'kuantitas' => $count_aset_pengalihan
+        ]);
 
         return redirect('/AsetPengalihan');
     }

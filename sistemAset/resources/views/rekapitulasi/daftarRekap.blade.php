@@ -48,7 +48,7 @@
                     <tr>
                         <td class="text-center"> {{$rp->id}} </td>
                         <td> {{$rp->jenis_aset}} </td>
-                        <td class="text-center"> {{$aset_pengalihan}} </td>
+                        <td class="text-center"> {{$rp->kuantitas}} </td>
                         <td> 
 
                             <a class="btnEdit" href="/rekapitulasiAset/edit/{{$rp->id}}">
