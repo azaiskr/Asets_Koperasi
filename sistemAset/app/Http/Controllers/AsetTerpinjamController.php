@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Session;
 
 class AsetTerpinjamController extends Controller
 {
@@ -22,29 +23,34 @@ class AsetTerpinjamController extends Controller
 
     public function store(Request $request)
     {
-        DB::table('aset_terpinjam')->insert([
-            'id_aset' => $request->id_aset,
-            'nama_peminjam' => $request->nama_peminjam,
-            'jumlah_pinjaman' => $request->jumlah_pinjaman,
-            'tanggal_pinjaman' => $request->tanggal_pinjaman,
-            'tanggal_jatuh_tempo' => $request->tanggal_jatuh_tempo,
-        ]);
-
         $aset_tersedia = DB::table('aset_tersedia')->where('id_aset',$request->id_aset)->first();
 
-        $stok_aset_tersedia = $aset_tersedia->stok - $request->jumlah_pinjaman;
+        if ($aset_tersedia->stok >= $request->jumlah_pinjaman) {
+            DB::table('aset_terpinjam')->insert([
+                'id_aset' => $request->id_aset,
+                'nama_peminjam' => $request->nama_peminjam,
+                'jumlah_pinjaman' => $request->jumlah_pinjaman,
+                'tanggal_pinjaman' => $request->tanggal_pinjaman,
+                'tanggal_jatuh_tempo' => $request->tanggal_jatuh_tempo,
+            ]);
+
+            $stok_aset_tersedia = $aset_tersedia->stok - $request->jumlah_pinjaman;
         
-        DB::table('aset_tersedia')->where('id_aset',$request->id_aset)->update([
-            'stok' => $stok_aset_tersedia
-        ]);
+            DB::table('aset_tersedia')->where('id_aset',$request->id_aset)->update([
+                'stok' => $stok_aset_tersedia
+            ]);
 
-        $count_aset_terpinjam = DB::table('aset_terpinjam')->count();
+            $count_aset_terpinjam = DB::table('aset_terpinjam')->count();
 
-        DB::table('rekapitulasi')->where('id',2)->update([
-            'kuantitas' => $count_aset_terpinjam
-        ]);
+            DB::table('rekapitulasi')->where('id',2)->update([
+                'kuantitas' => $count_aset_terpinjam
+            ]);
 
-        return redirect('/aset_terpinjam');
+            return redirect('/aset_terpinjam');
+        } else {
+            Session::flash('error','Stok tidak tersedia');
+		    return redirect('/AsetTerpinjam/tambah');
+        }
     }
 
     public function edit($id_aset)
