@@ -9,23 +9,33 @@ class AsetTerpinjamController extends Controller
 {
     public function index(){
         $aset_terpinjam = DB::table('aset_terpinjam')->get();
+        $aset_tersedia = DB::table('aset_tersedia')->get();
     
-        return view('asetTerpinjam.AsetTerpinjam',['aset_terpinjam' => $aset_terpinjam]);
+        return view('asetTerpinjam.AsetTerpinjam',['aset_terpinjam' => $aset_terpinjam, 'aset_tersedia' => $aset_tersedia]);
     }
     public function tambah()
     {
-        return view('asetTerpinjam.tambahTerpinjam');
+        $aset_tersedia = DB::table('aset_tersedia')->get();
+
+        return view('asetTerpinjam.tambahTerpinjam',['aset_tersedia' => $aset_tersedia]);
     }
 
     public function store(Request $request)
     {
         DB::table('aset_terpinjam')->insert([
             'id_aset' => $request->id_aset,
-            'nama_aset' => $request->nama_aset,
             'nama_peminjam' => $request->nama_peminjam,
             'jumlah_pinjaman' => $request->jumlah_pinjaman,
             'tanggal_pinjaman' => $request->tanggal_pinjaman,
             'tanggal_jatuh_tempo' => $request->tanggal_jatuh_tempo,
+        ]);
+
+        $aset_tersedia = DB::table('aset_tersedia')->where('id_aset',$request->id_aset)->first();
+
+        $stok_aset_tersedia = $aset_tersedia->stok - $request->jumlah_pinjaman;
+        
+        DB::table('aset_tersedia')->where('id_aset',$request->id_aset)->update([
+            'stok' => $stok_aset_tersedia
         ]);
 
         $count_aset_terpinjam = DB::table('aset_terpinjam')->count();
@@ -57,9 +67,17 @@ class AsetTerpinjamController extends Controller
         return redirect('/aset_terpinjam');
     }
 
-    public function hapus($id_aset)
+    public function hapus($id_aset_terpinjam)
     {
-        DB::table('aset_terpinjam')->where('id_aset',$id_aset)->delete();
+        $aset_terpinjam = DB::table('aset_terpinjam')->where('id_aset_terpinjam',$id_aset_terpinjam)->first();
+        $aset_tersedia = DB::table('aset_tersedia')->where('id_aset',$aset_terpinjam->id_aset)->first();
+        $stok_aset_tersedia = $aset_tersedia->stok + $aset_terpinjam->jumlah_pinjaman;
+        
+        DB::table('aset_tersedia')->where('id_aset',$aset_terpinjam->id_aset)->update([
+            'stok' => $stok_aset_tersedia
+        ]);
+
+        DB::table('aset_terpinjam')->where('id_aset_terpinjam',$id_aset_terpinjam)->delete();
 
         $count_aset_terpinjam = DB::table('aset_terpinjam')->count();
 

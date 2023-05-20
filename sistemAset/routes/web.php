@@ -68,10 +68,7 @@ Route::get('/AsetTerpinjam/tambah', 'App\Http\Controllers\AsetTerpinjamControlle
 Route::post('/AsetTerpinjam/store', 'App\Http\Controllers\AsetTerpinjamController@store');
 Route::get('/AsetTerpinjam/edit/{id_aset}', 'App\Http\Controllers\AsetTerpinjamController@edit');
 Route::post('/AsetTerpinjam/update', 'App\Http\Controllers\AsetTerpinjamController@update');
-Route::get('/AsetTerpinjam/hapus/{id_aset}', 'App\Http\Controllers\AsetTerpinjamController@hapus');
-Route::get('/tambahTerpinjam', function(){
-    return view('asetTerpinjam.tambahTerpinjam');
-});
+Route::get('/AsetTerpinjam/hapus/{id_aset_terpinjam}', 'App\Http\Controllers\AsetTerpinjamController@hapus');
 
 //Aset Tetap
 Route::get('/AsetTetap', 'App\Http\Controllers\AsetTetapController@index')->middleware('auth');
