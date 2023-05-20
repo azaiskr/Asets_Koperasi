@@ -38,8 +38,9 @@
             <table class="table-div">
                 <thead class="thead-primary">
                     <tr>
-                        <th class="text-center"> ID Aset</th>
+                        <th class="text-center"> ID Perbaikan</th>
                         <th class="text-left"> Nama Aset </th>
+                        <th class="text-center"> Jumlah Aset </th>
                         <th class="text-center"> Status </th>
                         <th class="text-center"> Tanggal Perbaikan </th>
                         <th class="text-right"> Servicer </th>
@@ -49,8 +50,13 @@
                 <tbody>
                 @foreach($aset as $a)
                     <tr>
-                        <td class="text-center" > {{$a->id_aset}} </td>
-                        <td class="text-left" > {{$a->nama_aset}} </td>
+                        <td class="text-center" > {{$a->id_aset_perbaikan}} </td>
+                        @foreach($aset_tetaps as $ap)
+                            @if($a->id_Aset == $ap->id_Aset)
+                                <td class="text-left">{{$ap->nama_Aset}}</td>
+                            @endif
+                        @endforeach
+                        <td class="text-center"> {{$a->jumlah}} </td>
                         <td class="text-center"> {{$a->status_perbaikan}} </td>
                         <td class="text-center"> {{$a->tanggal_perbaikan}} </td>
                         @foreach($pj as $p)
@@ -59,10 +65,10 @@
                             @endif
                         @endforeach
                         <td> 
-                            <a class="btnEdit" href="/asetPerbaikan/edit/{{$a->id_aset}}">
+                            <a class="btnEdit" href="/asetPerbaikan/edit/{{$a->id_aset_perbaikan}}">
                                 <i class="bi bi-pencil-square"></i>
                             </a>
-                            <a class="btnRemove" href="/asetPerbaikan/hapus/{{$a->id_aset}}"> 
+                            <a class="btnRemove" href="/asetPerbaikan/destroy/{{$a->id_aset_perbaikan}}"> 
                                 <i class="bi bi-trash"></i>
                             </a>
                         </td>    

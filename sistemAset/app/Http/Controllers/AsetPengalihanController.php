@@ -28,7 +28,7 @@ class AsetPengalihanController extends Controller
 
         $aset_tetap = DB::table('aset_tetaps')->where('id_Aset',$request->id_Aset)->first();
 
-        if ($aset_tetap->jumlah > $request->jumlah) {
+        if ($aset_tetap->jumlah > $request->jumlah && $request->jumlah > 0) {
             DB::table('aset_pengalihan')->insert([
                 'nama_Aset' => $aset_tetap->nama_Aset,
                 'jenis_Pengalihan' => $request->jenis_Pengalihan,
@@ -56,7 +56,7 @@ class AsetPengalihanController extends Controller
 
             return redirect('/AsetPengalihan');
     
-        } else if ($aset_tetap->jumlah == $request->jumlah) {
+        } elseif ($aset_tetap->jumlah == $request->jumlah && $request->jumlah > 0) {
             DB::table('aset_pengalihan')->insert([
                 'nama_Aset' => $aset_tetap->nama_Aset,
                 'jenis_Pengalihan' => $request->jenis_Pengalihan,
@@ -65,8 +65,10 @@ class AsetPengalihanController extends Controller
                 'id_Aset' => $request->id_Aset
             ]);
 
+            $aset_perbaikans = DB::table('aset_perbaikans')->where('id_Aset',$request->id_Aset)->first();
+            
             DB::table('aset_tetaps')->where('id_Aset',$request->id_Aset)->delete();
-
+        
             $count_aset_pengalihan = DB::table('aset_pengalihan')->count();
             DB::table('rekapitulasi')->where('id',6)->update([
                 'kuantitas' => $count_aset_pengalihan
@@ -85,7 +87,12 @@ class AsetPengalihanController extends Controller
             ]);
 
             return redirect('/AsetPengalihan');
-        } else {
+            
+        } elseif ($request->jumlah == 0) {
+            Session::flash('error','jumlah tidak boleh nol');
+		    return redirect('/AsetPengalihan/tambah');
+        }
+        else {
             Session::flash('error','Stok tidak tersedia');
 		    return redirect('/AsetPengalihan/tambah');
         }

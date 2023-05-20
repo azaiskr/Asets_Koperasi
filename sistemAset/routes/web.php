@@ -108,7 +108,7 @@ Route::get('/asetPerbaikan/create',[AsetPerbaikanController::class,'create'])->m
 Route::post('/asetPerbaikan/store',[AsetPerbaikanController::class,'store'])->middleware('auth');
 Route::get('/asetPerbaikan/edit/{id}',[AsetPerbaikanController::class,'edit'])->middleware('auth');
 Route::put('/asetPerbaikan/update/{id}',[AsetPerbaikanController::class,'update'])->middleware('auth');
-Route::get('/asetPerbaikan/hapus/{id}',[AsetPerbaikanController::class,'destroy'])->middleware('auth');
+Route::get('/asetPerbaikan/destroy/{id}',[AsetPerbaikanController::class,'destroy'])->middleware('auth');
 
 
 

@@ -7,7 +7,6 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{url('/')}}"> Home </a></li>
             <li class="breadcrumb-item"><a href="{{url('/asetPerbaikan')}}"> Manajemen Aset Perbaikan </a> </li>
-            <li class="breadcrumb-item"><a href="{{url('/asetPerbaikan/daftarAset')}}"> Daftar Servicer </a> </li>
             <li class="breadcrumb-item active" aria-current="page">@yield('title')</li>
         </ol>
     </nav>
@@ -17,12 +16,12 @@
         <div class="col-md-12 mt-3">
             <h3 style="text-align: center"> Edit Data Aset </h3>
 
-            <form action="/asetPerbaikan/update/{{$aset->id_aset}}" method="post">
+            <form action="/asetPerbaikan/update/{{$aset->id_aset_perbaikan}}" method="post">
                 {{csrf_field()}}
                 {{method_field('PUT')}}
                 <div class="form-group">
-                    <label for="id"> <h5> ID Aset </h5> </label>
-                    <input class="form-control" type="number" name="id" id="id" required="required" value="{{$aset->id_aset}}">
+                    <label for="id"></label>
+                    <input class="form-control" type="hidden" name="id" id="id" required="required" value="{{$aset->id_aset_perbaikan}}">
                     @if ($errors->has('id'))
                         <div class="text-danger">
                             {{$errors->first('id')}}
@@ -30,13 +29,27 @@
                     @endif    
                 </div>
                 <div class="form-group">
+                    <label for="id_Aset"></label>
+                    <input class="form-control" type="hidden" name="id_Aset" id="id_Aset" required="required" value="{{$aset->id_Aset}}">
+                    @if ($errors->has('id'))
+                        <div class="text-danger">
+                            {{$errors->first('id')}}
+                        </div>
+                    @endif    
+                </div>
+                <div class="form-group">
+                
                     <label for="nama"> <h5> Nama Aset </h5> </label>
-                    <input class="form-control" type="text" name="nama" id="nama" required="required" value="{{$aset->nama_aset}}">
+                    @foreach($aset_tetaps as $ap)
+                        @if($aset->id_Aset == $ap->id_Aset)
+                            <label class="form-control" type="text" name="nama" id="nama" required="required">{{$ap->nama_Aset}}</label>
+                        @endif
                     @if ($errors->has('nama'))
                         <div class="text-danger">
                             {{$errors->first('nama')}}
                         </div>
                     @endif
+                    @endforeach
                 </div>
                 <div class="form">
                     <label for="status"> <h5> Status Perbaikan </h5> </label><br>
