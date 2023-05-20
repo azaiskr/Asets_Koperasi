@@ -58,6 +58,16 @@
                         </div>
                     @endif
                 </div>
+
+                <div class="form">
+                    <label for="servicer"> <h5> Servicer </h5> </label><br>
+                    <select class="col-md-2" name="servicer" id="servicer" required="required">
+                    @foreach($pj_perbaikans as $pp)
+                        <option class="text-center" value="{{ $pp->id_pj }}"> {{ $pp->nama_pj }} </option>
+                    @endforeach
+                    </select>
+                </div>
+                <!--
                 <div class="form-group">
                     <label for="servicer"> <h5> ID Servicer </h5> </label>
                     <input class="form-control" type="number" name="servicer" id="servicer" placeholder="id servicer perbaikan aset ... ">
@@ -67,8 +77,7 @@
                         </div>
                     @endif
                 </div>
-
-
+                -->
                 <div class="form-group float-right">
                     <button class="btn btn-lg btn-danger" type="reset"> Reset</button>
                     <button class="btn btn-lg btn-success" type="sumbit"> OK </button>

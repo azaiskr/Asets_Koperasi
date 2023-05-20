@@ -19,7 +19,9 @@ class AsetPerbaikanController extends Controller
 
     public function create()
     {
-        return view('asetPerbaikan.tambahAset');
+        $pj_perbaikans = DB::table('pj_perbaikans')->get();
+
+        return view('asetPerbaikan.tambahAset', ['pj_perbaikans'=> $pj_perbaikans]);
     }
 
     public function store(Request $request)
@@ -50,6 +52,7 @@ class AsetPerbaikanController extends Controller
     public function edit($id)
     {
         $aset = asetPerbaikan::find($id);
+
         return view('asetPerbaikan.editAset', compact('aset'));
     }
 
