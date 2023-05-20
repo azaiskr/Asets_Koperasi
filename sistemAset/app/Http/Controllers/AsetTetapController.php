@@ -22,6 +22,7 @@ class AsetTetapController extends Controller
     public function store(Request $request)
     {
         DB::table('aset_tetaps')->insert([
+            'id_Aset' => $request->id_Aset,
             'nama_Aset' => $request->nama_Aset,
             'lokasi' => $request->lokasi,
             'kondisi' => $request->kondisi,

@@ -27,7 +27,7 @@ class AsetTerpinjamController extends Controller
 
         if ($aset_tersedia->stok >= $request->jumlah_pinjaman) {
             DB::table('aset_terpinjam')->insert([
-                'id_aset' => $request->id_aset,
+                'id_aset_terpinjam' => $request->id_aset_terpinjam,
                 'nama_peminjam' => $request->nama_peminjam,
                 'jumlah_pinjaman' => $request->jumlah_pinjaman,
                 'tanggal_pinjaman' => $request->tanggal_pinjaman,
@@ -53,17 +53,19 @@ class AsetTerpinjamController extends Controller
         }
     }
 
-    public function edit($id_aset)
+    public function edit($id_aset_terpinjam)
     {
-        $aset_terpinjam = DB::table('aset_terpinjam')->where('id_aset',$id_aset)->get();
+        $aset_terpinjam = DB::table('aset_terpinjam')->where('id_aset_terpinjam',$id_aset_terpinjam)->get();
 
-        return view('asetTerpinjam.editTerpinjam',['aset_terpinjam' => $aset_terpinjam]);
+        $nama_aset_pinjam = DB::table('aset_terpinjam')->where('id_aset_terpinjam',$id_aset_terpinjam)->first();
+        $aset_tersedia = DB::table('aset_tersedia')->where('id_aset',$nama_aset_pinjam->id_aset)->get();
+
+        return view('asetTerpinjam.editTerpinjam',['aset_terpinjam' => $aset_terpinjam, 'aset_tersedia' => $aset_tersedia]);
     }
 
     public function update(Request $request)
     {
         DB::table('aset_terpinjam')->where('id_aset',$request->id_aset)->update([
-            'nama_aset' => $request->nama_aset,
             'nama_peminjam' => $request->nama_peminjam,
             'jumlah_pinjaman' => $request->jumlah_pinjaman,
             'tanggal_pinjaman' => $request->tanggal_pinjaman,

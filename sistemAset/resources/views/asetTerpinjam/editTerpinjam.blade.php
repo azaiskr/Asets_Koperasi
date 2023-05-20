@@ -24,23 +24,29 @@
                 @csrf
                 @foreach($aset_terpinjam as $at)
                 <div class="form-group">
-                    <label for="id_aset"> </label>
-                    <input class="form-control" type="hidden" name="id_aset" required="required" value="{{ $at->id_aset }}" >
-                    @if ($errors->has('id_aset'))
+                    <label for="id_aset_terpinjam"> </label>
+                    <input class="form-control" type="hidden" name="id_aset_terpinjam" required="required" value="{{ $at->id_aset_terpinjam }}" >
+                    @if ($errors->has('id_aset_terpinjam'))
                         <div class="text-danger">
-                            {{$errors->first('id_aset')}}
+                            {{$errors->first('id_aset_terpinjam')}}
                         </div>
                     @endif
                 </div>
-                <div class="form-group">
-                    <label for="nama_aset"> <h5> Nama Aset </h5> </label>
-                    <input class="form-control" type="text" name="nama_aset" required="required" value="{{ $at->nama_aset }}">
-                    @if ($errors->has('nama_aset'))
-                        <div class="text-danger">
-                            {{$errors->first('nama_aset')}}
+                    @foreach($aset_tersedia as $as)
+                        @if($at->id_aset == $as->id_aset)
+                        <div class="form-group">
+                            <label for="nama_aset"> <h5> Nama Aset </h5> </label>
+                            <label class="form-control" type="text" name="nama_aset" required="required" >{{$as->nama_aset}}
+                            @if ($errors->has('nama_aset'))
+                                <div class="text-danger">
+                                    {{$errors->first('nama_aset')}}
+                                </div>
+                            @endif
+                            </label>
                         </div>
-                    @endif
-                </div>
+                        @endif
+                    @endforeach
+                
                 <div class="form">
                     <label for="nama_peminjam"> <h5> Nama Peminjam </h5> </label><br>
                     <input class="form-control" type="text" name="nama_peminjam" id="nama_peminjam" required="required" value="{{ $at->nama_peminjam }}">
@@ -52,12 +58,13 @@
                 </div>
                 <div class="form-group">
                     <label for="jumlah_pinjaman"> <h5> Jumlah Pinjaman </h5> </label>
-                    <input class="form-control" type="number" name="jumlah_pinjaman" required="required" value="{{ $at->jumlah_pinjaman }}">
+                    <label class="form-control" type="number" name="jumlah_pinjaman" required="required" value="{{ $at->jumlah_pinjaman }}">{{ $at->jumlah_pinjaman }}
                     @if ($errors->has('jumlah_pinjaman'))
                         <div class="text-danger">
                             {{$errors->first('jumlah_pinjaman')}}
                         </div>
                     @endif
+                    </label>
                 </div>
                 <div class="form">
                     <label for="tanggal_pinjaman"> <h5> Tanggal Pinjaman </h5> </label><br>

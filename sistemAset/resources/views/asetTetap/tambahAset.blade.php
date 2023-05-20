@@ -19,6 +19,15 @@
             <form action="/AsetTetap/store" method="post">
                 @csrf
                 <div class="form-group">
+                    <label for="id_Aset"> <h5> ID Aset </h5> </label>
+                    <input class="form-control" type="text" name="id_Aset" required="required" placeholder="ID aset tetap ... ">
+                    @if ($errors->has('id_Aset'))
+                        <div class="text-danger">
+                            {{$errors->first('id_Aset')}}
+                        </div>
+                    @endif
+                </div>
+                <div class="form-group">
                     <label for="nama_Aset"> <h5> Nama Aset </h5> </label>
                     <input class="form-control" type="text" name="nama_Aset" required="required" placeholder="nama aset tetap ... ">
                     @if ($errors->has('nama_Aset'))
