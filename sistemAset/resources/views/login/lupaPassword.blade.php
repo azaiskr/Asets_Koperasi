@@ -24,6 +24,12 @@
             </div>
             @endif
             
+            @if ($message = Session::get('resetIssues'))
+                <div class="center error-message">
+                    {{ $message }}
+                </div>
+            @endif
+            
             <div class="center">
             <button class="btn mt-3">Kirim</button>
             

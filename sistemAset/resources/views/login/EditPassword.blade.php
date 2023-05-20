@@ -39,7 +39,18 @@
                         <small>{{$errors->first('password')}}</small>
                     </div>
                 @endif 
-                
+            </div>
+
+            <div class="input">
+                <div class="form-field d-flex align-items-center">
+                    <span class="fas fa-key"></span>
+                    <input type="hidden" name="status" id="status" value=0>
+                </div>
+                @if ($errors->has('password'))
+                    <div class="alert alert-danger center" role="alert">
+                        <small>{{$errors->first('password')}}</small>
+                    </div>
+                @endif 
             </div>
         </div>
         

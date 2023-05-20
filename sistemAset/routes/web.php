@@ -43,7 +43,8 @@ Route::get('account/verify/{token}', [VerifikasiEmailController::class, 'verifik
 
 Route::get('/ResetPassword/reset', [ResetPasswordController::class, 'reset'])->name('reset');
 //oute::get('/ResetPassword/edit', [ResetPasswordController::class, 'edit'])->name('edit');
-Route::get('account/edit/{email}', [ResetPasswordController::class, 'edit'])->name('user.edit');
+Route::get('account/edit/{email}', [ResetPasswordController::class, 'edit'])->name('user.edit')->middleware('can_reset_password');
+Route::get('account/verifikasi/{email}', [ResetPasswordController::class, 'verifikasi'])->name('user.verifikasi');//->middleware('can_reset_password');
 Route::post('/ResetPassword/update', [ResetPasswordController::class, 'update'])->name('update');
 
 

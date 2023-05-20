@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->boolean('is_email_verified')->default(0);
+            $table->boolean('can_reset_password')->default(0);
             $table->timestamps();
         });
     }
