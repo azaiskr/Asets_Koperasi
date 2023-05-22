@@ -27,7 +27,7 @@ class AsetTerpinjamController extends Controller
 
         if ($aset_tersedia->stok >= $request->jumlah_pinjaman) {
             DB::table('aset_terpinjam')->insert([
-                'id_aset_terpinjam' => $request->id_aset_terpinjam,
+                'id_aset' => $request->id_aset,
                 'nama_peminjam' => $request->nama_peminjam,
                 'jumlah_pinjaman' => $request->jumlah_pinjaman,
                 'tanggal_pinjaman' => $request->tanggal_pinjaman,
