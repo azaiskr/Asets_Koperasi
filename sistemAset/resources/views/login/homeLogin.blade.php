@@ -170,12 +170,15 @@
             container.classList.remove("right-panel-active");
         });
 
-        // forgetLink.addEventListener('click', ()=> {
-        //     popup.classList.add("active");
-        // });
-        // closeBtn.addEventListener('click', () => {
-        //     popup.classList.remove("active");
-        // });
+        document.querySelector("#forgetPwd").addEventListener("click",function(){
+            document.querySelector(".popup").classList.add("active");
+            document.querySelector(".container").classList.add("blur");
+        });
+        document.querySelector(".close-btn").addEventListener("click",function(){
+            document.querySelector(".popup").classList.remove("active");
+            document.querySelector(".container").classList.remove("blur");
+        });
+
 
     </script>
 </body>
