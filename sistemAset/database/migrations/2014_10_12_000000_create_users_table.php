@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->text('token');
+            $table->string('foto')->nullable();
             $table->rememberToken();
             $table->boolean('is_email_verified')->default(0);
             $table->boolean('can_reset_password')->default(0);

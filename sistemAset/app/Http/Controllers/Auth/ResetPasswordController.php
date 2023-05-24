@@ -20,7 +20,7 @@ class ResetPasswordController extends Controller
             $message->subject('Reset Password Anda');
         });
 
-        return redirect('/lupaPassword')->with('reset', 'Silahkan periksa email Anda');
+        return redirect('/login')->with('reset', 'Silahkan periksa email Anda');
     }
 
     public function verifikasi($email)

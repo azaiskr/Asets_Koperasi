@@ -58,5 +58,5 @@ class PendaftaranController extends Controller
         
         return redirect('/login')->with('verifikasi', 'Silahkan periksa email Anda');
     }
-
+    
 }
