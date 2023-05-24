@@ -148,7 +148,7 @@
         <div class="image-container">
             <img class="img-forget" src="{{asset('elements/forgetPwd.png')}}" alt="forgotPwd">
         </div>
-        <div class="form-forgetPwd" action="/ResetPassword/reset" method="get">
+        <form class="form-forgetPwd" action="/ResetPassword/reset" method="get">
             <h2>Lupa Password ?</h2>
             <p>Jangan khawatir.</p>
             <p>Kami akan mengirimkan link untuk perubahan password baru melalui Emailmu. </p>
@@ -167,7 +167,7 @@
             </div>
             @endif
             <button class="submit-btn" > <a href="#">SUBMIT</a> </button>
-        </div>
+        </form>
     </div>
 
 
