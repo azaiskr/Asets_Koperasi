@@ -153,7 +153,6 @@
                 </label>
             </div>
         </div>
-        
         @yield('pageView')
 
   </section>
