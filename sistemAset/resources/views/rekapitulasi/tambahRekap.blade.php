@@ -38,7 +38,7 @@
                 </div>
                 <div class="form-group">
                     <label for="jumlah"> <h5> Kuantitas </h5> </label>
-                    <input class="form-control" type="number" name="jumlah" id="jumlah" required="required" placeholder="jumlah aset ...">
+                    <input class="form-control" type="number" name="jumlah" id="jumlah" required="required" value="{{$aset_pengalihan}}">
                     @if ($errors->has('jumlah'))
                         <div class="text-danger">
                             {{$errors->first('jumlah')}}

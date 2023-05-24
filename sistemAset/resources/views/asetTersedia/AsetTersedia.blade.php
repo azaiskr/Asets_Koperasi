@@ -10,7 +10,7 @@
     
     <div class="row">
 
-        <a class="btnAdd" href="/tambahTersedia" role="button"> 
+        <a class="btnAdd" href="/AsetTersedia/tambah" role="button"> 
             <i class="bi bi-plus-lg"></i>
             <span class="btnLabel">Tambah data</span>
         </a>

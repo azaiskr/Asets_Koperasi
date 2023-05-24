@@ -119,7 +119,7 @@
 
         <div class="profile-details">
           <div class="profile-content">
-            <img src="https://pbs.twimg.com/media/DiR2KdpUEAA8Jsq.jpg:large" alt="profileImg">
+            <img src="{{ auth()->user()->foto }}" alt="profileImg">
           </div>
 
           <div class="name-job">

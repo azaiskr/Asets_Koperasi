@@ -7,7 +7,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{url('/')}}"> Home </a></li>
             <li class="breadcrumb-item"><a href="{{url('/asetPerbaikan')}}"> Manajemen Aset Perbaikan </a> </li>
-            <li class="breadcrumb-item"><a href="{{url('/asetPerbaikan/daftarAset')}}"> Daftar Aset </a> </li>
+            <li class="breadcrumb-item"><a href="{{url('/AsetTetap')}}"> Daftar Aset </a> </li>
             <li class="breadcrumb-item active" aria-current="page">@yield('title')</li>
         </ol>
     </nav>
@@ -19,21 +19,20 @@
             <h3 style="text-align: center"> Tambah Data Aset </h3>
             <form action="/asetPerbaikan/store" method="post">
                 @csrf
-                <div class="form-group">
-                    <label for="id"> <h5> ID Aset </h5> </label>
-                    <input class="form-control" type="number" name="id" id="id" required="required" placeholder="nomor aset perbaikan ...">
-                    @if ($errors->has('id'))
-                        <div class="text-danger">
-                            {{$errors->first('id')}}
-                        </div>
-                    @endif    
+                <div class="form">
+                    <label for="id_Aset"> <h5> Nama Aset </h5> </label><br>
+                    <select class="col-md-2" name="id_Aset" id="id_Aset" required="required">
+                    @foreach($aset_tetaps as $ap)
+                        <option class="text-center" value="{{ $ap->id_Aset }}"> {{ $ap->nama_Aset }} </option>
+                    @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="nama"> <h5> Nama Aset </h5> </label>
-                    <input class="form-control" type="text" name="nama" id="nama" required="required" placeholder="nama aset perbaikan ... ">
-                    @if ($errors->has('nama'))
+                    <label for="jumlah"> <h5> Jumlah </h5> </label>
+                    <input class="form-control" type="number" name="jumlah" required="required" placeholder="jumlah aset tetap ... ">
+                    @if ($errors->has('jumlah'))
                         <div class="text-danger">
-                            {{$errors->first('nama')}}
+                            {{$errors->first('jumlah')}}
                         </div>
                     @endif
                 </div>
@@ -58,6 +57,16 @@
                         </div>
                     @endif
                 </div>
+
+                <div class="form">
+                    <label for="servicer"> <h5> Servicer </h5> </label><br>
+                    <select class="col-md-2" name="servicer" id="servicer" required="required">
+                    @foreach($pj_perbaikans as $pp)
+                        <option class="text-center" value="{{ $pp->id_pj }}"> {{ $pp->nama_pj }} </option>
+                    @endforeach
+                    </select>
+                </div>
+                <!--
                 <div class="form-group">
                     <label for="servicer"> <h5> ID Servicer </h5> </label>
                     <input class="form-control" type="number" name="servicer" id="servicer" placeholder="id servicer perbaikan aset ... ">
@@ -67,8 +76,12 @@
                         </div>
                     @endif
                 </div>
-
-
+                -->
+                @if ($message = Session::get('error'))
+                <div class="center error-message">
+                    {{ $message }}
+                </div>
+                @endif
                 <div class="form-group float-right">
                     <button class="btn btn-lg btn-danger" type="reset"> Reset</button>
                     <button class="btn btn-lg btn-success" type="sumbit"> OK </button>

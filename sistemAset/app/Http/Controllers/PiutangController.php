@@ -30,6 +30,12 @@ class PiutangController extends Controller
             'pelunasan' => "Belum Lunas",
         ]);
 
+        $count_piutang = DB::table('piutang')->count();
+        
+        DB::table('rekapitulasi')->where('id',7)->update([
+            'kuantitas' => $count_piutang
+        ]);
+
         return redirect('/aset_piutang')->with('status','DATA BERHASIL DITAMBAHKAN!');
     }
 
@@ -60,6 +66,12 @@ class PiutangController extends Controller
     public function destroy($id)
     {
         DB::table('piutang')->where('id_pinjaman',$id)->delete();
+
+        $count_piutang = DB::table('piutang')->count();
+        
+        DB::table('rekapitulasi')->where('id',7)->update([
+            'kuantitas' => $count_piutang
+        ]);
         
         return redirect('/aset_piutang')->with('danger','DATA BERHASIL DIHAPUS');
     }
