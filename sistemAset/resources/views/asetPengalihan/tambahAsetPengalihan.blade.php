@@ -59,6 +59,12 @@
                     @endif
                 </div>
 
+                @if ($message = Session::get('error'))
+                <div class="center error-message">
+                    {{ $message }}
+                </div>
+                @endif
+
                 <div class="form-group float-right">
                     <button class="btn btn-lg btn-danger" type="reset"> Reset</button>
                     <button class="btn btn-lg btn-success" type="sumbit"> OK </button>

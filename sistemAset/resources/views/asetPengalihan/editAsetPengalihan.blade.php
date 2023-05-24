@@ -21,23 +21,21 @@
                 @foreach($aset_pengalihan as $ap)
                 <div class="form-group">
                     <label for="id_Aset"> </label>
-                    <input class="form-control" type="hidden" name="id_Aset" required="required" value="{{ $ap->id_Aset }}" >
-                    @if ($errors->has('id_Aset'))
+                    <input class="form-control" type="hidden" name="id_Aset_Pengalihan" required="required" value="{{ $ap->id_Aset_Pengalihan }}" >
+                    @if ($errors->has('id_Aset_Pengalihan'))
                         <div class="text-danger">
-                            {{$errors->first('id_Aset')}}
+                            {{$errors->first('id_Aset_Pengalihan')}}
                         </div>
                     @endif
                 </div>
                 <div class="form-group">
                     <label for="nama_Aset"> <h5> Nama Aset </h5> </label>
-                    @foreach ($aset_tetaps as $at)
-                    <label class="form-control" type="text" name="nama_Aset" required="required" >{{ $at->nama_Aset }}</label>
+                    <label class="form-control" type="text" name="nama_Aset" required="required" >{{ $ap->nama_Aset }}</label>
                     @if ($errors->has('nama_Aset'))
                         <div class="text-danger">
                             {{$errors->first('nama_Aset')}}
                         </div>
                     @endif
-                    @endforeach
                 </div>
                 <div class="form">
                     <label for="jenis_Pengalihan"> <h5> Jenis Pengalihan </h5> </label><br>
@@ -54,12 +52,13 @@
                 </div>
                 <div class="form-group">
                     <label for="jumlah"> <h5> Jumlah </h5> </label>
-                    <input class="form-control" type="number" name="jumlah" required="required" value="{{ $ap->jumlah }}">
+                    <label class="form-control" type="number" name="jumlah" required="required" value="{{ $ap->jumlah }}">{{ $ap->jumlah }}
                     @if ($errors->has('jumlah'))
                         <div class="text-danger">
                             {{$errors->first('jumlah')}}
                         </div>
                     @endif
+                    </label>
                 </div>
                 <div class="form-group">
                     <label for="lokasi_Pengalihan"> <h5> Lokasi </h5> </label>

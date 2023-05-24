@@ -20,6 +20,7 @@ class AsetTersediaController extends Controller
     public function store(Request $request)
     {
         DB::table('aset_tersedia')->insert([
+            'id_aset' => $request->id_aset,
             'nama_aset' => $request->nama_aset,
             'stok' => $request->stok,
         ]);

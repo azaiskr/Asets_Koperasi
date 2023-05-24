@@ -23,12 +23,27 @@ class ResetPasswordController extends Controller
         return redirect('/lupaPassword')->with('reset', 'Silahkan periksa email Anda');
     }
 
+    public function verifikasi($email)
+    {
+        $verif = User::where('email', $email)->first();
+  
+        if(!is_null($verif) ){
+            //$user = $verif->user;
+
+            if($verif->can_reset_password == 0) {
+                $verif->can_reset_password = 1;
+                $verif->save();
+            }
+        }
+
+        $email = User::where('email', $email)->first();
+        return redirect()->route('user.edit',['email'=>$email->email]);
+    }
+
     public function edit($email)
     {
-        //$email = User::select('email')->where('email',$email);
-        $email = DB::table('users')->where('email',$email)->get();
-        
-        return view('login.EditPassword',['email' => $email]);
+        $email = User::where('email', $email)->get();
+        return view('login.EditPassword', ['email' => $email]);
     }
 
     public function update(Request $request)
@@ -48,7 +63,8 @@ class ResetPasswordController extends Controller
         ]
         );
         DB::table('users')->where('email',$request->email)->update([
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
+            'can_reset_password' => $request->status
         ]);
        // User::where('email',$request->email)->update([]);
         

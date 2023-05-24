@@ -43,7 +43,8 @@ Route::get('account/verify/{token}', [VerifikasiEmailController::class, 'verifik
 
 Route::get('/ResetPassword/reset', [ResetPasswordController::class, 'reset'])->name('reset');
 //oute::get('/ResetPassword/edit', [ResetPasswordController::class, 'edit'])->name('edit');
-Route::get('account/edit/{email}', [ResetPasswordController::class, 'edit'])->name('user.edit');
+Route::get('account/edit/{email}', [ResetPasswordController::class, 'edit'])->name('user.edit')->middleware('can_reset_password');
+Route::get('account/verifikasi/{email}', [ResetPasswordController::class, 'verifikasi'])->name('user.verifikasi');//->middleware('can_reset_password');
 Route::post('/ResetPassword/update', [ResetPasswordController::class, 'update'])->name('update');
 
 
@@ -68,10 +69,7 @@ Route::get('/AsetTerpinjam/tambah', 'App\Http\Controllers\AsetTerpinjamControlle
 Route::post('/AsetTerpinjam/store', 'App\Http\Controllers\AsetTerpinjamController@store');
 Route::get('/AsetTerpinjam/edit/{id_aset}', 'App\Http\Controllers\AsetTerpinjamController@edit');
 Route::post('/AsetTerpinjam/update', 'App\Http\Controllers\AsetTerpinjamController@update');
-Route::get('/AsetTerpinjam/hapus/{id_aset}', 'App\Http\Controllers\AsetTerpinjamController@hapus');
-Route::get('/tambahTerpinjam', function(){
-    return view('asetTerpinjam.tambahTerpinjam');
-});
+Route::get('/AsetTerpinjam/hapus/{id_aset_terpinjam}', 'App\Http\Controllers\AsetTerpinjamController@hapus');
 
 //Aset Tetap
 Route::get('/AsetTetap', 'App\Http\Controllers\AsetTetapController@index')->middleware('auth');
@@ -111,7 +109,7 @@ Route::get('/asetPerbaikan/create',[AsetPerbaikanController::class,'create'])->m
 Route::post('/asetPerbaikan/store',[AsetPerbaikanController::class,'store'])->middleware('auth');
 Route::get('/asetPerbaikan/edit/{id}',[AsetPerbaikanController::class,'edit'])->middleware('auth');
 Route::put('/asetPerbaikan/update/{id}',[AsetPerbaikanController::class,'update'])->middleware('auth');
-Route::get('/asetPerbaikan/hapus/{id}',[AsetPerbaikanController::class,'destroy'])->middleware('auth');
+Route::get('/asetPerbaikan/destroy/{id}',[AsetPerbaikanController::class,'destroy'])->middleware('auth');
 
 
 

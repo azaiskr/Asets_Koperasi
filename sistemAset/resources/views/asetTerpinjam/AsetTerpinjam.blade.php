@@ -8,7 +8,7 @@
     </div>
 
     <div class="row">
-        <a class="btnAdd" href="/tambahTerpinjam" role="button"> 
+        <a class="btnAdd" href="/AsetTerpinjam/tambah" role="button"> 
             <i class="bi bi-plus-lg"></i>
             <span class="btnLabel">Tambah data</span>
         </a>
@@ -17,7 +17,8 @@
             <table class="table-div">
                 <thead class="thead-primary">
                     <tr>
-						<th class="text-center">ID Aset</th>
+						<th class="text-center">ID Peminjaman</th>
+                        <th class="text-center">ID Aset</th>
 						<th class="text-left">Nama Aset</th>
 						<th class="text-left">Nama Peminjam</th>
 						<th class="text-center">Jumlah</th>
@@ -29,17 +30,22 @@
                 <tbody>
                 @foreach($aset_terpinjam as $at)
                     <tr>
-						<td class="text-center">{{ $at->id_aset }}</td>
-						<td class="text-left">{{ $at->nama_aset }}</td>
+						<td class="text-center">{{ $at->id_aset_terpinjam }}</td>
+                        <td class="text-center">{{ $at->id_aset }}</td>
+                        @foreach($aset_tersedia as $as)
+                            @if($at->id_aset == $as->id_aset)
+                                <td class="text-left">{{$as->nama_aset}}</td>
+                            @endif
+                        @endforeach
 						<td class="text-left">{{ $at->nama_peminjam }}</td>
 						<td class="text-center">{{ $at->jumlah_pinjaman }}</td>
 						<td class="text-center">{{ $at->tanggal_pinjaman }}</td>
 						<td class="text-center">{{ $at->tanggal_jatuh_tempo }}</td>
 						<td>
-                            <a class="btnEdit" href="/AsetTerpinjam/edit/{{$at->id_aset}}">
+                            <a class="btnEdit" href="/AsetTerpinjam/edit/{{$at->id_aset_terpinjam}}">
                                 <i class="bi bi-pencil-square"></i>
                             </a>
-                            <a class="btnRemove" href="/AsetTerpinjam/hapus/{{$at->id_aset}}"> 
+                            <a class="btnRemove" href="/AsetTerpinjam/hapus/{{$at->id_aset_terpinjam}}"> 
                                 <i class="bi bi-trash"></i>
                             </a>
 						</td>   

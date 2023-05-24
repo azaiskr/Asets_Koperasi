@@ -18,23 +18,13 @@
             <h3 style="text-align: center"> Tambah Data Aset Terpinjam </h3>
             <form action="/AsetTerpinjam/store" method="post">
                 @csrf
-                <div class="form-group">
-                    <label for="id_aset"> <h5> ID Aset </h5> </label>
-                    <input class="form-control" type="text" name="id_aset" required="required" placeholder="id aset yang dipinjam">
-                    @if ($errors->has('id_aset'))
-                        <div class="text-danger">
-                            {{$errors->first('id_aset')}}
-                        </div>
-                    @endif
-                </div>
-                <div class="form-group">
-                    <label for="nama_aset"> <h5> Nama Aset </h5> </label>
-                    <input class="form-control" type="text" name="nama_aset" required="required" placeholder="nama aset yang dipinjam">
-                    @if ($errors->has('nama_aset'))
-                        <div class="text-danger">
-                            {{$errors->first('nama_aset')}}
-                        </div>
-                    @endif
+                <div class="form">
+                    <label for="id_aset"> <h5> Nama Aset </h5> </label><br>
+                    <select class="col-md-2" name="id_aset" id="id_aset" required="required">
+                    @foreach($aset_tersedia as $at)
+                        <option class="text-center" value="{{ $at->id_aset }}"> {{ $at->nama_aset }} </option>
+                    @endforeach
+                    </select>
                 </div>
                 <div class="form">
                     <label for="nama_peminjam"> <h5> Nama Peminjam </h5> </label><br>
@@ -73,6 +63,12 @@
                         </div>
                     @endif
                 </div>
+
+                @if ($message = Session::get('error'))
+                <div class="center error-message">
+                    {{ $message }}
+                </div>
+                @endif
 
                 <div class="form-group float-right">
                     <button class="btn btn-lg btn-danger" type="reset"> Reset</button>
