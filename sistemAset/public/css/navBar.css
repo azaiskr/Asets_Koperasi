@@ -8,7 +8,7 @@
   }
 
 :root {
-    --blue: #150e6d;
+    --blue: #002352;
     --white: #fff;
     --gray: #f5f5f5;
     --black1: #222;
@@ -18,38 +18,59 @@
 .sidebar{
   position: fixed;
   border-top: 5px solid var(--blue);
-  border-left: 10px solid var(--blue);
+  border-left: 5px solid var(--blue);
   height: 100%;
   width: 270px;
   background: var(--blue);
   z-index: 100;
   transition: all 0.5s ease;
 }
+
+.sidebar::before {
+  content: "";
+  position:absolute;
+  right:-50px;
+  top: 45px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 100%;
+  box-shadow: -30px -30px 0 5px var(--blue);
+  pointer-events: none;
+}
 .sidebar.close{
-  width: 75px;
+  width: 65px;
 }
 .sidebar .logo-details{
   height: 60px;
   width: 100%;
   display: flex;
   align-items: center;
+  margin-top: 5px;
 }
-.sidebar .logo-details i{
-  font-size: 25px;
-  color: var(--white);
+.sidebar .logo-details .brandLogo{
   height: 50px;
   min-width: 50px;
+  margin-left: 2px;
   text-align: center;
-  line-height: 50px;
+  transform: rotate(-360deg);
+  transition: 1s;
 }
+
+.sidebar.close .logo-details .brandLogo{
+  transform: rotate(360deg);
+  transition: 1s;
+}
+
 .sidebar .logo-details .logo_name{
-  font-size: 18px;
-  padding: 20px 10px;
+  font-size: 20px;
+  margin-left: 20px;
   color: var(--white);
-  font-weight: 600;
+  font-weight: bold;
   transition: 0.3s ease;
   transition-delay: 0.3s;
 }
+
 .sidebar.close .logo-details .logo_name{
   transition-delay: 0s;
   opacity: 0;
@@ -57,6 +78,7 @@
 }
 .sidebar .nav-links{
   height: 100%;
+  margin-top: 15px;
   padding: 30px 0 150px 0;
   overflow: auto;
 }
@@ -68,7 +90,7 @@
 }
 .sidebar .nav-links li{
   position: relative;
-  margin-top: 0px;
+  margin-left: 0px;
   list-style: none;
   width: 100%;
   border-top-left-radius: 25px;
@@ -120,21 +142,24 @@
   display: flex;
   align-items: center;
   justify-content:space-between;
-  margin-right: 10px;
 }
 .sidebar.close .nav-links li .iocn-link{
   display: block;
 }
 
 .sidebar .nav-links li i{
-  height: 50px;
-  min-width: 50px;
+  height: 45px;
+  min-width: 40px;
   text-align: center;
-  line-height: 50px;
+  margin-left: 5px;
+  line-height: 45px;
   color: var(--white);
-  font-size: 25px;
+  font-size: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+.sidebar .nav-links li i.arrow{
+  margin-right: 20px;
 }
 
 .sidebar .nav-links li.showMenu i.arrow{
@@ -160,7 +185,7 @@
   pointer-events: none;
 }
 .sidebar .nav-links li .sub-menu{
-  padding: 6px 6px 12px 60px;
+  padding: 6px 6px 12px 55px;
   margin-top: -15px;
   background: var(--white);
   display: none;
@@ -176,9 +201,9 @@
 
 .sidebar .nav-links li .sub-menu a{
   color: var(--blue);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 400;
-  padding: 5px 0;
+  padding: 3px 0;
   white-space: nowrap;
   opacity: 0.7;
   transition: all 0.3s ease;
