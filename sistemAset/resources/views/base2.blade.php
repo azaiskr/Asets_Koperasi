@@ -77,7 +77,7 @@
             </div>
             <ul class="sub-menu">
               <li><a class="link_name" href="#"><b> Peminjaman Aset</b> </a></li>
-              <li><a href="#">Pinjam Aset</a></li>
+              <li><a href="/AsetTerpinjam/tambah">Pinjam Aset</a></li>
               <li><a href="/aset_tersedia">Daftar Aset Tersedia</a></li>
               <li><a href="/aset_terpinjam">Daftar Aset Terpinjam</a></li>
             </ul>
@@ -94,7 +94,7 @@
             </div>
             <ul class="sub-menu">
               <li><a class="link_name" href="#"><b> Pemeliharaan Aset</b></a></li>
-              <li><a href="#">Perbaiki Aset</a></li>
+              <li><a href="/asetPerbaikan/create">Perbaiki Aset</a></li>
               <li><a href="/asetPerbaikan">Daftar Aset Perbaikan</a></li>
               <li><a href="/daftarServicer">Servicer</a></li>
             </ul>
@@ -111,7 +111,7 @@
           </div>
           <ul class="sub-menu">
             <li><a class="link_name" href="#"><b> Pengalihan Aset</b></a></li>
-            <li><a href="#">Alihkan Aset</a></li>
+            <li><a href="/AsetPengalihan/tambah">Alihkan Aset</a></li>
             <li><a href="/AsetPengalihan">Daftar Aset Dialihkan</a></li>
           </ul>
         </li>
@@ -153,7 +153,10 @@
                 </label>
             </div>
         </div>
-        @yield('pageView')
+        
+        <div class="sectionView">
+          @yield('pageView')
+        </div>
 
   </section>
   

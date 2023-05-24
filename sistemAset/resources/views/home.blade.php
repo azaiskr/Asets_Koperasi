@@ -20,35 +20,35 @@
 
     <div class="featureList">
         <div class="title">
-            <h2>Mulai Kelola Aset Kamu</h2>
+            <h2>Yuk, kelola aset kamu</h2>
             <span class="breakLine"></span>
         </div>
-        {{-- <div class="features">
+        <div class="features">
             <a href="">
                 <button>
                     <i class="bi bi-clipboard-data"></i>
                     Rekap Aset
                 </button>
             </a>
-            <a href="">
+            <a href="/AsetTerpinjam/tambah">
                 <button>
-                    <i class="bi bi-clipboard-data"></i>
-                    Rekap Aset
+                    <i class="bi bi-gift"></i>
+                    Pinjam Aset
                 </button>
             </a>
-            <a href="">
+            <a href="/asetPerbaikan/create">
                 <button>
-                    <i class="bi bi-clipboard-data"></i>
-                    Rekap Aset
+                    <i class="bi bi-tools"></i>
+                    Perbaiki Aset
                 </button>
             </a>
-            <a href="">
+            <a href="/AsetPengalihan/tambah">
                 <button>
-                    <i class="bi bi-clipboard-data"></i>
-                    Rekap Aset
+                    <i class="bi bi-folder-symlink"></i>
+                    Alihkan Aset
                 </button>
             </a>
-        </div> --}}
+        </div>
     </div>
 </div>
 
