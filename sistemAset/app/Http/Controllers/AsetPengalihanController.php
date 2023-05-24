@@ -67,8 +67,15 @@ class AsetPengalihanController extends Controller
 
             $aset_perbaikans = DB::table('aset_perbaikans')->where('id_Aset',$request->id_Aset)->first();
             
-            DB::table('aset_tetaps')->where('id_Aset',$request->id_Aset)->delete();
-        
+            if ($aset_perbaikans === null) {
+                DB::table('aset_tetaps')->where('id_Aset',$request->id_Aset)->delete();
+            } else {
+                $jumlah_aset_tetap = $aset_tetap->jumlah - $request->jumlah;
+                DB::table('aset_tetaps')->where('id_Aset',$request->id_Aset)->update([
+                    'jumlah' => $jumlah_aset_tetap
+                ]);
+            }
+
             $count_aset_pengalihan = DB::table('aset_pengalihan')->count();
             DB::table('rekapitulasi')->where('id',6)->update([
                 'kuantitas' => $count_aset_pengalihan
