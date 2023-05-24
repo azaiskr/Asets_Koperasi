@@ -8,10 +8,10 @@
     </div>
 
     <div class="row">
-        <a class="btnAdd" href="/AsetTerpinjam/tambah" role="button"> 
+        {{-- <a class="btnAdd" href="/AsetTerpinjam/tambah" role="button"> 
             <i class="bi bi-plus-lg"></i>
             <span class="btnLabel">Tambah data</span>
-        </a>
+        </a> --}}
 
         <div>
             <table class="table-div">

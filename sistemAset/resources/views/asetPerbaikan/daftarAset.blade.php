@@ -28,11 +28,11 @@
     </div>
 
 
-    <div class="row">
+    {{-- <div class="row">
         <a class="btnAdd" href="/asetPerbaikan/create" role="button"> 
             <i class="bi bi-plus-lg"></i>
             <span class="btnLabel">Tambah data</span>
-        </a>
+        </a> --}}
 
         <div>
             <table class="table-div">
@@ -51,19 +51,20 @@
                 @foreach($aset as $a)
                     <tr>
                         <td class="text-center" > {{$a->id_aset_perbaikan}} </td>
-                        @foreach($aset_tetaps as $ap)
-                            @if($a->id_Aset == $ap->id_Aset)
-                                <td class="text-left">{{$ap->nama_Aset}}</td>
-                            @endif
-                        @endforeach
+                            @foreach($aset_tetaps as $ap)
+                                @if($a->id_Aset == $ap->id_Aset)
+                                    <td class="text-left">{{$ap->nama_Aset}}</td>
+                                @endif
+                            @endforeach
+                        
                         <td class="text-center"> {{$a->jumlah}} </td>
                         <td class="text-center"> {{$a->status_perbaikan}} </td>
                         <td class="text-center"> {{$a->tanggal_perbaikan}} </td>
-                        @foreach($pj as $p)
-                            @if($a->pj_perbaikan == $p->id_pj)
-                                <td class="text-right">{{$p->nama_pj}}</td>
-                            @endif
-                        @endforeach
+                            @foreach($pj as $p)
+                                @if($a->pj_perbaikan == $p->id_pj)
+                                    <td class="text-right">{{$p->nama_pj}}</td>
+                                @endif
+                            @endforeach
                         <td> 
                             <a class="btnEdit" href="/asetPerbaikan/edit/{{$a->id_aset_perbaikan}}">
                                 <i class="bi bi-pencil-square"></i>
