@@ -65,6 +65,21 @@
                         {{ $message }}
                     </div>
                 @endif
+                @if ($message = Session::get('reset'))
+                <div class="center error-message">
+                    {{ $message }}
+                </div>
+                @endif
+                @if ($message = Session::get('resetIssues'))
+                <div class="center error-message">
+                    {{ $message }}
+                </div>
+                @endif
+                @if ($errors->has('email'))
+                    <div class="alert alert-danger center" role="alert">
+                        <small>{{$errors->first('email')}}</small>
+                    </div>
+                @endif 
             </form>
         </div>
 
@@ -154,18 +169,8 @@
             <p>Kami akan mengirimkan link untuk perubahan password baru melalui Emailmu. </p>
             <div class="input-container">
                 <p class="input-label">Email</p>
-                <input type="email" name="email" id="email" placeholder="Email yang terdaftar">
+                <input type="email" name="email" id="email" required="required" placeholder="Email yang terdaftar">
             </div>
-            @if ($message = Session::get('reset'))
-            <div class="center error-message">
-                {{ $message }}
-            </div>
-            @endif
-            @if ($message = Session::get('resetIssues'))
-            <div class="center error-message">
-                {{ $message }}
-            </div>
-            @endif
             <button class="submit-btn" > <a href="#">SUBMIT</a> </button>
         </form>
     </div>

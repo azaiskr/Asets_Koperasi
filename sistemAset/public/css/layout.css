@@ -75,6 +75,7 @@
     width: 350px;
     padding: 15px;
     left: 70%;
+
 }
 
 .home-section .topbar .search label input{
@@ -184,6 +185,7 @@
     /* background-color: #002452e6; */
     width: 75%;
     justify-content: space-between;
+
     align-items: center;
     align-content: center;
     margin: 2% 10%;
@@ -205,7 +207,7 @@
     height: 2px;
     width: 100px;
     margin: 10px 0px;
-    background-color: var(--blue);
+    background-color: var(--white);
 }
 
 .featureList .features{
@@ -213,6 +215,8 @@
     position:relative;
     margin: 5%;
     justify-content: space-between;
+
+
 }
 .featureList .features button{
     width: 4cm;
