@@ -161,6 +161,11 @@
                 {{ $message }}
             </div>
             @endif
+            @if ($message = Session::get('resetIssues'))
+            <div class="center error-message">
+                {{ $message }}
+            </div>
+            @endif
             <button class="submit-btn" > <a href="#">SUBMIT</a> </button>
         </div>
     </div>
