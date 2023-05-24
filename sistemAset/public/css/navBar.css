@@ -53,12 +53,11 @@
   min-width: 50px;
   margin-left: 2px;
   text-align: center;
-  transform: rotate(-360deg);
   transition: 1s;
 }
 
 .sidebar.close .logo-details .brandLogo{
-  transform: rotate(360deg);
+  transform: rotate(45deg);
   transition: 1s;
 }
 
