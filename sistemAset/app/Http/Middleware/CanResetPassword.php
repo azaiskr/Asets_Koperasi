@@ -19,8 +19,8 @@ class CanResetPassword
     {
         $user = User::where('email',$request->email)->first();
         if ($user->can_reset_password == 0) {
-            return redirect('/lupaPassword')
-                    ->with('resetIssues', 'Silahkan masukkan email Anda.');
+            return redirect('/login')
+                    ->with('resetIssues', 'Silahkan klik tombol forgot password.');
         } else {
             return $next($request);
         }

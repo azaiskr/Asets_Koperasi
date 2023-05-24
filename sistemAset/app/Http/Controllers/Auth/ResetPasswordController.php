@@ -13,6 +13,10 @@ class ResetPasswordController extends Controller
 {
     public function reset(Request $request)
     {
+        $request->validate([
+            'email' => ['required']
+        ]);
+
         User::select('email')->where('email',$request->email);
 
         Mail::send('login.ResetPassword', ['email' => $request->email], function($message) use($request){
@@ -20,7 +24,7 @@ class ResetPasswordController extends Controller
             $message->subject('Reset Password Anda');
         });
 
-        return redirect('/lupaPassword')->with('reset', 'Silahkan periksa email Anda');
+        return redirect('/login')->with('reset', 'Silahkan periksa email Anda');
     }
 
     public function verifikasi($email)
