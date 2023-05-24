@@ -8,6 +8,7 @@
 
     <!-- ======= Styles ======= -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/login.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 </head>
 
@@ -23,12 +24,21 @@
                     <div class="input-container">
                         <p class="input-label">Email</p>
                         <input type="email" name="email" id="email" placeholder="Enter your email" />
+                        {{-- <span class="error email-error">
+                            <i class="bi bi-exclamation-circle"></i>
+                            <p class="error-text">Please enter a valid Email</p>
+                        </span> --}}
                     </div>
                     <div class="input-container">
                         <p class="input-label">Password</p>
                         <input type="password" name="password" id="password" placeholder="Enter your password" />
-                        <a id="forgetPwd" href="#">Forgot your password?</a>
+                        <i class="bi bi-eye-slash show-input"></i>
+                        {{-- <span class="error password-error">
+                            <i class="bi bi-exclamation-circle"></i>
+                            <p class="error-text">Wrong password</p>
+                        </span> --}}
                     </div>
+                    <a id="forgetPwd" href="#">Forgot your password?</a>
                 </div>             
                 <button> <a href="">Sign In </a></button> 
                 <span class="breakLine"></span>
@@ -87,6 +97,7 @@
                     <div class="input-container">
                         <p class="input-label">Password</p>
                         <input type="password" name="password" id="password" placeholder="Kata sandi kombinasi huruf dan angka" />
+                        <i class="bi bi-eye-slash show-input"></i>
                         @if ($errors->has('password'))
                         <div class="alert alert-danger center" role="alert">
                             <small>{{$errors->first('password')}}</small>
@@ -97,6 +108,7 @@
                     <div class="input-container">
                         <p class="input-label">Konfirmasi Password</p>
                         <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Ketik ulang kata sandimu" />
+                        <i class="bi bi-eye-slash show-input"></i>
                         @if ($errors->has('password'))
                         <div class="alert alert-danger center" role="alert">
                             <small>{{$errors->first('password')}}</small>
@@ -119,9 +131,11 @@
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
+                    <img src="{{asset('elements/logoLandscape.png')}}" alt="" class="brandLogo">
                     <img src="{{asset('elements/registerElement.png')}}" alt="">
                 </div>
                 <div class="overlay-panel overlay-right">
+                    <img src="{{asset('elements/logoLandscape.png')}}" alt="" class="brandLogo">
                     <img src="{{asset('elements/loginElement.png')}}" alt="loginImg">
                 </div>
             </div>
@@ -147,7 +161,7 @@
                 {{ $message }}
             </div>
             @endif
-            <button> <a href="#">SUBMIT</a> </button>
+            <button class="submit-btn" > <a href="#">SUBMIT</a> </button>
         </div>
     </div>
 
@@ -156,16 +170,13 @@
     <script>
         const signUpButton = document.getElementById('signUp');
         const signInButton = document.getElementById('signIn');
-        const forgetLink = document.getElementById('forgetPwd');
-        // const closeBtn = document.getElementsByClassName('close-btn');
-
         const container = document.getElementById('container');
         const popup = document.getElementsByClassName('.popup');
+        // const eyeIcons = document.querySelectorAll(".show-input");
 
         signUpButton.addEventListener('click', () => {
             container.classList.add("right-panel-active");
         });
-
         signInButton.addEventListener('click', () => {
             container.classList.remove("right-panel-active");
         });
@@ -179,6 +190,16 @@
             document.querySelector(".container").classList.remove("blur");
         });
 
+
+        // eyeIcons.forEach((eyeIcon) => {
+        //     eyeIcon.addEventListener("click", function => {
+        //         const input = eyeIcon.parentElement.querySelector("#password");
+        //         if(input.type ==="password"){
+        //             eyeIcon.classList.replace("bi-eye-slash", "bi-eye")
+        //         }
+        //     })
+            
+        // });
 
     </script>
 </body>

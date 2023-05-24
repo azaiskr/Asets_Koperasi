@@ -72,6 +72,13 @@ img{
   width: 110%;
 }
 
+img.brandLogo{
+	position: absolute;
+	top: -15px;
+	left: -25%;
+	scale: 0.4;
+}
+
 /* ========= FORM CONTAINER========= */
 .container {
 	background-color: #fff;
@@ -217,6 +224,34 @@ input#rememberMe{
   margin-right: -50%;
   text-align: right;
 }
+
+.input-container .error{
+	display: flex;
+	align-items: center;
+	margin-top: 5px;
+	color: red;
+}
+
+.input-container .error i{
+	font-size: 15px; 
+	margin-right: 5px;
+}
+.input-container .error .error-text{
+	margin: 0;
+	font-size: 10px;
+	font-weight: bold;
+}
+.input-container .show-input{
+	position: absolute;
+	right: 15px;
+	top: 50%;
+	font-size: 17px;
+	color: gray;
+	cursor: pointer;
+	
+}
+
+
 .input-label{
   text-align: left;
   color: white;
@@ -305,6 +340,12 @@ a.input-label{
 }
 
 /* ============ FORGOT PASSWORD ============ */
+
+#forgetPwd{
+	position: absolute;
+	font-size: 12px;
+	margin: 0;
+}
 
 .popup,
 form.form-forgetPwd{

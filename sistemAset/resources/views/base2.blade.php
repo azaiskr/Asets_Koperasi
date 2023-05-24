@@ -20,13 +20,13 @@
   <div class="sidebar close">
 
       <div class="logo-details">
-        <i class="bi bi-box-fill"></i>
-        <span class="logo_name">Sistem Manajemen Aset</span>
+        <img src="{{asset('elements/logo.png')}}" alt="brandLogo" class="brandLogo">
+        <span class="logo_name">Koperasi Mahasiswa</span>
       </div>
 
       <ul class="nav-links">
 
-          <li>
+          <li class="menu" >
               <a class="title" href="{{url('/')}}">
                 <i class="bi bi-house-door"></i>
                 <span class="link_name">Home</span>
@@ -39,7 +39,7 @@
           </li>
 
 
-          <li>
+          <li class="menu" >
             <a class="title" href="{{url('/rekapitulasiAset')}}">
               <i class="bi bi-clipboard-data"></i>
               <span class="link_name">Rekapitulasi</span>
@@ -50,7 +50,7 @@
           </li>
 
 
-          <li>
+          <li class="menu" >
             <div class="iocn-link">
               <a class="title" href="#">
                 <i class="bi bi-inboxes"></i>
@@ -67,7 +67,7 @@
           </li>
 
 
-          <li>
+          <li class="menu" >
             <div class="iocn-link">
               <a class="title" href="#">
                 <i class="bi bi-gift"></i>
@@ -84,7 +84,7 @@
           </li>
 
 
-          <li>
+          <li class="menu" >
             <div class="iocn-link">
               <a class="title" href="#">
                 <i class="bi bi-tools"></i>
@@ -101,7 +101,7 @@
           </li>
 
 
-          <li>
+          <li  class="menu">
           <div class="iocn-link">
             <a class="title" href="#">
               <i class="bi bi-folder-symlink"></i>
@@ -143,7 +143,7 @@
   <section class="home-section">
         <div class="topbar">
             <div class="toggle">
-                <i class="bi bi-list"></i>
+                {{-- <i class="bi bi-list"></i> --}}
             </div>
     
             <div class="search">
@@ -170,20 +170,11 @@
     }
 
     let sidebar = document.querySelector(".sidebar");
-    let sidebarBtn = document.querySelector(".bi-list");
+    let sidebarBtn = document.querySelector(".logo-details");
     console.log(sidebarBtn);
     sidebarBtn.addEventListener("click", ()=>{
       sidebar.classList.toggle("close");
     });
-
-    let links = document.querySelectorAll(".sidebar.close .nav-links li"); //still has an error
-    function activeLink() {
-    links.forEach((link) => {
-      link.classList.remove("hovered");
-    });
-    this.classList.add("hovered");
-    }
-    links.forEach((link) => link.addEventListener("click", activeLink));
 
   </script>
 
