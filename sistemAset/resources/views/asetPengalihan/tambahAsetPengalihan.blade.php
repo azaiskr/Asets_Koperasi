@@ -1,8 +1,8 @@
-@extends('base')
-@section('container')
-@section('title', 'Tambah data')
+@extends('base2')
+@section('pageView')
+@section('title', 'Alihkan Aset')
 
-<div class="container mt-4">
+{{-- <div class="container mt-4">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/"> Home </a></li>
@@ -10,12 +10,12 @@
             <li class="breadcrumb-item active" aria-current="page">@yield('title')</li>
         </ol>
     </nav>
-</div>
+</div> --}}
 
 <div class="container"> 
     <div class="row">
         <div class="col-md-12 mt-3">
-            <h3 style="text-align: center"> Tambah Data Aset Pengalihan </h3>
+            <h3 style="text-align: center"> Alihkan Aset </h3>
             <form action="/AsetPengalihan/store" method="post">
                 @csrf
                 
@@ -40,7 +40,7 @@
                         </div>
                     @endif    
                 </div>
-                <div class="form-group">
+                <div class="form">
                     <label for="jumlah"> <h5> Jumlah </h5> </label>
                     <input class="form-control" type="number" name="jumlah" required="required" placeholder="jumlah aset pengalihan ... ">
                     @if ($errors->has('jumlah'))
@@ -49,7 +49,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="form-group">
+                <div class="form">
                     <label for="lokasi_Pengalihan"> <h5> Lokasi </h5> </label>
                     <input class="form-control" type="text" name="lokasi_Pengalihan" required="required" placeholder="lokasi pengalihan aset ... ">
                     @if ($errors->has('lokasi_Pengalihan'))
@@ -66,8 +66,8 @@
                 @endif
 
                 <div class="form-group float-right">
-                    <button class="btn btn-lg btn-danger" type="reset"> Reset</button>
-                    <button class="btn btn-lg btn-success" type="sumbit"> OK </button>
+                    <button class="btn-danger" type="reset"> Reset</button>
+                    <button class="btn-success" type="sumbit"> OK </button>
                 </div>
             </form>
         </div>

@@ -1,8 +1,8 @@
-@extends('base')
-@section('container')
-@section('title', 'Tambah data')
+@extends('base2')
+@section('pageView')
+@section('title', 'Aset Tetap')
 
-<div class="container mt-4">
+{{-- <div class="container mt-4">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/"> Home </a></li>
@@ -10,15 +10,15 @@
             <li class="breadcrumb-item active" aria-current="page">@yield('title')</li>
         </ol>
     </nav>
-</div>
+</div> --}}
 
 <div class="container"> 
     <div class="row">
         <div class="col-md-12 mt-3">
-            <h3 style="text-align: center"> Tambah Data Aset </h3>
+            <h3 style="text-align: center"> Input Data Aset Tetap</h3>
             <form action="/AsetTetap/store" method="post">
                 @csrf
-                <div class="form-group">
+                <div class="form">
                     <label for="id_Aset"> <h5> ID Aset </h5> </label>
                     <input class="form-control" type="text" name="id_Aset" required="required" placeholder="ID aset tetap ... ">
                     @if ($errors->has('id_Aset'))
@@ -27,7 +27,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="form-group">
+                <div class="form">
                     <label for="nama_Aset"> <h5> Nama Aset </h5> </label>
                     <input class="form-control" type="text" name="nama_Aset" required="required" placeholder="nama aset tetap ... ">
                     @if ($errors->has('nama_Aset'))
@@ -57,7 +57,7 @@
                         </div>
                     @endif    
                 </div>
-                <div class="form-group">
+                <div class="form">
                     <label for="jumlah"> <h5> Jumlah </h5> </label>
                     <input class="form-control" type="number" name="jumlah" required="required" placeholder="jumlah aset tetap ... ">
                     @if ($errors->has('jumlah'))
@@ -66,7 +66,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="form-group">
+                <div class="form">
                     <label for="ukuran"> <h5> Ukuran </h5> </label>
                     <input class="form-control" type="number" name="ukuran" required="required" placeholder="ukuran aset tetap ... ">
                     @if ($errors->has('ukuran'))
@@ -75,7 +75,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="form-group">
+                <div class="form">
                     <label for="nilai_ekonomi"> <h5> Nilai </h5> </label>
                     <input class="form-control" type="number" name="nilai_ekonomi" required="required" placeholder="nilai ekonomi aset tetap ... ">
                     @if ($errors->has('nilai_ekonomi'))
@@ -87,8 +87,8 @@
 
 
                 <div class="form-group float-right">
-                    <button class="btn btn-lg btn-danger" type="reset"> Reset</button>
-                    <button class="btn btn-lg btn-success" type="sumbit"> OK </button>
+                    <button class="btn-danger" type="reset"> Reset</button>
+                    <button class="btn-success" type="sumbit"> OK </button>
                 </div>
             </form>
         </div>

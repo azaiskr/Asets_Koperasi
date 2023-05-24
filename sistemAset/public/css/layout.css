@@ -12,6 +12,7 @@
         left: 78px;
         width: calc(100% - 78px);
         z-index: 100;
+
     }
     .sidebar.close ~ .home-section{
         width: 100%;
@@ -69,11 +70,11 @@
 } */
 
 .home-section .topbar .search{
-    position: relative;
+    position: fixed;
     justify-content: center;
-    width: 150px;
+    width: 350px;
     padding: 15px;
-    margin-right:  30%;
+    left: 70%;
 }
 
 .home-section .topbar .search label input{
@@ -121,7 +122,8 @@
 }
 
 .homeContent button {
-	width: 35%;
+	position: relative;
+    width: 35%;
     margin-top: 5px;
     border-radius: 10px;
     border-color: transparent;
@@ -130,6 +132,7 @@
     padding: 5px 10px;
 	letter-spacing: 1px;
 	text-transform: uppercase;
+
 }
 .homeContent button:hover{
     background-color: orange;
@@ -178,15 +181,15 @@
 
 .pageSection .featureList{
     position: absolute;
-    background-color: #002452e6;
+    /* background-color: #002452e6; */
     width: 75%;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     align-content: center;
     margin: 2% 10%;
     display: flex;
     flex-direction: column;
-    color: var(--white);
+    color: var(--blue);
     border-radius: 20px;
     box-shadow: 0px 0px 15px 0px #0f6de770;
 }
@@ -202,13 +205,14 @@
     height: 2px;
     width: 100px;
     margin: 10px 0px;
-    background-color: var(--white);
+    background-color: var(--blue);
 }
 
 .featureList .features{
     display:table-column;
     position:relative;
     margin: 5%;
+    justify-content: space-between;
 }
 .featureList .features button{
     width: 4cm;
