@@ -21,7 +21,7 @@ class rekapAset extends Controller
 
     public function create()
     {
-        return view('rekapitulasi.tambahRekap', compact('aset_pengalihan'));
+        return view('rekapitulasi.tambahRekap');
     }
 
     public function store(Request $request)
