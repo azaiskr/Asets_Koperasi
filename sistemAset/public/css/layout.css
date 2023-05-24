@@ -93,3 +93,110 @@
     color:var(--blue);
 }
 
+
+/* =================== HOME ================== */
+.pageSection .homeContent{
+    /* background-color: var(--black2); */
+    margin-top: 10px;
+    margin-left: 40px;
+    display: flex;
+    position: relative;
+    color: var(--blue);
+}
+
+.homeContent .desc{
+    width: 40%;
+    margin: 80px 0;
+    padding: 0px 0;
+}
+
+.homeContent button {
+	width: 35%;
+    margin-top: 5px;
+    border-radius: 10px;
+    border-color: transparent;
+	background-color: var(--blue);
+	color: #FFFFFF;
+    padding: 5px 10px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+.homeContent button:hover{
+    background-color: orange;
+}
+.homeContent button a{
+    text-decoration: none;
+    margin-right: 10px;
+    color: var(--white);
+    font-weight: bold;
+    font-size: 12px;
+}
+.homeContent button i{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.desc p{
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 5px;
+    color: orange;
+    letter-spacing: 2px;
+}
+.desc h2{
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+.desc small{
+    font-size: 12px;
+    letter-spacing: 0;
+    font-weight: normal;
+    color: var(--blue);
+    margin-top: 10px;
+}
+
+.homeContent .imageContent{
+    width: 60%;
+}
+.imageContent img{
+    width: 100%;
+    border-radius: 20px;
+}
+
+
+/* ===== FEATURE LIST ===== */
+
+.pageSection .featureList{
+    background-color: var(--white);
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 10px;
+    margin-left: 40px;
+    padding: 20px;
+    display: flex;
+    position: relative;
+    color: var(--blue);
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px 0px var(--blue);
+}
+.featureList .title,
+.featureList h2{
+    font-size: 20px;
+    text-align: center;
+}
+.breakLine{
+    position: absolute;
+    left: 45%;
+    height: 2px;
+    width: 100px;
+    margin: 10px 0px;
+    background-color: var(--blue);
+}
+
+.featureList .features{
+    display: flex;
+    background-color: var(--blue);
+    padding: 20px;
+    margin: 20px 20px;
+}
