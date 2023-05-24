@@ -1,8 +1,8 @@
-@extends('base')
-@section('container')
-@section('title', 'Tambah data')
+@extends('base2')
+@section('pageView')
+@section('title', 'Update Aset Pengalihan')
 
-<div class="container mt-4">
+{{-- <div class="container mt-4">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/"> Home </a></li>
@@ -10,7 +10,7 @@
             <li class="breadcrumb-item active" aria-current="page">@yield('title')</li>
         </ol>
     </nav>
-</div>
+</div> --}}
 
 <div class="container"> 
     <div class="row">
@@ -19,7 +19,7 @@
             <form action="/AsetPengalihan/update" method="post">
                 @csrf
                 @foreach($aset_pengalihan as $ap)
-                <div class="form-group">
+                <div class="form">
                     <label for="id_Aset"> </label>
                     <input class="form-control" type="hidden" name="id_Aset_Pengalihan" required="required" value="{{ $ap->id_Aset_Pengalihan }}" >
                     @if ($errors->has('id_Aset_Pengalihan'))
@@ -28,7 +28,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="form-group">
+                <div class="form">
                     <label for="nama_Aset"> <h5> Nama Aset </h5> </label>
                     <label class="form-control" type="text" name="nama_Aset" required="required" >{{ $ap->nama_Aset }}</label>
                     @if ($errors->has('nama_Aset'))
@@ -50,7 +50,7 @@
                         </div>
                     @endif    
                 </div>
-                <div class="form-group">
+                <div class="form">
                     <label for="jumlah"> <h5> Jumlah </h5> </label>
                     <label class="form-control" type="number" name="jumlah" required="required" value="{{ $ap->jumlah }}">{{ $ap->jumlah }}
                     @if ($errors->has('jumlah'))
@@ -60,7 +60,7 @@
                     @endif
                     </label>
                 </div>
-                <div class="form-group">
+                <div class="form">
                     <label for="lokasi_Pengalihan"> <h5> Lokasi </h5> </label>
                     <input class="form-control" type="text" name="lokasi_Pengalihan" required="required" value="{{ $ap->lokasi_Pengalihan }}">
                     @if ($errors->has('lokasi_Pengalihan'))
@@ -71,8 +71,8 @@
                 </div>
 
                 <div class="form-group float-right">
-                    <button class="btn btn-lg btn-danger" type="reset"> Reset</button>
-                    <button class="btn btn-lg btn-success" type="sumbit"> OK </button>
+                    <button class="btn-danger" type="reset"> Reset</button>
+                    <button class="btn-success" type="sumbit"> OK </button>
                 </div>
                 @endforeach
             </form>

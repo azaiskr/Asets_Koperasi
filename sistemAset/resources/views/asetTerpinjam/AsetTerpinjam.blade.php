@@ -13,7 +13,7 @@
             <span class="btnLabel">Tambah data</span>
         </a> --}}
 
-        <div>
+        <div class="tabelContainer">
             <table class="table-div">
                 <thead class="thead-primary">
                     <tr>
