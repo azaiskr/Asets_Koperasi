@@ -20,7 +20,7 @@
             <form action="/asetPerbaikan/store" method="post">
                 @csrf
                 <div class="form">
-                    <label for="id_Aset"> <h5> Nama Aset </h5> </label><br>
+                    <label for="id_Aset"> <h5> Nama Aset </h5> </label>
                     <select class="col-md-2" name="id_Aset" id="id_Aset" required="required">
                     @foreach($aset_tetaps as $ap)
                         <option class="text-center" value="{{ $ap->id_Aset }}"> {{ $ap->nama_Aset }} </option>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="form">
                     <label for="jumlah"> <h5> Jumlah </h5> </label>
-                    <input class="form-control" type="number" name="jumlah" required="required" placeholder="jumlah aset tetap ... ">
+                    <input class="form-control" type="number" name="jumlah" required="required" placeholder="">
                     @if ($errors->has('jumlah'))
                         <div class="text-danger">
                             {{$errors->first('jumlah')}}
@@ -37,11 +37,11 @@
                     @endif
                 </div>
                 <div class="form">
-                    <label for="status"> <h5> Status Perbaikan </h5> </label><br>
+                    <label for="status"> <h5> Status Perbaikan </h5> </label>
                     <select class="col-md-2" name="status" id="status" required="required">
                         <option class="text-center"> OK </option>
                         <option class="text-center"> Diperbaiki </option>
-                    </select><br>
+                    </select>
                     @if ($errors->has('status'))
                         <div class="text-danger">
                             {{$errors->first('status')}}
@@ -50,7 +50,7 @@
                 </div>
                 <div class="form" >
                     <label for="tanggal"> <h5> Tanggal Perbaikan </h5> </label>
-                    <input class="form-control col-md-2 text-center" type="date" name="tanggal" id="tanggal" required="required" placeholder="tanggal terakhir kali aset diperbaiki ... ">
+                    <input class="form-control col-md-2 text-center" type="date" name="tanggal" id="tanggal" required="required" placeholder="">
                     @if ($errors->has('tanggal'))
                         <div class="text-danger">
                             {{$errors->first('tanggal')}}
@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="form">
-                    <label for="servicer"> <h5> Servicer </h5> </label><br>
+                    <label for="servicer"> <h5> Servicer </h5> </label>
                     <select class="col-md-2" name="servicer" id="servicer" required="required">
                     @foreach($pj_perbaikans as $pp)
                         <option class="text-center" value="{{ $pp->id_pj }}"> {{ $pp->nama_pj }} </option>
@@ -69,7 +69,7 @@
                 <!--
                 <div class="form-group">
                     <label for="servicer"> <h5> ID Servicer </h5> </label>
-                    <input class="form-control" type="number" name="servicer" id="servicer" placeholder="id servicer perbaikan aset ... ">
+                    <input class="form-control" type="number" name="servicer" id="servicer" placeholder="">
                     @if ($errors->has('servicer'))
                         <div class="text-danger">
                             {{$errors->first('servicer')}}

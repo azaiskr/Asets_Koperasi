@@ -20,7 +20,7 @@
                 @csrf
                 <div class="form">
                     <label for="id_aset"> <h5> ID Aset </h5> </label>
-                    <input class="form-control" type="text" name="id_aset" required="required" placeholder="Masukkan id aset...">
+                    <input class="form-control" type="text" name="id_aset" required="required" placeholder="">
                     @if ($errors->has('id_aset'))
                         <div class="text-danger">
                             {{$errors->first('id_aset')}}
@@ -29,7 +29,7 @@
                 </div>
                 <div class="form">
                     <label for="nama_aset"> <h5> Nama Aset </h5> </label>
-                    <input class="form-control" type="text" name="nama_aset" required="required" placeholder="Masukkan nama aset...">
+                    <input class="form-control" type="text" name="nama_aset" required="required" placeholder="">
                     @if ($errors->has('nama_aset'))
                         <div class="text-danger">
                             {{$errors->first('nama_aset')}}
@@ -37,8 +37,8 @@
                     @endif
                 </div>
                 <div class="form">
-                    <label for="stok"> <h5> Stok </h5> </label><br>
-                    <input class="form-control" type="text" name="stok" id="stok" required="required" placeholder="Masukkan jumlah stok...">
+                    <label for="stok"> <h5> Stok </h5> </label>
+                    <input class="form-control" type="text" name="stok" id="stok" required="required" placeholder="">
                     @if ($errors->has('stok'))
                         <div class="text-danger">
                             {{$errors->first('stok')}}

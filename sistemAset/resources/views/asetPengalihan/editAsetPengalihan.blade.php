@@ -38,12 +38,12 @@
                     @endif
                 </div>
                 <div class="form">
-                    <label for="jenis_Pengalihan"> <h5> Jenis Pengalihan </h5> </label><br>
+                    <label for="jenis_Pengalihan"> <h5> Jenis Pengalihan </h5> </label>
                     <select class="col-md-2" name="jenis_Pengalihan" id="jenis_Pengalihan" required="required" >
                         <option class="text-center"> {{ $ap->jenis_Pengalihan }} </option>
                         <option class="text-center"> Dijual </option>
                         <option class="text-center"> Dipindahtangankan </option>
-                    </select><br>
+                    </select>
                     @if ($errors->has('jenis_Pengalihan'))
                         <div class="text-danger">
                             {{$errors->first('jenis_Pengalihan')}}
