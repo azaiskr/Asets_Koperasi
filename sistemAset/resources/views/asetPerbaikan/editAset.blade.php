@@ -52,11 +52,11 @@
                     @endforeach
                 </div>
                 <div class="form">
-                    <label for="status"> <h5> Status Perbaikan </h5> </label><br>
+                    <label for="status"> <h5> Status Perbaikan </h5> </label>
                     <select class="col-md-2" name="status" id="status" required="required" value="{{$aset->status_perbaikan}}">
                         <option class="text-center"> OK </option>
                         <option class="text-center"> Diperbaiki </option>
-                    </select><br>
+                    </select>
                     @if ($errors->has('status'))
                         <div class="text-danger">
                             {{$errors->first('status')}}

@@ -29,7 +29,7 @@
                 </div>
                 <div class="form">
                     <label for="nama_peminjam"> <h5> Nama Peminjam </h5> </label>
-                    <input class="form-control" type="text" name="nama_peminjam" id="nama_peminjam" required="required" placeholder="nama peminjam">
+                    <input class="form-control" type="text" name="nama_peminjam" id="nama_peminjam" required="required" placeholder="">
                     @if ($errors->has('nama_peminjam'))
                         <div class="text-danger">
                             {{$errors->first('nama_peminjam')}}
@@ -38,7 +38,7 @@
                 </div>
                 <div class="form">
                     <label for="jumlah_pinjaman"> <h5> Jumlah </h5> </label>
-                    <input class="form-control" type="number" name="jumlah_pinjaman" id="jumlah_pinjaman" required="required" placeholder="jumlah pinjaman">
+                    <input class="form-control" type="number" name="jumlah_pinjaman" id="jumlah_pinjaman" required="required" placeholder="">
                     </select>
                     @if ($errors->has('jumlah_pinjaman'))
                         <div class="text-danger">
@@ -48,7 +48,7 @@
                 </div>
                 <div class="form">
                     <label for="tanggal_pinjaman"> <h5> Tanggal Pinjaman </h5> </label>
-                    <input class="form-control" type="date" name="tanggal_pinjaman" required="required" placeholder="tanggal pinjaman ">
+                    <input class="form-control" type="date" name="tanggal_pinjaman" required="required" placeholder="">
                     @if ($errors->has('tanggal_pinjaman'))
                         <div class="text-danger">
                             {{$errors->first('tanggal_pinjaman')}}
@@ -57,7 +57,7 @@
                 </div>
                 <div class="form">
                     <label for="tanggal_jatuh_tempo"> <h5> Tanggal Jatuh Tempo </h5> </label>
-                    <input class="form-control" type="date" name="tanggal_jatuh_tempo" required="required" placeholder="tanggal jatuh tempo ">
+                    <input class="form-control" type="date" name="tanggal_jatuh_tempo" required="required" placeholder="">
                     @if ($errors->has('tanggal_jatuh_tempo'))
                         <div class="text-danger">
                             {{$errors->first('tanggal_jatuh_tempo')}}

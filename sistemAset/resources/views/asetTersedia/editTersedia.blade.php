@@ -40,7 +40,7 @@
                     @endif
                 </div>
                 <div class="form">
-                    <label for="stok"> <h5> Stok </h5> </label><br>
+                    <label for="stok"> <h5> Stok </h5> </label>
                     <input class="form-control" type="text" name="stok" id="stok" required="required" value="{{ $at->stok }}">
                     @if ($errors->has('stok'))
                         <div class="text-danger">

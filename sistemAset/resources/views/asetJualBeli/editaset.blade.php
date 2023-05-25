@@ -38,7 +38,7 @@
                     @endif
                 </div>
                 <div class="form">
-                    <label for="stok_aset"> <h5> Stok </h5> </label><br>
+                    <label for="stok_aset"> <h5> Stok </h5> </label>
                     <input class="form-control" type="number" name="stok_aset" required="required" value="{{ $aj->stok }}"> 
                     @if ($errors->has('stok_aset'))
                         <div class="text-danger">

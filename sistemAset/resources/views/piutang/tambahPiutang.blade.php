@@ -20,7 +20,7 @@
                 @csrf
                 <div class="form">
                     <label for="id"> <h5> ID Pinjaman </h5> </label>
-                    <input class="form-control" type="text" name="id" id="id" required="required" placeholder="id pinjaman">
+                    <input class="form-control" type="text" name="id" id="id" required="required" placeholder="">
                     @if ($errors->has('id'))
                         <div class="text-danger">
                             {{$errors->first('id')}}
@@ -29,7 +29,7 @@
                 </div>
                 <div class="form">
                     <label for="nama"> <h5> Nama peminjam </h5> </label>
-                    <input class="form-control" type="text" name="nama" id="nama" required="required" placeholder="nama lengkap peminjam">
+                    <input class="form-control" type="text" name="nama" id="nama" required="required" placeholder="">
                     @if ($errors->has('nama'))
                         <div class="text-danger">
                             {{$errors->first('nama')}}
@@ -38,7 +38,7 @@
                 </div>
                 <div class="form">
                     <label for="jumlah"> <h5> Jumlah </h5> </label>
-                    <input class="form-control" type="number" name="jumlah" id="jumlah" required="required" placeholder="nominal peminjaman">
+                    <input class="form-control" type="number" name="jumlah" id="jumlah" required="required" placeholder="">
                     @if ($errors->has('jumlah'))
                         <div class="text-danger">
                             {{$errors->first('jumlah')}}
@@ -47,7 +47,7 @@
                 </div>
                 <div class="form" >
                     <label for="tanggal"> <h5> Jatuh Tempo </h5> </label>
-                    <input class="form-control col-md-2 text-center" type="date" name="tanggal" id="tanggal" required="required" placeholder="tanggal jatuh tempo pinjaman">
+                    <input class="form-control col-md-2 text-center" type="date" name="tanggal" id="tanggal" required="required" placeholder="">
                     @if ($errors->has('tanggal'))
                         <div class="text-danger">
                             {{$errors->first('tanggal')}}

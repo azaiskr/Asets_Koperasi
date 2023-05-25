@@ -40,7 +40,7 @@
                     @endif
                 </div>
                 <div class="form">
-                    <label for="lokasi"> <h5> Lokasi </h5> </label><br>
+                    <label for="lokasi"> <h5> Lokasi </h5> </label>
                     <input class="form-control" type="text" name="lokasi" id="lokasi" required="required" value="{{ $at->lokasi }}">
                     @if ($errors->has('lokasi'))
                         <div class="text-danger">
@@ -49,12 +49,12 @@
                     @endif    
                 </div>
                 <div class="form">
-                    <label for="kondisi"> <h5> Kondisi </h5> </label><br>
+                    <label for="kondisi"> <h5> Kondisi </h5> </label>
                     <select class="col-md-2" name="kondisi" id="kondisi" required="required" >
                         <option class="text-center" >{{ $at->kondisi }}</option>
                         <option class="text-center"> Baik </option>
                         <option class="text-center"> Jelek </option>
-                    </select><br>
+                    </select>
                     @if ($errors->has('kondisi'))
                         <div class="text-danger">
                             {{$errors->first('kondisi')}}

@@ -20,7 +20,7 @@
                 @csrf
                 <div class="form">
                     <label for="id_aset"> <h5> ID Aset </h5> </label>
-                    <input class="form-control" type="text" name="id_aset" required="required" placeholder="id aset jual beli ... ">
+                    <input class="form-control" type="text" name="id_aset" required="required" placeholder="">
                     @if ($errors->has('id_aset'))
                         <div class="text-danger">
                             {{$errors->first('id_set')}}
@@ -28,7 +28,7 @@
                     @endif
                 <div class="form">
                     <label for="nama_aset"> <h5> Nama Aset </h5> </label>
-                    <input class="form-control" type="text" name="nama_aset" required="required" placeholder="nama aset jual beli ... ">
+                    <input class="form-control" type="text" name="nama_aset" required="required" placeholder="">
                     @if ($errors->has('nama_aset'))
                         <div class="text-danger">
                             {{$errors->first('nama_set')}}
@@ -36,8 +36,8 @@
                     @endif
                 </div>
                 <div class="form">
-                    <label for="stok_aset"> <h5> Stok Aset </h5> </label><br>
-                    <input class="form-control" type="number" name="stok_aset" required="required" placeholder="jumlah stok aset ... ">
+                    <label for="stok_aset"> <h5> Stok Aset </h5> </label>
+                    <input class="form-control" type="number" name="stok_aset" required="required" placeholder="">
 
                     @if ($errors->has('stok_aset'))
                         <div class="text-danger">
@@ -47,7 +47,7 @@
                 </div>
                 <div class="form">
                     <label for="nilai_ekonomi"> <h5> Nilai Ekonomi </h5> </label>
-                    <input class="form-control" type="number" name="nilai_ekonomi" required="required" placeholder="Nilai Ekonomi Aset ... ">
+                    <input class="form-control" type="number" name="nilai_ekonomi" required="required" placeholder="">
                     @if ($errors->has('nilai_ekonomi'))
                         <div class="text-danger">
                             {{$errors->first('nilai_ekonomi')}}
@@ -56,7 +56,7 @@
                 </div>
                 <div class="form">
                     <label for="lokasi_jual"> <h5> Lokasi </h5> </label>
-                    <input class="form-control" type="text" name="lokasi_jual" required="required" placeholder="lokasi jual aset ... ">
+                    <input class="form-control" type="text" name="lokasi_jual" required="required" placeholder="">
                     @if ($errors->has('lokasi_jual'))
                         <div class="text-danger">
                             {{$errors->first('lokasi_jual')}}
