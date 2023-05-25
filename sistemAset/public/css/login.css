@@ -19,9 +19,9 @@ body {
 }
 
 h1 {
-	font-weight: bold;
+  font-weight: bold;
   color: white;
-  margin: 20% 0;
+  margin: 40px 0;
 }
 
 
@@ -53,7 +53,7 @@ a {
 .breakLine{
   position: relative;
   height: 1px;
-  width: 90%;
+  width: 100%;
   margin: 15px 0;
   background-color: rgb(255, 255, 255);
 }
@@ -97,6 +97,12 @@ img.brandLogo{
 	top: 0;
 	height: 100%;
 	transition: all 0.6s ease-in-out;
+	background-color: #04397f;
+	display: flex;
+	flex-direction: column;
+	padding: 40px 50px;
+	height: 100%;
+	text-align: center;
 }
 .sign-in-container {
 	left: 50%;
@@ -124,7 +130,7 @@ img.brandLogo{
 /* ========= BUTTON ========= */
 button {
 	width: 100%;
-  border-radius: 20px;
+    border-radius: 20px;
 	border: 2px solid #0f6de7;
 	background-color: #0f6de7;
 	color: #FFFFFF;
@@ -134,6 +140,7 @@ button {
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
+	justify-content: end;
 }
 .btnGoogleSI{
   background-color: white;
@@ -145,13 +152,14 @@ button {
   font-weight: normal;
   text-transform: none;
   text-align: center;
+  position:relative;
 }
 .createAccount{
   margin-bottom: 20%;
 }
-.btnCreateAccount{
+/* .btnCreateAccount{
   margin-bottom: 5px;
-}
+} */
 .btnLabel{
   position: relative;
   bottom: 20px;
@@ -179,15 +187,14 @@ form {
 	background-color: #04397f;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 	flex-direction: column;
-	padding: 0 50px;
 	height: 100%;
 	text-align: center;
 }
 .input-field,
 .input-field-create{
-  margin-bottom: 20%;
+  margin-bottom: 20px;
   width: 100%;
 }
 .input-field-create{
@@ -273,8 +280,6 @@ a.input-label{
 		z-index: 5;
 	}
 }
-
-
 .overlay-container {
 	position: absolute;
 	top: 0;
