@@ -41,15 +41,6 @@
                     <a id="forgetPwd" href="#">Forgot your password?</a>
                 </div>             
                 <button> <a href="">Sign In </a></button> 
-                <span class="breakLine"></span>
-                <button class="btnGoogleSI" >
-                    <a href="#" >
-                        <img class="Google-si" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png" alt="Sign-in Google" >
-                        <div class="btnLabel"> Masuk dengan Google </div>
-                    </a>
-                </button>
-                <span> Belum punya akun? <a href="#" class="register" id="signUp" >Create Account</a> </span>
-
                 @if ($message = Session::get('verifikasi'))
                     <div class="center error-message">
                         {{ $message }}
@@ -81,6 +72,14 @@
                     </div>
                 @endif 
             </form>
+            <span class="breakLine"></span>
+            <button class="btnGoogleSI" >
+                <a href="#" >
+                    <img class="Google-si" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png" alt="Sign-in Google" >
+                    <div class="btnLabel"> Masuk dengan Google </div>
+                </a>
+            </button>
+            <span> Belum punya akun? <a href="#" class="register" id="signUp" >Create Account</a> </span>
         </div>
 
         {{-- ============= SIGN UP FORM ============== --}}
