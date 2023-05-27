@@ -20,7 +20,7 @@
                 @csrf
                 <div class="form">
                     <label for="id_Aset"> <h5> ID Aset </h5> </label>
-                    <input class="form-control" type="text" name="id_Aset" required="required" placeholder="ID aset tetap ... ">
+                    <input class="form-control" type="text" name="id_Aset" required="required" placeholder="">
                     @if ($errors->has('id_Aset'))
                         <div class="text-danger">
                             {{$errors->first('id_Aset')}}
@@ -29,7 +29,7 @@
                 </div>
                 <div class="form">
                     <label for="nama_Aset"> <h5> Nama Aset </h5> </label>
-                    <input class="form-control" type="text" name="nama_Aset" required="required" placeholder="nama aset tetap ... ">
+                    <input class="form-control" type="text" name="nama_Aset" required="required" placeholder="">
                     @if ($errors->has('nama_Aset'))
                         <div class="text-danger">
                             {{$errors->first('nama_Aset')}}
@@ -37,8 +37,8 @@
                     @endif
                 </div>
                 <div class="form">
-                    <label for="lokasi"> <h5> Lokasi </h5> </label><br>
-                    <input class="form-control" type="text" name="lokasi" id="lokasi" required="required" placeholder="lokasi aset tetap ... ">
+                    <label for="lokasi"> <h5> Lokasi </h5> </label>
+                    <input class="form-control" type="text" name="lokasi" id="lokasi" required="required" placeholder="">
                     @if ($errors->has('status'))
                         <div class="text-danger">
                             {{$errors->first('status')}}
@@ -46,11 +46,11 @@
                     @endif    
                 </div>
                 <div class="form">
-                    <label for="kondisi"> <h5> Kondisi </h5> </label><br>
+                    <label for="kondisi"> <h5> Kondisi </h5> </label>
                     <select class="col-md-2" name="kondisi" id="kondisi" required="required">
                         <option class="text-center"> Baik </option>
                         <option class="text-center"> Jelek </option>
-                    </select><br>
+                    </select>
                     @if ($errors->has('kondisi'))
                         <div class="text-danger">
                             {{$errors->first('kondisi')}}
@@ -59,7 +59,7 @@
                 </div>
                 <div class="form">
                     <label for="jumlah"> <h5> Jumlah </h5> </label>
-                    <input class="form-control" type="number" name="jumlah" required="required" placeholder="jumlah aset tetap ... ">
+                    <input class="form-control" type="number" name="jumlah" required="required" placeholder="">
                     @if ($errors->has('jumlah'))
                         <div class="text-danger">
                             {{$errors->first('jumlah')}}
@@ -68,7 +68,7 @@
                 </div>
                 <div class="form">
                     <label for="ukuran"> <h5> Ukuran </h5> </label>
-                    <input class="form-control" type="number" name="ukuran" required="required" placeholder="ukuran aset tetap ... ">
+                    <input class="form-control" type="number" name="ukuran" required="required" placeholder="">
                     @if ($errors->has('ukuran'))
                         <div class="text-danger">
                             {{$errors->first('ukuran')}}
@@ -77,7 +77,7 @@
                 </div>
                 <div class="form">
                     <label for="nilai_ekonomi"> <h5> Nilai </h5> </label>
-                    <input class="form-control" type="number" name="nilai_ekonomi" required="required" placeholder="nilai ekonomi aset tetap ... ">
+                    <input class="form-control" type="number" name="nilai_ekonomi" required="required" placeholder="">
                     @if ($errors->has('nilai_ekonomi'))
                         <div class="text-danger">
                             {{$errors->first('nilai_ekonomi')}}

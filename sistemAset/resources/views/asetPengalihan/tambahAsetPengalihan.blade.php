@@ -20,7 +20,7 @@
                 @csrf
                 
                 <div class="form">
-                    <label for="id_Aset"> <h5> Nama Aset </h5> </label><br>
+                    <label for="id_Aset"> <h5> Nama Aset </h5> </label>
                     <select class="col-md-2" name="id_Aset" id="id_Aset" required="required">
                     @foreach($aset_tetaps as $at)
                         <option class="text-center" value="{{ $at->id_Aset }}"> {{ $at->nama_Aset }} </option>
@@ -29,11 +29,11 @@
                 </div>
                 
                 <div class="form">
-                    <label for="jenis_Pengalihan"> <h5> Jenis Pengalihan </h5> </label><br>
+                    <label for="jenis_Pengalihan"> <h5> Jenis Pengalihan </h5> </label>
                     <select class="col-md-2" name="jenis_Pengalihan" id="jenis_Pengalihan" required="required">
                         <option class="text-center"> Dijual </option>
                         <option class="text-center"> Dipindahtangankan </option>
-                    </select><br>
+                    </select>
                     @if ($errors->has('jenis_Pengalihan'))
                         <div class="text-danger">
                             {{$errors->first('jenis_Pengalihan')}}
@@ -42,7 +42,7 @@
                 </div>
                 <div class="form">
                     <label for="jumlah"> <h5> Jumlah </h5> </label>
-                    <input class="form-control" type="number" name="jumlah" required="required" placeholder="jumlah aset pengalihan ... ">
+                    <input class="form-control" type="number" name="jumlah" required="required" placeholder="">
                     @if ($errors->has('jumlah'))
                         <div class="text-danger">
                             {{$errors->first('jumlah')}}
@@ -51,7 +51,7 @@
                 </div>
                 <div class="form">
                     <label for="lokasi_Pengalihan"> <h5> Lokasi </h5> </label>
-                    <input class="form-control" type="text" name="lokasi_Pengalihan" required="required" placeholder="lokasi pengalihan aset ... ">
+                    <input class="form-control" type="text" name="lokasi_Pengalihan" required="required" placeholder="">
                     @if ($errors->has('lokasi_Pengalihan'))
                         <div class="text-danger">
                             {{$errors->first('lokasi_Pengalihan')}}

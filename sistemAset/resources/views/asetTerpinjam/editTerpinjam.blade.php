@@ -48,7 +48,7 @@
                     @endforeach
                 
                 <div class="form">
-                    <label for="nama_peminjam"> <h5> Nama Peminjam </h5> </label><br>
+                    <label for="nama_peminjam"> <h5> Nama Peminjam </h5> </label>
                     <input class="form-control" type="text" name="nama_peminjam" id="nama_peminjam" required="required" value="{{ $at->nama_peminjam }}">
                     @if ($errors->has('nama_peminjam'))
                         <div class="text-danger">
@@ -67,9 +67,9 @@
                     </label>
                 </div>
                 <div class="form">
-                    <label for="tanggal_pinjaman"> <h5> Tanggal Pinjaman </h5> </label><br>
+                    <label for="tanggal_pinjaman"> <h5> Tanggal Pinjaman </h5> </label>
                     <input class="form-control" type="date" name="tanggal_pinjaman" id="tanggal_pinjaman" required="required" value="{{ $at->tanggal_pinjaman }}">                        
-                    </select><br>
+                    </select>
                     @if ($errors->has('tanggal_pinjaman'))
                         <div class="text-danger">
                             {{$errors->first('tanggal_pinjaman')}}
