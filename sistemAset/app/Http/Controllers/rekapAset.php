@@ -13,9 +13,8 @@ class rekapAset extends Controller
     public function index()
     {
         $rekap = DB::table('rekapitulasi')->get();
-        $aset_pengalihan = DB::table('aset_pengalihan')->count();
         
-        return view('rekapitulasi.daftarRekap',compact('rekap', 'aset_pengalihan'));
+        return view('rekapitulasi.daftarRekap',compact('rekap'));
     }
 
 

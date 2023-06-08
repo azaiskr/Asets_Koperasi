@@ -145,14 +145,36 @@
             <div class="toggle">
                 {{-- <i class="bi bi-list"></i> --}}
             </div>
-    
-            <div class="search">
-                <label>
-                    <input type="text" placeholder="Cari di sini ...">
-                    <i class="bi bi-search"></i>
-                </label>
+            <form action="/cari" method="get">
+            <div class="select">
+              <select name="tabel" id="tabel">
+                <option value="aset_tetap">Aset Tetap</option>
+                <option value="aset_jual_beli">Aset Jual Beli</option>
+                <option value="piutang">Piutang</option>
+                <option value="aset_tersedia">Aset Tersedia</option>
+                <option value="aset_terpinjam">Aset Terpinjam</option>
+                <option value="aset_perbaikan">Aset Perbaikan</option>
+                <option value="servicer">Servicer</option>
+                <option value="aset_pengalihan">Aset Pengalihan</option>
+              </select>
             </div>
+            <div class="search">
+              <label>
+                <input type="text" name="cari" placeholder="Cari di sini ...">
+                
+              </label>
+              <button type="submit"><i class="bi bi-search"></i></button>
+            </div>
+            
+            
+            
+                
+          
+                
+              
+  
         </div>
+        </form>
         
         <div class="sectionView">
           @yield('pageView')

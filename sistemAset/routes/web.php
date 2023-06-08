@@ -37,6 +37,8 @@ Route::get('/lupaPassword', function () { return view('login.lupaPassword');});
 
 //Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 Route::get('/', [DashboardController::class, 'dashboard'])->middleware(['auth', 'is_verify_email']);
+
+Route::get('/cari', [DashboardController::class, 'cari'])->middleware('auth');
 //Route::get('/', [DashboardController::class, 'dashboard'])->middleware('auth');
 
 //Route::get('register/verify/{verify_key}', [PendaftaranController::class, 'verify'])->name('verify');
