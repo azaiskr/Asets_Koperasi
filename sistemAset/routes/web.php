@@ -17,6 +17,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PiutangController;
 use App\Http\Controllers\Auth\VerifikasiEmailController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\GoogleController;
 
 
 // ----------------------------------------- Welcome Page ------------------------------------------------------ //
@@ -36,6 +37,8 @@ Route::get('/lupaPassword', function () { return view('login.lupaPassword');});
 
 //Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 Route::get('/', [DashboardController::class, 'dashboard'])->middleware(['auth', 'is_verify_email']);
+
+Route::get('/cari', [DashboardController::class, 'cari'])->middleware('auth');
 //Route::get('/', [DashboardController::class, 'dashboard'])->middleware('auth');
 
 //Route::get('register/verify/{verify_key}', [PendaftaranController::class, 'verify'])->name('verify');
@@ -131,4 +134,9 @@ Route::post('/aset_piutang/store',[PiutangController::class,'store'])->middlewar
 Route::get('/aset_piutang/edit/{id}',[PiutangController::class,'edit'])->middleware('auth');
 Route::post('/aset_piutang/update/',[PiutangController::class,'update'])->middleware('auth');
 Route::get('/aset_piutang/hapus/{id}',[PiutangController:: class,'destroy'])->middleware('auth');
+
+Route::controller(GoogleController::class)->group(function(){
+    Route::get('auth/google', 'redirectToGoogle');
+    Route::get('auth/google/callback', 'handleGoogleCallback');
+});
 

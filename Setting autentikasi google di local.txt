@@ -1,0 +1,9 @@
+Setting autentikasi google:
+1. Install socialite
+   Command: composer require laravel/socialite
+
+2. Ubah set .env:
+
+GOOGLE_CLIENT_ID=114655675717-ucks3o5culvpu0tergdkls4spob9hcsh.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=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
+GOOGLE_REDIRECT=http://127.0.0.1:8000/auth/google/callback
