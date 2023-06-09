@@ -7,9 +7,6 @@
 	<h3>Tambah</h3>
  
 	<a href="/penulis"> Kembali</a>
-	
-	<br/>
-	<br/>
  
 	<form action="/penulis/store" method="post">
 		{{ csrf_field() }}

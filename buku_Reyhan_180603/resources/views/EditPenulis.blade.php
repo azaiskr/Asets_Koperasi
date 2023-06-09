@@ -6,7 +6,7 @@
 <body>
 	<h3>Edit Penulis</h3>
  
-	<a href="/pegawai"> Kembali</a>
+	<a href="/kategori"> Kembali</a>
 	
 	<br/>
 	<br/>

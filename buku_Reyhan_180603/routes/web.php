@@ -17,7 +17,7 @@ use App\Http\Controllers\PenulisController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 
