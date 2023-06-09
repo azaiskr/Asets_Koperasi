@@ -5,32 +5,38 @@
 </head>
 <body>
  
-	<h2>www.malasngoding.com</h2>
-	<h3>Data Pegawai</h3>
+	<h3>Data Buku</h3>
  
-	<a href="/pegawai/tambah"> + Tambah Pegawai Baru</a>
+	<a href="/buku/tambah"> + Tambah Buku Baru</a>
 	
 	<br/>
 	<br/>
  
 	<table border="1">
 		<tr>
-			<th>Nama</th>
-			<th>Jabatan</th>
-			<th>Umur</th>
-			<th>Alamat</th>
-			<th>Opsi</th>
+			<th>ID Buku</th>
+			<th>Judul</th>
+			<th>Penerbit</th>
+			<th>Tahun Terbit</th>
+            <th>Stok</th>
+            <th>Denda</th>
+            <th>Kategori</th>
+			<th>Penulis</th>
 		</tr>
-		@foreach($pegawai as $p)
+		@foreach($buku as $b)
 		<tr>
-			<td>{{ $p->pegawai_nama }}</td>
-			<td>{{ $p->pegawai_jabatan }}</td>
-			<td>{{ $p->pegawai_umur }}</td>
-			<td>{{ $p->pegawai_alamat }}</td>
+			<td>{{ $b->IDBuku }}</td>
+			<td>{{ $b->Judul }}</td>
+			<td>{{ $b->Penerbit }}</td>
+			<td>{{ $b->TahunTerbit }}</td>
+            <td>{{ $b->JumlahStok }}</td>
+            <td>{{ $b->DendaBuku }}</td>
+            <td>{{ $b->IDKategori }}</td>
+            <td>{{ $b->IDPenulis }}</td>
 			<td>
-				<a href="/pegawai/edit/{{ $p->pegawai_id }}">Edit</a>
+				<a href="/buku/edit/{{ $b->IDBuku }}">Edit</a>
 				|
-				<a href="/pegawai/hapus/{{ $p->pegawai_id }}">Hapus</a>
+				<a href="/buku/hapus/{{ $b->IDBuku }}">Hapus</a>
 			</td>
 		</tr>
 		@endforeach

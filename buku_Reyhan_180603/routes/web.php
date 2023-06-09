@@ -22,6 +22,12 @@ Route::get('/', function () {
 
 
 Route::get('/buku', [BukuController::class, 'index']);
+Route::get('/buku/tambah', [BukuController::class, 'tambah']);
+Route::post('/buku/store', [BukuController::class, 'store']);
+Route::get('/buku/edit/{id}',[BukuController::class,'edit']);
+Route::post('/buku/update',[BukuController::class,'update']);
+Route::get('/buku/hapus/{id}',[BukuController::class,'hapus']);
+
 Route::get('/kategori', [KategoriController::class, 'index']);
 Route::get('/kategori/tambah', [KategoriController::class, 'tambah']);
 Route::post('/kategori/store', [KategoriController::class, 'store']);

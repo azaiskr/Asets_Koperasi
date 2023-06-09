@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BukuController extends Controller
 {
@@ -10,60 +11,56 @@ class BukuController extends Controller
     {
         $buku = DB::table('buku')->get();
 
-        return view('asetTetap.AsetTetap',['buku' => $buku]);
+        return view('Buku',['buku' => $buku]);
     }
 
     public function tambah()
     {
-        return view('asetTetap.tambahAset');
+        return view('TambahBuku');
     }
 
     public function store(Request $request)
     {
-        DB::table('aset_tetaps')->insert([
-            'id_Aset' => $request->id_Aset,
-            'nama_Aset' => $request->nama_Aset,
-            'lokasi' => $request->lokasi,
-            'kondisi' => $request->kondisi,
-            'jumlah' => $request->jumlah,
-            'ukuran' => $request->ukuran,
-            'nilai_ekonomi' => $request->nilai_ekonomi
+        DB::table('buku')->insert([
+            'IDBuku' => $request->IDBuku,
+            'Judul' => $request->Judul,
+            'Penerbit' => $request->Penerbit,
+            'TahunTerbit' => $request->TahunTerbit,
+            'JumlahStok' => $request->JumlahStok,
+            'DendaBuku' => $request->DendaBuku,
+            'IDKategori' => $request->IDKategori,
+            'IDPenulis' => $request->IDPenulis,
         ]);
 
-        $count_aset_tetaps = DB::table('aset_tetaps')->count();
-
-        DB::table('rekapitulasi')->where('id',1)->update([
-            'kuantitas' => $count_aset_tetaps
-        ]);
-
-        return redirect('/AsetTetap');
+        return redirect('/buku');
     }
 
-    public function edit($id_Aset)
+    public function edit($IDBuku)
     {
-        $aset_tetaps = DB::table('aset_tetaps')->where('id_Aset',$id_Aset)->get();
+        $buku = DB::table('buku')->where('IDBuku',$IDBuku)->get();
 
-        return view('asetTetap.editAset',['aset_tetaps' => $aset_tetaps]);
+        return view('EditBuku',['buku' => $buku]);
     }
 
     public function update(Request $request)
     {
-        DB::table('aset_tetaps')->where('id_Aset',$request->id_Aset)->update([
-            'nama_Aset' => $request->nama_Aset,
-            'lokasi' => $request->lokasi,
-            'kondisi' => $request->kondisi,
-            'jumlah' => $request->jumlah,
-            'ukuran' => $request->ukuran,
-            'nilai_ekonomi' => $request->nilai_ekonomi
+        DB::table('buku')->where('IDBuku',$request->IDBuku)->update([
+            'Judul' => $request->Judul,
+            'Penerbit' => $request->Penerbit,
+            'TahunTerbit' => $request->TahunTerbit,
+            'JumlahStok' => $request->JumlahStok,
+            'DendaBuku' => $request->DendaBuku,
+            'IDKategori' => $request->IDKategori,
+            'IDPenulis' => $request->IDPenulis,
         ]);
 
-        return redirect('/AsetTetap');
+        return redirect('/buku');
     }
 
-    public function hapus($id_Aset)
+    public function hapus($IDBuku)
     {
-        DB::table('aset_tetaps')->where('id_Aset',$id_Aset)->delete();
+        DB::table('buku')->where('IDBuku',$IDBuku)->delete();
 
-        return redirect('/AsetTetap');
+        return redirect('/buku');
     }
 }
