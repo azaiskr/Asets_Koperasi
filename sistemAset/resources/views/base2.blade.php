@@ -119,17 +119,17 @@
         <li  class="menu">
           <div class="iocn-link">
             <a class="title" href="#">
-              <i class="bi bi-file-earmark-plus-fill"></i>
-              <span class="link_name">UAS</span>
+              <i class="bi bi-journal-bookmark-fill"></i>
+              <span class="link_name">UAS : Perpustakaan</span>
             </a>
             <i class='bx bxs-chevron-down arrow' ></i>
           </div>
           <ul class="sub-menu">
-            <li><a class="link_name" href="#"><b> UAS</b></a></li>
-            <li><a href="#">Reyhan H</a></li>
-            <li><a href="#">Ariq Fadil M</a></li>
-            <li><a href="#">Nur Azis K R</a></li>
-            <li><a href="#">Maulida D</a></li>
+            <li><a class="link_name" href="#"><b> UAS : Perpustakaan</b></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
           </ul>
         </li>
 
