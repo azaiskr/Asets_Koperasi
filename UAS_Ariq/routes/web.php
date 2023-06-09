@@ -20,6 +20,8 @@ use App\Http\Controllers\BukuController;
 
 //Route::get('/', 'BukuController@index');
 Route::get('/', [BukuController::class, 'index']);
+//Route::get('/tambah', [BukuController::class, 'tambah']);
+
 Route::get('/tambah', 'App\Http\Controllers\BukuController@tambah');
 Route::post('/store', 'App\Http\Controllers\BukuController@store');
 Route::get('/edit/{IDBuku}', 'App\Http\Controllers\BukuController@edit');

@@ -18,11 +18,11 @@
     <div class="row">
         <div class="col-md-12 mt-3">
             <h3 style="text-align: center"> Input Data Buku </h3>
-            <form action="/buku/tambah" method="post">
+            <form action="/tambah" method="post">
                 @csrf
                 <div class="form">
                     <label for="IDBuku"> <h5> ID Buku </h5> </label>
-                    <input class="form-control" type="text" name="IDBuku" required="required" placeholder="">
+                    <input class="form-control" type="number" name="IDBuku" required="required" placeholder="">
                     @if ($errors->has('IDBuku'))
                         <div class="text-danger">
                             {{$errors->first('IDBuku')}}
@@ -39,7 +39,7 @@
                 </div>
                 <div class="form">
                     <label for="Penulis"> <h5> Penulis </h5> </label>
-                    <input class="form-control" type="number" name="Penulis" required="required" placeholder="">
+                    <input class="form-control" type="text" name="Penulis" required="required" placeholder="">
 
                     @if ($errors->has('Penulis'))
                         <div class="text-danger">
@@ -49,7 +49,7 @@
                 </div>
                 <div class="form">
                     <label for="Penerbit"> <h5> Penerbit </h5> </label>
-                    <input class="form-control" type="number" name="Penerbit" required="required" placeholder="">
+                    <input class="form-control" type="text" name="Penerbit" required="required" placeholder="">
                     @if ($errors->has('Penerbit'))
                         <div class="text-danger">
                             {{$errors->first('Penerbit')}}
@@ -58,7 +58,7 @@
                 </div>
                 <div class="form">
                     <label for="TahunTerbit"> <h5> Tahun Terbit </h5> </label>
-                    <input class="form-control" type="text" name="TahunTerbit" required="required" placeholder="">
+                    <input class="form-control" type="number" name="TahunTerbit" required="required" placeholder="">
                     @if ($errors->has('TahunTerbit'))
                         <div class="text-danger">
                             {{$errors->first('TahunTerbit')}}
@@ -67,7 +67,7 @@
                 </div>
                 <div class="form">
                     <label for="JumlahStok"> <h5> Jumlah Stok </h5> </label>
-                    <input class="form-control" type="text" name="JumlahStok" required="required" placeholder="">
+                    <input class="form-control" type="number" name="JumlahStok" required="required" placeholder="">
                     @if ($errors->has('JumlahStok'))
                         <div class="text-danger">
                             {{$errors->first('JumlahStok')}}
@@ -76,7 +76,7 @@
                 </div>
                 <div class="form">
                     <label for="DendaBuku"> <h5> Denda Buku </h5> </label>
-                    <input class="form-control" type="text" name="DendaBuku" required="required" placeholder="">
+                    <input class="form-control" type="number" name="DendaBuku" required="required" placeholder="">
                     @if ($errors->has('DendaBuku'))
                         <div class="text-danger">
                             {{$errors->first('DendaBuku')}}
@@ -84,10 +84,10 @@
                     @endif
                 </div>
 
-                {{-- <div class="form-group float-right">
-                    <button class="btn-danger" type="reset"> Reset</button>
+                <div class="form-group float-right">
+                    <button class="btn-danger" type="reset"> Reset </button>
                     <button class="btn-success" type="sumbit"> OK </button>
-                </div> --}}
+                </div>
             </form>
         </div>
     </div>
