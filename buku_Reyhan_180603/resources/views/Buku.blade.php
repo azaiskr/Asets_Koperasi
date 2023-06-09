@@ -31,8 +31,16 @@
 			<td>{{ $b->TahunTerbit }}</td>
             <td>{{ $b->JumlahStok }}</td>
             <td>{{ $b->DendaBuku }}</td>
-            <td>{{ $b->IDKategori }}</td>
-            <td>{{ $b->IDPenulis }}</td>
+            @foreach($kategori as $k)
+                @if($b->IDKategori == $k->IDKategori)
+                    <td>{{$k->NamaKategori}}</td>
+                @endif
+            @endforeach
+            @foreach($penulis as $p)
+                @if($b->IDPenulis == $p->IDPenulis)
+                    <td>{{$p->NamaPenulis}}</td>
+                @endif
+            @endforeach
 			<td>
 				<a href="/buku/edit/{{ $b->IDBuku }}">Edit</a>
 				|

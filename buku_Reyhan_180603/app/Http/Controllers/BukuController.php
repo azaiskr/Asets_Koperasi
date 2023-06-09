@@ -10,13 +10,18 @@ class BukuController extends Controller
     public function index()
     {
         $buku = DB::table('buku')->get();
+        $kategori = DB::table('kategori')->get();
+        $penulis = DB::table('penulis')->get();
 
-        return view('Buku',['buku' => $buku]);
+        return view('Buku',['buku' => $buku, 'kategori' => $kategori, 'penulis' => $penulis]);
     }
 
     public function tambah()
     {
-        return view('TambahBuku');
+        $kategori = DB::table('kategori')->get();
+        $penulis = DB::table('penulis')->get();
+
+        return view('TambahBuku', ['kategori' => $kategori, 'penulis' => $penulis]);
     }
 
     public function store(Request $request)
@@ -38,8 +43,10 @@ class BukuController extends Controller
     public function edit($IDBuku)
     {
         $buku = DB::table('buku')->where('IDBuku',$IDBuku)->get();
+        $kategori = DB::table('kategori')->get();
+        $penulis = DB::table('penulis')->get();
 
-        return view('EditBuku',['buku' => $buku]);
+        return view('EditBuku',['buku' => $buku, 'kategori' => $kategori, 'penulis' => $penulis]);
     }
 
     public function update(Request $request)

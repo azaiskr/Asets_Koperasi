@@ -19,8 +19,16 @@
         Tahun Terbit <input type="date" name="TahunTerbit" required="required"> <br/>
         Stok <input type="number" name="JumlahStok" required="required"> <br/>
         DendaBuku <input type="number" name="DendaBuku" required="required"> <br/>
-        Kategori <input type="text" name="IDKategori" required="required"> <br/>
-        Penulis <input type="text" name="IDPenulis" required="required"> <br/>
+        Kategori <select name="IDKategori">
+        @foreach($kategori as $k)
+                <option value="{{ $k->IDKategori }}">{{ $k->NamaKategori }}</option>
+        @endforeach
+        </select><br/>
+        Penulis <select name="IDPenulis">
+        @foreach($penulis as $p)
+                <option value="{{ $p->IDPenulis }}">{{ $p->NamaPenulis }}</option>
+        @endforeach
+        </select><br/>
 		<input type="submit" value="Simpan Data">
 	</form>
  

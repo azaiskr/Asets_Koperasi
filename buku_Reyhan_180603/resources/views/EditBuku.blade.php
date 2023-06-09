@@ -19,8 +19,20 @@
         Tahun Terbit <input type="date" required="required" name="TahunTerbit" value="{{ $b->TahunTerbit }}"> <br/>
         Stok <input type="number" required="required" name="JumlahStok" value="{{ $b->JumlahStok }}"> <br/>
         Denda Buku <input type="number" required="required" name="DendaBuku" value="{{ $b->DendaBuku }}"> <br/>
-        Kategori <input type="text" required="required" name="IDKategori" value="{{ $b->IDKategori }}"> <br/>
-        Penulis <input type="text" required="required" name="IDPenulis" value="{{ $b->IDPenulis }}"> <br/>
+        Kategori <select name="IDKategori">
+        @foreach($kategori as $k)
+            @if($b->IDKategori == $k->IDKategori)
+                <option value="{{ $k->IDKategori }}">{{ $k->NamaKategori }}</option>
+            @endif
+        @endforeach
+        </select><br/>
+        Penulis <select name="IDPenulis">
+        @foreach($penulis as $p)
+            @if($b->IDPenulis == $p->IDPenulis)
+                <option value="{{ $p->IDPenulis }}">{{ $p->NamaPenulis }}</option>
+            @endif
+        @endforeach
+        </select><br/>
 		<input type="submit" value="Simpan Data">
 	</form>
 	@endforeach 
