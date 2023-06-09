@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PenulisController;
+use App\Http\Controllers\PeminjamanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +42,10 @@ Route::post('/penulis/store', [PenulisController::class, 'store']);
 Route::get('/penulis/edit/{id}',[PenulisController::class,'edit']);
 Route::post('/penulis/update',[PenulisController::class,'update']);
 Route::get('/penulis/hapus/{id}',[PenulisController::class,'hapus']);
+
+Route::get('/peminjaman', [PeminjamanController::class, 'index']);
+Route::get('/peminjaman/tambah', [PeminjamanController::class, 'tambah']);
+Route::post('/peminjaman/store', [PeminjamanController::class, 'store']);
+Route::get('/peminjaman/edit/{id}',[PeminjamanController::class,'edit']);
+Route::post('/peminjaman/update',[PeminjamanController::class,'update']);
+Route::get('/peminjaman/hapus/{id}',[PeminjamanController::class,'hapus']);
