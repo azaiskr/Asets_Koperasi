@@ -15,11 +15,13 @@
             <th>Buku</th>
             <th>Kategori</th>
             <th>Penulis</th>
+            <th>Peminjaman</th>
         </tr>
         <tr>
             <td><a href="/buku">Halaman</a></td>
             <td><a href="/kategori">Halaman</a></td>
             <td><a href="/penulis">Halaman</a></td>
+            <td><a href="/peminjaman">Halaman</a></td>
         </tr>
     </table>
 </body>
