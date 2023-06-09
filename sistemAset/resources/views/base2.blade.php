@@ -101,7 +101,7 @@
           </li>
 
 
-          <li  class="menu">
+        <li  class="menu">
           <div class="iocn-link">
             <a class="title" href="#">
               <i class="bi bi-folder-symlink"></i>
@@ -113,6 +113,23 @@
             <li><a class="link_name" href="#"><b> Pengalihan Aset</b></a></li>
             <li><a href="/AsetPengalihan/tambah">Alihkan Aset</a></li>
             <li><a href="/AsetPengalihan">Daftar Aset Dialihkan</a></li>
+          </ul>
+        </li>
+
+        <li  class="menu">
+          <div class="iocn-link">
+            <a class="title" href="#">
+              <i class="bi bi-file-earmark-plus-fill"></i>
+              <span class="link_name">UAS</span>
+            </a>
+            <i class='bx bxs-chevron-down arrow' ></i>
+          </div>
+          <ul class="sub-menu">
+            <li><a class="link_name" href="#"><b> UAS</b></a></li>
+            <li><a href="#">Reyhan H</a></li>
+            <li><a href="#">Ariq Fadil M</a></li>
+            <li><a href="#">Nur Azis K R</a></li>
+            <li><a href="#">Maulida D</a></li>
           </ul>
         </li>
 
