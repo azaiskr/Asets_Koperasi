@@ -1,7 +1,9 @@
-@extends('base2')
-@section('pageView')
-@section('title', 'Rekap Buku)
-
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <title>Perpustakaan</title>
+</head>
+<body>
 {{-- <div class="container mt-4">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -15,11 +17,11 @@
 <div class="container"> 
     <div class="row">
         <div class="col-md-12 mt-3">
-            <h3 style="text-align: center"> Input Data Aset Jual Beli </h3>
-            <form action="/aset_jual_beli/tambah" method="post">
+            <h3 style="text-align: center"> Input Data Buku </h3>
+            <form action="/buku/tambah" method="post">
                 @csrf
                 <div class="form">
-                    <label for="IDBuku"> <h5> ID Aset </h5> </label>
+                    <label for="IDBuku"> <h5> ID Buku </h5> </label>
                     <input class="form-control" type="text" name="IDBuku" required="required" placeholder="">
                     @if ($errors->has('IDBuku'))
                         <div class="text-danger">
@@ -27,7 +29,7 @@
                         </div>
                     @endif
                 <div class="form">
-                    <label for="Judul"> <h5> Nama Aset </h5> </label>
+                    <label for="Judul"> <h5> Judul </h5> </label>
                     <input class="form-control" type="text" name="Judul" required="required" placeholder="">
                     @if ($errors->has('Judul'))
                         <div class="text-danger">
@@ -36,40 +38,61 @@
                     @endif
                 </div>
                 <div class="form">
-                    <label for="stok_aset"> <h5> Stok Aset </h5> </label>
-                    <input class="form-control" type="number" name="stok_aset" required="required" placeholder="">
+                    <label for="Penulis"> <h5> Penulis </h5> </label>
+                    <input class="form-control" type="number" name="Penulis" required="required" placeholder="">
 
-                    @if ($errors->has('stok_aset'))
+                    @if ($errors->has('Penulis'))
                         <div class="text-danger">
-                            {{$errors->first('stok_aset')}}
+                            {{$errors->first('Penulis')}}
                         </div>
                     @endif    
                 </div>
                 <div class="form">
-                    <label for="nilai_ekonomi"> <h5> Nilai Ekonomi </h5> </label>
-                    <input class="form-control" type="number" name="nilai_ekonomi" required="required" placeholder="">
-                    @if ($errors->has('nilai_ekonomi'))
+                    <label for="Penerbit"> <h5> Penerbit </h5> </label>
+                    <input class="form-control" type="number" name="Penerbit" required="required" placeholder="">
+                    @if ($errors->has('Penerbit'))
                         <div class="text-danger">
-                            {{$errors->first('nilai_ekonomi')}}
+                            {{$errors->first('Penerbit')}}
                         </div>
                     @endif
                 </div>
                 <div class="form">
-                    <label for="lokasi_jual"> <h5> Lokasi </h5> </label>
-                    <input class="form-control" type="text" name="lokasi_jual" required="required" placeholder="">
-                    @if ($errors->has('lokasi_jual'))
+                    <label for="TahunTerbit"> <h5> Tahun Terbit </h5> </label>
+                    <input class="form-control" type="text" name="TahunTerbit" required="required" placeholder="">
+                    @if ($errors->has('TahunTerbit'))
                         <div class="text-danger">
-                            {{$errors->first('lokasi_jual')}}
+                            {{$errors->first('TahunTerbit')}}
+                        </div>
+                    @endif
+                </div>
+                <div class="form">
+                    <label for="JumlahStok"> <h5> Jumlah Stok </h5> </label>
+                    <input class="form-control" type="text" name="JumlahStok" required="required" placeholder="">
+                    @if ($errors->has('JumlahStok'))
+                        <div class="text-danger">
+                            {{$errors->first('JumlahStok')}}
+                        </div>
+                    @endif
+                </div>
+                <div class="form">
+                    <label for="DendaBuku"> <h5> Denda Buku </h5> </label>
+                    <input class="form-control" type="text" name="DendaBuku" required="required" placeholder="">
+                    @if ($errors->has('DendaBuku'))
+                        <div class="text-danger">
+                            {{$errors->first('DendaBuku')}}
                         </div>
                     @endif
                 </div>
 
-                <div class="form-group float-right">
+                {{-- <div class="form-group float-right">
                     <button class="btn-danger" type="reset"> Reset</button>
                     <button class="btn-success" type="sumbit"> OK </button>
-                </div>
+                </div> --}}
             </form>
         </div>
     </div>
 </div>
-@endsection
+
+</body>
+
+</html>
