@@ -80,6 +80,18 @@
 
 }
 
+.home-section .topbar .select{
+    position: fixed;
+    justify-content: center;
+    width: 350px;
+    padding: 20px;
+    left: 61%;
+    border-radius: 10px;
+    font-size: 12px;
+    border: 2px solid var(--black2);
+    border: none;
+}
+
 .home-section .topbar .search label input{
     position: relative;
     width: 100%;
@@ -88,6 +100,7 @@
     border: 2px solid var(--black2);
     border-radius: 50px;
 }
+
 .home-section .topbar .search label i{
     color: var(--black2);
     padding: 3px;
@@ -95,6 +108,21 @@
     top: 17px;
     left: 22px;
     font-size: 17px;
+}
+
+.home-section .topbar button{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--white);
+    padding: 8px;
+    background-color: var(--blue);
+    border-radius: 5px;
 }
 
 .pageSection{
