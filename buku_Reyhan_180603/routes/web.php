@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\PenulisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,10 @@ Route::post('/kategori/store', [KategoriController::class, 'store']);
 Route::get('/kategori/edit/{id}',[KategoriController::class,'edit']);
 Route::post('/kategori/update',[KategoriController::class,'update']);
 Route::get('/kategori/hapus/{id}',[KategoriController::class,'hapus']);
+
+Route::get('/penulis', [PenulisController::class, 'index']);
+Route::get('/penulis/tambah', [PenulisController::class, 'tambah']);
+Route::post('/penulis/store', [PenulisController::class, 'store']);
+Route::get('/penulis/edit/{id}',[PenulisController::class,'edit']);
+Route::post('/penulis/update',[PenulisController::class,'update']);
+Route::get('/penulis/hapus/{id}',[PenulisController::class,'hapus']);
