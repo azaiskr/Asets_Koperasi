@@ -146,7 +146,7 @@
       {{-- CARI DATA --}}
       <div class="cari">
         <button id="showForm" ><i class="bi bi-search"></i></button>
-        <form action="/cari" class="inputcari">
+        <form action="/cari" method="get" class="inputcari">
           <select name="tabel" id="tabel">
             <option value="aset_tetap">Aset Tetap</option>
             <option value="aset_jual_beli">Aset Jual Beli</option>
@@ -157,7 +157,7 @@
             <option value="servicer">Servicer</option>
             <option value="aset_pengalihan">Aset Pengalihan</option>
           </select>
-          <input type="text" class="namadata" placeholder="Enter data" >
+          <input type="text" name="cari" class="namadata" placeholder="Enter data" >
           {{-- <button id="closeForm" type="submit"><i class="bi bi-search"></i></button> --}}
           <button id="closeForm" type="reset"><i class="bi bi-x-lg"></i></i></button>
         </form>

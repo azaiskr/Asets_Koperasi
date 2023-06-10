@@ -12,6 +12,7 @@ class AsetPerbaikanController extends Controller
 
     public function index()
     {
+        
         $aset = asetPerbaikan::all();
         $pj = pj_perbaikan::all();
         $aset_tetaps = DB::table('aset_tetaps')->get();
