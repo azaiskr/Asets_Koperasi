@@ -26,7 +26,7 @@ h1 {
 
 
 p {
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: 100;
 	line-height: 20px;
 	letter-spacing: 0.5px;
@@ -89,13 +89,12 @@ img.brandLogo{
 	overflow: hidden;
 	width: 800px;
 	max-width: 100%;
-	min-height: 600px;
+	min-height: 590px;
 	transition: 1s;
 }
 .form-container {
 	position: absolute;
 	top: 0;
-	height: 100%;
 	transition: all 0.6s ease-in-out;
 	background-color: #04397f;
 	display: flex;
@@ -219,7 +218,7 @@ input#rememberMe{
 .input-container label{
   position: absolute;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 12px;
   margin-left: -45%;
 }
 
