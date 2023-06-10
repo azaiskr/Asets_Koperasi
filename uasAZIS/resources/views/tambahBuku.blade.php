@@ -37,8 +37,28 @@
                     @endif
                 </div>
                 <div class="form">
+                    <label for="kategori"> <h5> Kategori </h5> </label>
+                    <select name="kategori" id="kategori">
+                        <option value="0">Pilih Kategori ... </option>
+                        @foreach ($dataKategori as $kategori)
+                            <option value="{{$kategori->idKategori}}"> {{$kategori->namaKategori}} </option>
+                        @endforeach
+                    </select>
+                    @if ($errors->has('kategori'))
+                        <div class="text-danger">
+                            {{$errors->first('kategori')}}
+                        </div>
+                    @endif
+                </div>
+
+                <div class="form">
                     <label for="penulis"> <h5> Penulis </h5> </label>
-                    <input class="form-control" type="text" name="penulis" id="penulis" required="required" placeholder="">
+                    <select name="penulis" id="penulis">
+                    <option value="0">Pilih Kategori ... </option>
+                        @foreach ($dataPenulis as $penulis)
+                            <option value="{{$penulis->idPenulis}}"> {{$penulis->namaPenulis}} </option>
+                        @endforeach
+                    </select>
                     @if ($errors->has('penulis'))
                         <div class="text-danger">
                             {{$errors->first('penulis')}}
@@ -90,4 +110,5 @@
         </div>
     </div>
 </div>
+
 @endsection

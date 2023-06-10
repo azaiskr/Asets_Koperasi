@@ -21,6 +21,7 @@
                     <tr>
                         <th class="text-center" >ID Buku</th>
                         <th>Judul</th>
+                        <th>Kategori</th>
 						<th>Penulis</th>
                         <th>Penerbit</th>
                         <th class="text-center">Tahun Terbit</th>
@@ -33,8 +34,17 @@
                     <tr>
                         <td class="text-center" >{{$item->idBuku}}</td>
                         <td>{{$item->judul}}</td>
-                        <td>{{$item->penulis}}</td>
-                        <td>{{$item->penerbit}}</td>
+                        @foreach($dataKategori as $kategori)
+                            @if($item->kategori == $kategori->idKategori)
+                                <td class="text-left">{{$kategori->namaKategori}}</td>
+                            @endif
+                        @endforeach
+                        @foreach($dataPenulis as $penulis)
+                            @if($item->penulis == $penulis->idPenulis)
+                                <td class="text-left">{{$penulis->namaPenulis}}</td>
+                            @endif
+                        @endforeach
+                        <td>{{$item->penerbitBuku}}</td>
                         <td class="text-center" >{{$item->tahunTerbit}}</td>
                         <td class="text-center" >{{$item->jumlahStok}}</td>
                         <td class="text-right" >{{$item->dendaBuku}}</td>

@@ -39,9 +39,34 @@
                         </div>
                     @endif
                 </div>
+
+                <div class="form">
+                    <label for="kategori"> <h5> Kategori </h5> </label>
+                    <select name="kategori" id="kategori">
+                        <option value="{{$data->kategori}}"> Deafult </option>
+                        @foreach ($dataKategori as $kategori)
+                            @if($kategori->idKategori != $data->kategori)
+                                <option value="{{$kategori->idKategori}}"> {{$kategori->namaKategori}} </option>
+                            @endif
+                        @endforeach
+                    </select>
+                    @if ($errors->has('kategori'))
+                        <div class="text-danger">
+                            {{$errors->first('kategori')}}
+                        </div>
+                    @endif    
+                </div>
+
                 <div class="form">
                     <label for="penulis"> <h5> Penulis </h5> </label>
-                    <input class="form-control" type="text" name="penulis" id="penulis" required="required" placeholder="" value="{{ $data->penulis }}">
+                    <select name="penulis" id="penulis">
+                        <option value="{{$data->penulis}}"> Deafult </option>
+                        @foreach ($dataPenulis as $penulis)
+                            @if($penulis->idPenulis != $data->penulis)
+                                <option value="{{$penulis->idPenulis}}"> {{$penulis->namaPenulis}} </option>
+                            @endif
+                        @endforeach
+                    </select>
                     @if ($errors->has('penulis'))
                         <div class="text-danger">
                             {{$errors->first('penulis')}}
@@ -50,7 +75,7 @@
                 </div>
                 <div class="form">
                     <label for="penerbit"> <h5> Penerbit </h5> </label>
-                    <input class="form-control" type="text" name="penerbit" id="penerbit" required="required" placeholder="" value="{{ $data->penerbit }}">
+                    <input class="form-control" type="text" name="penerbit" id="penerbit" required="required" placeholder="" value="{{ $data->penerbitBuku }}">
                     @if ($errors->has('penerbit'))
                         <div class="text-danger">
                             {{$errors->first('penerbit')}}
@@ -59,7 +84,7 @@
                 </div>
                 <div class="form">
                     <label for="tahunTerbit"> <h5> Tahun Terbit </h5> </label>
-                    <input class="form-control" type="number" name="tahunTerbit" id="tahunTerbit" required="required" placeholder="" value="{{ $data-> tahunTerbit }}">
+                    <input class="form-control" type="number" name="tahunTerbit" id="tahunTerbit" required="required" placeholder="" value="{{ $data->tahunTerbit }}">
                     @if ($errors->has('tahunTerbit'))
                         <div class="text-danger">
                             {{$errors->first('tahunTerbit')}}

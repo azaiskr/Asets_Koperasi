@@ -26,5 +26,7 @@
               @yield('pageView')
             </div>
         </section>
+
+
     </body>
 </html>

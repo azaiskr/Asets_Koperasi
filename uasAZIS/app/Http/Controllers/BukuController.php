@@ -9,19 +9,24 @@ class BukuController extends Controller
 {
     public function index(){
         $dataBuku = DB::table('buku')->get();
-        return view('buku',compact('dataBuku'));
+        $dataKategori = DB::table('kategori')->get();
+        $dataPenulis = DB::table('penulis')->get();
+        return view('buku',compact('dataBuku','dataKategori','dataPenulis'));
     }
 
     public function create(){
-        return view('tambahBuku');
+        $dataKategori = DB::table('kategori')->get();
+        $dataPenulis = DB::table('penulis')->get();
+        return view('tambahBuku',compact('dataKategori','dataPenulis'));
     }
 
     public function store(Request $request) {
         DB::table('buku')->insert([
             'idBuku' => $request->idBuku,
             'judul' => $request->judul,
+            'kategori' => $request->kategori,
             'penulis' => $request->penulis,
-            'penerbit' => $request->penerbit,
+            'penerbitBuku' => $request->penerbit,
             'tahunTerbit' => $request->tahunTerbit,
             'jumlahStok' => $request->jumlahStok,
             'dendaBuku' => $request->dendaBuku,
@@ -32,16 +37,18 @@ class BukuController extends Controller
 
     public function edit($id){
         $buku = DB::table('buku')->where('idBuku',$id)->get();
-        return view('editBuku', compact('buku'));
+        $dataKategori = DB::table('kategori')->get();
+        $dataPenulis = DB::table('penulis')->get();
+        return view('editBuku',compact('buku','dataKategori','dataPenulis'));
     }
 
 
     public function update(Request $request){
         DB::table('buku')->where('idBuku',$request->idBuku)->update([
-            'idBuku' => $request->idBuku,
             'judul' => $request->judul,
+            'kategori' => $request->kategori,
             'penulis' => $request->penulis,
-            'penerbit' => $request->penerbit,
+            'penerbitBuku' => $request->penerbit,
             'tahunTerbit' => $request->tahunTerbit,
             'jumlahStok' => $request->jumlahStok,
             'dendaBuku' => $request->dendaBuku,
