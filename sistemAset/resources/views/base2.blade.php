@@ -116,24 +116,6 @@
           </ul>
         </li>
 
-        <li  class="menu">
-          <div class="iocn-link">
-            <a class="title" href="#">
-              <i class="bi bi-journal-bookmark-fill"></i>
-              <span class="link_name">UAS : Perpustakaan</span>
-            </a>
-            <i class='bx bxs-chevron-down arrow' ></i>
-          </div>
-          <ul class="sub-menu">
-            <li><a class="link_name" href="#"><b> UAS : Perpustakaan</b></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-          </ul>
-        </li>
-
-
         <div class="profile-details">
           <div class="profile-content">
             <img src="{{ auth()->user()->foto }}" alt="profileImg">
@@ -158,44 +140,38 @@
   </div>
 
   <section class="home-section">
-        <div class="topbar">
-            <div class="toggle">
-                {{-- <i class="bi bi-list"></i> --}}
-            </div>
-            <form action="/cari" method="get">
-            <div class="select">
-              <select name="tabel" id="tabel">
-                <option value="aset_tetap">Aset Tetap</option>
-                <option value="aset_jual_beli">Aset Jual Beli</option>
-                <option value="piutang">Piutang</option>
-                <option value="aset_tersedia">Aset Tersedia</option>
-                <option value="aset_terpinjam">Aset Terpinjam</option>
-                <option value="aset_perbaikan">Aset Perbaikan</option>
-                <option value="servicer">Servicer</option>
-                <option value="aset_pengalihan">Aset Pengalihan</option>
-              </select>
-            </div>
-            <div class="search">
-              <label>
-                <input type="text" name="cari" placeholder="Cari di sini ...">
-                
-              </label>
-              <button type="submit"><i class="bi bi-search"></i></button>
-            </div>
-            
-            
-            
-                
-          
-                
-              
-  
-        </div>
+    
+    {{-- TOP BAR --}}
+    <div class="topbar">
+      {{-- CARI DATA --}}
+      <div class="cari">
+        <button id="showForm" ><i class="bi bi-search"></i></button>
+        <form action="/cari" class="inputcari">
+          <select name="tabel" id="tabel">
+            <option value="aset_tetap">Aset Tetap</option>
+            <option value="aset_jual_beli">Aset Jual Beli</option>
+            <option value="piutang">Piutang</option>
+            <option value="aset_tersedia">Aset Tersedia</option>
+            <option value="aset_terpinjam">Aset Terpinjam</option>
+            <option value="aset_perbaikan">Aset Perbaikan</option>
+            <option value="servicer">Servicer</option>
+            <option value="aset_pengalihan">Aset Pengalihan</option>
+          </select>
+          <input type="text" class="namadata" placeholder="Enter data" >
+          {{-- <button id="closeForm" type="submit"><i class="bi bi-search"></i></button> --}}
+          <button id="closeForm" type="reset"><i class="bi bi-x-lg"></i></i></button>
         </form>
-        
-        <div class="sectionView">
+        {{-- <div class="inputcari">
+          <span class="breakline"> </span>
+        </div> --}}
+      </div>
+
+    </div>
+
+    {{-- BAGIAN HALAMAN --}}
+    <div class="sectionView">
           @yield('pageView')
-        </div>
+    </div>
 
   </section>
   
@@ -216,6 +192,16 @@
     sidebarBtn.addEventListener("click", ()=>{
       sidebar.classList.toggle("close");
     });
+
+    document.querySelector("#showForm").addEventListener("click",function(){
+            document.querySelector(".inputcari").classList.add("active");
+        });
+    document.querySelector("#closeForm").addEventListener("click",function(){
+        document.querySelector(".inputcari").classList.remove("active");
+
+    });
+
+
 
   </script>
 
