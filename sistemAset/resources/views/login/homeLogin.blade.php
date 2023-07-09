@@ -174,7 +174,6 @@
         </form>
     </div>
 
-
     <!-- ======= Scripts ======= -->
     <script>
         const signUpButton = document.getElementById('signUp');
